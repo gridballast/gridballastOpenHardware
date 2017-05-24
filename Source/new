@@ -1,0 +1,14 @@
+#!/bin/bash
+
+## Example of how to execute this:
+#      ./new <name of project>
+
+# If permission denied just run:
+#      chmod 755 new.sh
+
+## This script is to create a new project template
+## All make files should work due to moving the library path to path
+cp -r ../Support/Project\ Template $1
+cd $1
+sed -i "" "s/app-template/$1/g" Makefile
+cd ..
