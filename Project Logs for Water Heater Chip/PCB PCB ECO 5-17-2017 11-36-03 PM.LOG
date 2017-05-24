@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=AC/N Pin=P1-1
+Removed Pin From Net: NetName=AC/L Pin=P1-2
+Removed Member From Class: ClassName=AC Member=AC/N
+Added Pin To Net: NetName=AC/L Pin=P1-1
+Added Pin To Net: NetName=AC/N Pin=P1-2
+Added Member To Class: ClassName=AC Member=Wire AC/L
