@@ -1,0 +1,2 @@
+Change Component Footprint: Designator=C1 Old Footprint=CAPC1206(3216)100_M New Footprint=CAPC0603(1608)100_M
+Change Component Comment : Designator=C1 Old Comment=CAP 100nF 6.3V 1206(3216) New Comment=CAP 100nF 6.3V 0603(1608)
