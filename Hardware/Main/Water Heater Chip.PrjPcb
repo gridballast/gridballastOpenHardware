@@ -56,40 +56,6 @@ GenerateClassCluster=0
 DocumentUniqueId=UNNVYFGX
 
 [Document2]
-DocumentPath=MCU.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=YEWGYWYS
-
-[Document3]
-DocumentPath=MCU.Harness
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document4]
 DocumentPath=UART.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -106,24 +72,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=KAXRQKML
 
-[Document5]
-DocumentPath=UART.Harness
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document6]
+[Document3]
 DocumentPath=JTAG.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -140,7 +89,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=MJQLEIRV
 
-[Document7]
+[Document4]
 DocumentPath=JTAG.Harness
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -157,7 +106,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document8]
+[Document5]
 DocumentPath=CEA2045.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -174,7 +123,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=TFNNRYDI
 
-[Document9]
+[Document6]
 DocumentPath=SD.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -191,7 +140,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=AMDVBJVR
 
-[Document10]
+[Document7]
 DocumentPath=SD.Harness
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -208,7 +157,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document11]
+[Document8]
 DocumentPath=GPS.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -225,7 +174,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=ETCEKCSS
 
-[Document12]
+[Document9]
 DocumentPath=GPS.Harness
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -242,7 +191,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document13]
+[Document10]
 DocumentPath=PCB.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -259,7 +208,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=KPVDMYWG
 
-[Document14]
+[Document11]
 DocumentPath=PCBv2.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -276,8 +225,8 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=KPVDMYWG
 
-[Document15]
-DocumentPath=AltiumLib\Clocks.PcbLib
+[Document12]
+DocumentPath=CEA2045.Harness
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -291,10 +240,61 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=TTOMUSDY
+DocumentUniqueId=
+
+[Document13]
+DocumentPath=Main.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=YEWGYWYS
+
+[Document14]
+DocumentPath=Main.Harness
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document15]
+DocumentPath=Libraries\ublox\ubloxLib.IntLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
 
 [Document16]
-DocumentPath=AltiumLib\Clocks.SchLib
+DocumentPath=Libraries\WiseLab\Actives.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -311,7 +311,7 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document17]
-DocumentPath=AltiumLib\Connectors.PcbLib
+DocumentPath=Libraries\WiseLab\Actives.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -325,10 +325,10 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=IXONSMRQ
+DocumentUniqueId=
 
 [Document18]
-DocumentPath=AltiumLib\Connectors.SchLib
+DocumentPath=Libraries\WiseLab\Clocks.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -342,10 +342,10 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=PRBTUOMV
+DocumentUniqueId=
 
 [Document19]
-DocumentPath=AltiumLib\Misc.PcbLib
+DocumentPath=Libraries\WiseLab\Clocks.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -359,10 +359,10 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=CYURXXPP
+DocumentUniqueId=
 
 [Document20]
-DocumentPath=AltiumLib\Misc.SchLib
+DocumentPath=Libraries\WiseLab\Connectors.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -379,7 +379,7 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document21]
-DocumentPath=AltiumLib\NVMemory.PcbLib
+DocumentPath=Libraries\WiseLab\Connectors.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -393,10 +393,10 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=VFHEHDHS
+DocumentUniqueId=
 
 [Document22]
-DocumentPath=AltiumLib\NVMemory.SchLib
+DocumentPath=Libraries\WiseLab\Misc.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -410,10 +410,10 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=LDBIQEXH
+DocumentUniqueId=
 
 [Document23]
-DocumentPath=AltiumLib\Power.PcbLib
+DocumentPath=Libraries\WiseLab\Misc.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -427,10 +427,10 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=WEXXNUXO
+DocumentUniqueId=
 
 [Document24]
-DocumentPath=AltiumLib\Power.SchLib
+DocumentPath=Libraries\WiseLab\Modules.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -444,10 +444,10 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=SBHWQWMY
+DocumentUniqueId=
 
 [Document25]
-DocumentPath=AltiumLib\USBParts.PcbLib
+DocumentPath=Libraries\WiseLab\Modules.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -464,7 +464,7 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document26]
-DocumentPath=AltiumLib\USBParts.SchLib
+DocumentPath=Libraries\WiseLab\NVMemory.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -478,10 +478,10 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=UNHCEKIA
+DocumentUniqueId=
 
 [Document27]
-DocumentPath=AltiumLib\Modules.SchLib
+DocumentPath=Libraries\WiseLab\NVMemory.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -495,10 +495,10 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=ERNAOIJL
+DocumentUniqueId=
 
 [Document28]
-DocumentPath=AltiumLib\Modules.PcbLib
+DocumentPath=Libraries\WiseLab\Passives.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -512,10 +512,10 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=FKXEDFHA
+DocumentUniqueId=
 
 [Document29]
-DocumentPath=AltiumLib\Vendor\TagConnect\TC2030.IntLib
+DocumentPath=Libraries\WiseLab\Passives.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -532,7 +532,7 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document30]
-DocumentPath=AltiumLib\Vendor\TagConnect\TC2050-IDC probably better\TC2050-IDC-09Mar2012.PcbLib
+DocumentPath=Libraries\WiseLab\Power.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -549,7 +549,7 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document31]
-DocumentPath=AltiumLib\Vendor\TagConnect\TC2050-IDC probably better\TC2050-IDC-09Mar2012.SchLib
+DocumentPath=Libraries\WiseLab\Power.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -566,7 +566,7 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document32]
-DocumentPath=AltiumLib\Actives.PcbLib
+DocumentPath=Libraries\WiseLab\USBParts.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -580,10 +580,10 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=SSKEUDIH
+DocumentUniqueId=
 
 [Document33]
-DocumentPath=AltiumLib\Actives.SchLib
+DocumentPath=Libraries\WiseLab\USBParts.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -597,10 +597,10 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=OKGKQQDT
+DocumentUniqueId=
 
 [Document34]
-DocumentPath=AltiumLib\Passives.PcbLib
+DocumentPath=Libraries\WiseLab\Vendor\TagConnect\TC2050-IDC probably better\TC2050-IDC-09Mar2012.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -614,27 +614,10 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=RWFQPACD
+DocumentUniqueId=
 
 [Document35]
-DocumentPath=AltiumLib\Passives.SchLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=BLLLPXSB
-
-[Document36]
-DocumentPath=CEA2045.Harness
+DocumentPath=Libraries\WiseLab\Vendor\TagConnect\TC2050-IDC probably better\TC2050-IDC-09Mar2012.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -2068,6 +2051,15 @@ ModelUpdate24=1
 SelectedOnly=0
 UpdateVariants=1
 PartTypes=0
+
+[NetInfos]
+Net1=NetName=NetA?_11|NetColor=$006E6EFF
+Net2=NetName=NetA?_7|NetColor=$006E6EFF
+Net3=NetName=NetA?_6|NetColor=$006E6EFF
+Net4=NetName=NetA?_10|NetColor=$006E6EFF
+Net5=NetName=NetA?_12|NetColor=$006E6EFF
+Net6=NetName=60Hz|NetColor=$006E6EFF
+Net7=NetName=60HzPulse|NetColor=$006E6EFF
 
 [Comparison Options]
 ComparisonOptions0=Kind=Net|MinPercent=75|MinMatch=3|ShowMatch=-1|Confirm=-1|UseName=-1|InclAllRules=0
