@@ -73,91 +73,6 @@ GenerateClassCluster=0
 DocumentUniqueId=KAXRQKML
 
 [Document3]
-DocumentPath=JTAG.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=MJQLEIRV
-
-[Document4]
-DocumentPath=JTAG.Harness
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document5]
-DocumentPath=CEA2045.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=TFNNRYDI
-
-[Document6]
-DocumentPath=SD.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=AMDVBJVR
-
-[Document7]
-DocumentPath=SD.Harness
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document8]
 DocumentPath=GPS.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -174,24 +89,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=ETCEKCSS
 
-[Document9]
-DocumentPath=GPS.Harness
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document10]
+[Document4]
 DocumentPath=PCB.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -208,7 +106,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=KPVDMYWG
 
-[Document11]
+[Document5]
 DocumentPath=PCBv2.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -225,24 +123,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=KPVDMYWG
 
-[Document12]
-DocumentPath=CEA2045.Harness
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document13]
+[Document6]
 DocumentPath=Main.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -259,7 +140,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=YEWGYWYS
 
-[Document14]
+[Document7]
 DocumentPath=Main.Harness
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -276,7 +157,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document15]
+[Document8]
 DocumentPath=Libraries\ublox\ubloxLib.IntLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -293,7 +174,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document16]
+[Document9]
 DocumentPath=Libraries\WiseLab\Actives.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -308,9 +189,9 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=SSKEUDIH
 
-[Document17]
+[Document10]
 DocumentPath=Libraries\WiseLab\Actives.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -325,9 +206,9 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=OKGKQQDT
 
-[Document18]
+[Document11]
 DocumentPath=Libraries\WiseLab\Clocks.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -344,7 +225,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document19]
+[Document12]
 DocumentPath=Libraries\WiseLab\Clocks.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -361,7 +242,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document20]
+[Document13]
 DocumentPath=Libraries\WiseLab\Connectors.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -378,7 +259,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document21]
+[Document14]
 DocumentPath=Libraries\WiseLab\Connectors.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -395,7 +276,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document22]
+[Document15]
 DocumentPath=Libraries\WiseLab\Misc.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -412,7 +293,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document23]
+[Document16]
 DocumentPath=Libraries\WiseLab\Misc.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -429,7 +310,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document24]
+[Document17]
 DocumentPath=Libraries\WiseLab\Modules.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -444,9 +325,9 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=FKXEDFHA
 
-[Document25]
+[Document18]
 DocumentPath=Libraries\WiseLab\Modules.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -461,9 +342,9 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=ERNAOIJL
 
-[Document26]
+[Document19]
 DocumentPath=Libraries\WiseLab\NVMemory.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -480,7 +361,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document27]
+[Document20]
 DocumentPath=Libraries\WiseLab\NVMemory.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -497,7 +378,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document28]
+[Document21]
 DocumentPath=Libraries\WiseLab\Passives.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -512,9 +393,9 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=RWFQPACD
 
-[Document29]
+[Document22]
 DocumentPath=Libraries\WiseLab\Passives.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -529,9 +410,9 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=BLLLPXSB
 
-[Document30]
+[Document23]
 DocumentPath=Libraries\WiseLab\Power.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -548,7 +429,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document31]
+[Document24]
 DocumentPath=Libraries\WiseLab\Power.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -565,7 +446,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document32]
+[Document25]
 DocumentPath=Libraries\WiseLab\USBParts.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -582,7 +463,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document33]
+[Document26]
 DocumentPath=Libraries\WiseLab\USBParts.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -599,7 +480,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document34]
+[Document27]
 DocumentPath=Libraries\WiseLab\Vendor\TagConnect\TC2050-IDC probably better\TC2050-IDC-09Mar2012.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -616,7 +497,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document35]
+[Document28]
 DocumentPath=Libraries\WiseLab\Vendor\TagConnect\TC2050-IDC probably better\TC2050-IDC-09Mar2012.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -632,6 +513,108 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
+
+[Document29]
+DocumentPath=GPS.Harness
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document30]
+DocumentPath=Accessories.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=FBLGMBQM
+
+[Document31]
+DocumentPath=Accessories.Harness
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document32]
+DocumentPath=UI.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=UIJXCERK
+
+[Document33]
+DocumentPath=UI.Harness
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document34]
+DocumentPath=LoRa.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=YXIEADAM
 
 [Configuration1]
 Name=Default Configuration
@@ -2054,12 +2037,41 @@ PartTypes=0
 
 [NetInfos]
 Net1=NetName=NetA?_11|NetColor=$006E6EFF
-Net2=NetName=NetA?_7|NetColor=$006E6EFF
-Net3=NetName=NetA?_6|NetColor=$006E6EFF
-Net4=NetName=NetA?_10|NetColor=$006E6EFF
-Net5=NetName=NetA?_12|NetColor=$006E6EFF
-Net6=NetName=60Hz|NetColor=$006E6EFF
-Net7=NetName=60HzPulse|NetColor=$006E6EFF
+Net2=NetName=MISO|NetColor=clYellow
+Net3=NetName=SCK|NetColor=clYellow
+Net4=NetName=GPIO5/SPI2_MOSI|NetColor=$00FF6EFF
+Net5=NetName=SD_CMD|NetColor=$006EFF6E
+Net6=NetName=JTAG_TMS|NetColor=$006EFF6E
+Net7=NetName=JTAG_TCK|NetColor=$006EFF6E
+Net8=NetName=SPI_MISO|NetColor=clYellow
+Net9=NetName=SD_DATA2|NetColor=$006EFF6E
+Net10=NetName=SPI_C\S\1\|NetColor=clYellow
+Net11=NetName=SPI_MOSI|NetColor=clYellow
+Net12=NetName=JTAG_TDI|NetColor=$006EFF6E
+Net13=NetName=Mic|NetColor=$006E6EFF
+Net14=NetName=SPI_SCK|NetColor=clYellow
+Net15=NetName=NetU?_3|NetColor=$00FFFF6E
+Net16=NetName=NetU?_2|NetColor=$00FFFF6E
+Net17=NetName=NetU?_4|NetColor=$00FFFF6E
+Net18=NetName=RS485_DE|NetColor=$00FFFF6E
+Net19=NetName=NetA?_12|NetColor=$006E6EFF
+Net20=NetName=SD_DATA3|NetColor=$006EFF6E
+Net21=NetName=GPIO4/SPI2_MISO|NetColor=$00FF6EFF
+Net22=NetName=RS485_TX|NetColor=$00FFFF6E
+Net23=NetName=NetSD1_5|NetColor=$006EFF6E
+Net24=NetName=SD_DATA0|NetColor=$006EFF6E
+Net25=NetName=GPIO3/SPI2_SCK|NetColor=$00FF6EFF
+Net26=NetName=SPI_C\S\0\|NetColor=clYellow
+Net27=NetName=GPIO6/SPI2_C\S\0\|NetColor=$00FF6EFF
+Net28=NetName=RS485_RX|NetColor=$00FFFF6E
+Net29=NetName=NetSD1_3|NetColor=$006EFF6E
+Net30=NetName=SD_CLK|NetColor=$006EFF6E
+Net31=NetName=NetA?_10|NetColor=$006E6EFF
+Net32=NetName=MOSI|NetColor=clYellow
+Net33=NetName=SD_DATA1|NetColor=$006EFF6E
+Net34=NetName=C\S\|NetColor=clYellow
+Net35=NetName=NetR?_1|NetColor=$00FFFF6E
+Net36=NetName=JTAG_TDO|NetColor=$006EFF6E
 
 [Comparison Options]
 ComparisonOptions0=Kind=Net|MinPercent=75|MinMatch=3|ShowMatch=-1|Confirm=-1|UseName=-1|InclAllRules=0
