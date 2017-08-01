@@ -1,3 +1,3 @@
 [submodule "Hardware/Main/AltiumLib"]
-	path = Hardware/Main/Libraries/WiseLab
+	path = Hardware/Libraries/WiseLab
 	url = git@github.com:WiseLabCMU/AltiumLib.git
