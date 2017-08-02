@@ -107,23 +107,6 @@ GenerateClassCluster=0
 DocumentUniqueId=KPVDMYWG
 
 [Document5]
-DocumentPath=PCBv2.PcbDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=KPVDMYWG
-
-[Document6]
 DocumentPath=Main.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -140,7 +123,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=YEWGYWYS
 
-[Document7]
+[Document6]
 DocumentPath=Main.Harness
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -157,24 +140,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document8]
-DocumentPath=Libraries\ublox\ubloxLib.IntLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document9]
+[Document7]
 DocumentPath=Libraries\WiseLab\Actives.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -191,7 +157,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=SSKEUDIH
 
-[Document10]
+[Document8]
 DocumentPath=Libraries\WiseLab\Actives.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -208,7 +174,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=OKGKQQDT
 
-[Document11]
+[Document9]
 DocumentPath=Libraries\WiseLab\Clocks.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -225,7 +191,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document12]
+[Document10]
 DocumentPath=Libraries\WiseLab\Clocks.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -242,7 +208,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document13]
+[Document11]
 DocumentPath=Libraries\WiseLab\Connectors.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -259,7 +225,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=IXONSMRQ
 
-[Document14]
+[Document12]
 DocumentPath=Libraries\WiseLab\Connectors.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -276,7 +242,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=PRBTUOMV
 
-[Document15]
+[Document13]
 DocumentPath=Libraries\WiseLab\Misc.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -293,7 +259,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=CYURXXPP
 
-[Document16]
+[Document14]
 DocumentPath=Libraries\WiseLab\Misc.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -310,7 +276,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=LNOCUTJO
 
-[Document17]
+[Document15]
 DocumentPath=Libraries\WiseLab\Modules.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -327,7 +293,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=FKXEDFHA
 
-[Document18]
+[Document16]
 DocumentPath=Libraries\WiseLab\Modules.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -344,7 +310,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=ERNAOIJL
 
-[Document19]
+[Document17]
 DocumentPath=Libraries\WiseLab\NVMemory.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -361,7 +327,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=VFHEHDHS
 
-[Document20]
+[Document18]
 DocumentPath=Libraries\WiseLab\NVMemory.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -378,7 +344,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document21]
+[Document19]
 DocumentPath=Libraries\WiseLab\Passives.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -395,7 +361,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=RWFQPACD
 
-[Document22]
+[Document20]
 DocumentPath=Libraries\WiseLab\Passives.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -412,7 +378,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=BLLLPXSB
 
-[Document23]
+[Document21]
 DocumentPath=Libraries\WiseLab\Power.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -429,7 +395,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document24]
+[Document22]
 DocumentPath=Libraries\WiseLab\Power.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -446,7 +412,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document25]
+[Document23]
 DocumentPath=Libraries\WiseLab\USBParts.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -463,7 +429,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document26]
+[Document24]
 DocumentPath=Libraries\WiseLab\USBParts.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -480,41 +446,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document27]
-DocumentPath=Libraries\WiseLab\Vendor\TagConnect\TC2050-IDC probably better\TC2050-IDC-09Mar2012.PcbLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document28]
-DocumentPath=Libraries\WiseLab\Vendor\TagConnect\TC2050-IDC probably better\TC2050-IDC-09Mar2012.SchLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document29]
+[Document25]
 DocumentPath=GPS.Harness
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -531,7 +463,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document30]
+[Document26]
 DocumentPath=Accessories.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -548,7 +480,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=FBLGMBQM
 
-[Document31]
+[Document27]
 DocumentPath=Accessories.Harness
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -565,7 +497,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document32]
+[Document28]
 DocumentPath=UI.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -582,7 +514,24 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=UIJXCERK
 
-[Document33]
+[Document29]
+DocumentPath=RelayBoard.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=WXCNSDFA
+
+[Document30]
 DocumentPath=LoRa.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -599,7 +548,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=YXIEADAM
 
-[Document34]
+[Document31]
 DocumentPath=LoRa.Harness
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -616,7 +565,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document35]
+[Document32]
 DocumentPath=UI.Harness
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -633,7 +582,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document36]
+[Document33]
 DocumentPath=Libraries\WiseLab\Relays.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -650,7 +599,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document37]
+[Document34]
 DocumentPath=Libraries\WiseLab\Relays.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -667,7 +616,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document38]
+[Document35]
 DocumentPath=Libraries\WiseLab\Antennas.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -684,7 +633,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=VFXIQYSM
 
-[Document39]
+[Document36]
 DocumentPath=Libraries\WiseLab\Antennas.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
