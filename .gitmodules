@@ -1,3 +1,6 @@
 [submodule "Hardware/Main/AltiumLib"]
 	path = Hardware/Libraries/WiseLab
 	url = git@github.com:WiseLabCMU/AltiumLib.git
+[submodule "Hardware/Libraries/ublox"]
+	path = Hardware/Libraries/ublox
+	url = https://github.com/u-blox/Altium-Designer-Library.git
