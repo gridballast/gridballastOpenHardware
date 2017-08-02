@@ -16,7 +16,7 @@ AllowPortNetNames=0
 AllowSheetEntryNetNames=1
 AppendSheetNumberToLocalNets=0
 NetlistSinglePinNets=0
-DefaultConfiguration=Default Configuration
+DefaultConfiguration=Sources
 UserID=0xFFFFFFFF
 DefaultPcbProtel=1
 DefaultPcbPcad=0
@@ -28,7 +28,7 @@ DItemRevisionGUID=
 ReportSuppressedErrorsInMessages=0
 FSMCodingStyle=eFMSDropDownList_OneProcess
 FSMEncodingStyle=eFMSDropDownList_OneHot
-OutputPath=
+OutputPath=Project Outputs for Controller
 LogFolderPath=
 ManagedProjectGUID=
 LinkedManagedProjectGUID=
@@ -39,210 +39,6 @@ PrefsVaultGUID=
 PrefsRevisionGUID=
 
 [Document1]
-DocumentPath=Power.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=2
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=UNNVYFGX
-
-[Document2]
-DocumentPath=UART.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=3
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=KAXRQKML
-
-[Document3]
-DocumentPath=GPS.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=4
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=ETCEKCSS
-
-[Document4]
-DocumentPath=Main.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=0
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=YEWGYWYS
-
-[Document5]
-DocumentPath=Main.Harness
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document6]
-DocumentPath=GPS.Harness
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document7]
-DocumentPath=Accessories.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=FBLGMBQM
-
-[Document8]
-DocumentPath=Accessories.Harness
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document9]
-DocumentPath=UI.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=6
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=UIJXCERK
-
-[Document10]
-DocumentPath=LoRa.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=5
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=YXIEADAM
-
-[Document11]
-DocumentPath=LoRa.Harness
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document12]
-DocumentPath=UI.Harness
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document13]
 DocumentPath=..\Libraries\WiseLab\Actives.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -259,7 +55,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document14]
+[Document2]
 DocumentPath=..\Libraries\WiseLab\Actives.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -276,7 +72,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document15]
+[Document3]
 DocumentPath=..\Libraries\WiseLab\Antennas.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -293,7 +89,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document16]
+[Document4]
 DocumentPath=..\Libraries\WiseLab\Antennas.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -310,7 +106,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document17]
+[Document5]
 DocumentPath=..\Libraries\WiseLab\Clocks.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -327,7 +123,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document18]
+[Document6]
 DocumentPath=..\Libraries\WiseLab\Clocks.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -344,7 +140,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document19]
+[Document7]
 DocumentPath=..\Libraries\WiseLab\Connectors.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -361,7 +157,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document20]
+[Document8]
 DocumentPath=..\Libraries\WiseLab\Connectors.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -378,7 +174,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document21]
+[Document9]
 DocumentPath=..\Libraries\WiseLab\Misc.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -395,7 +191,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document22]
+[Document10]
 DocumentPath=..\Libraries\WiseLab\Misc.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -412,7 +208,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document23]
+[Document11]
 DocumentPath=..\Libraries\WiseLab\Modules.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -429,7 +225,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document24]
+[Document12]
 DocumentPath=..\Libraries\WiseLab\Modules.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -446,7 +242,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document25]
+[Document13]
 DocumentPath=..\Libraries\WiseLab\NVMemory.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -463,7 +259,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document26]
+[Document14]
 DocumentPath=..\Libraries\WiseLab\NVMemory.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -480,7 +276,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document27]
+[Document15]
 DocumentPath=..\Libraries\WiseLab\Passives.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -497,7 +293,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document28]
+[Document16]
 DocumentPath=..\Libraries\WiseLab\Passives.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -514,7 +310,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document29]
+[Document17]
 DocumentPath=..\Libraries\WiseLab\Power.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -531,7 +327,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document30]
+[Document18]
 DocumentPath=..\Libraries\WiseLab\Power.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -548,7 +344,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document31]
+[Document19]
 DocumentPath=..\Libraries\WiseLab\Relays.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -565,7 +361,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document32]
+[Document20]
 DocumentPath=..\Libraries\WiseLab\Relays.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -582,7 +378,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document33]
+[Document21]
 DocumentPath=..\Libraries\WiseLab\USBParts.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -599,7 +395,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document34]
+[Document22]
 DocumentPath=..\Libraries\WiseLab\USBParts.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -616,18 +412,256 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
+[Document23]
+DocumentPath=Accessories.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=FBLGMBQM
+
+[Document24]
+DocumentPath=Accessories.Harness
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document25]
+DocumentPath=GPS.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=ETCEKCSS
+
+[Document26]
+DocumentPath=GPS.Harness
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document27]
+DocumentPath=LoRa.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=YXIEADAM
+
+[Document28]
+DocumentPath=LoRa.Harness
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document29]
+DocumentPath=Main.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=YEWGYWYS
+
+[Document30]
+DocumentPath=Main.Harness
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document31]
+DocumentPath=PCB.PcbDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=KPVDMYWG
+
+[Document32]
+DocumentPath=PCBv2.PcbDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document33]
+DocumentPath=Power.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=UNNVYFGX
+
+[Document34]
+DocumentPath=UART.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=KAXRQKML
+
+[Document35]
+DocumentPath=UI.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=UIJXCERK
+
+[Document36]
+DocumentPath=UI.Harness
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
 [Configuration1]
-Name=Default Configuration
+Name=Sources
 ParameterCount=0
 ConstraintFileCount=0
 ReleaseItemId=
 Variant=[No Variations]
 OutputJobsCount=0
-ContentTypeGUID=
-ConfigurationType=
+ContentTypeGUID=CB6F2064-E317-11DF-B822-12313F0024A2
+ConfigurationType=Source
 
 [Generic_SmartPDF]
-AutoOpenFile=0
+AutoOpenFile=-1
 AutoOpenOutJob=-1
 
 [Generic_SmartPDFSettings]
@@ -639,10 +673,10 @@ AddNetNetLabels=-1
 AddNetPorts=-1
 ShowComponentParameters=-1
 GlobalBookmarks=0
-ExportBOM=0
-TemplateFilename=Board Stack Report.XLT
+ExportBOM=-1
+TemplateFilename=
 TemplateStoreRelative=-1
-PCB_PrintColor=0
+PCB_PrintColor=1
 SCH_PrintColor=0
 PrintQuality=-3
 SCH_ShowNoErc=-1
@@ -660,10 +694,10 @@ SCH_ExpandPorts=0
 SCH_ExpandSheetNumber=0
 SCH_ExpandDocumentNumber=0
 SCH_HasExpandLogicalToPhysicalSheets=-1
-SaveSettingsToOutJob=0
+SaveSettingsToOutJob=-1
 
 [Generic_EDE]
-OutputDir=
+OutputDir=Project Outputs for Controller
 
 [OutputGroup1]
 Name=Netlist Outputs
@@ -791,7 +825,7 @@ OutputDefault1=0
 Name=Documentation Outputs
 Description=
 TargetPrinter=Virtual Printer
-PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=0|PrintWhat=0
+PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 OutputType1=Composite
 OutputName1=Composite Drawing
 OutputDocumentPath1=
@@ -842,12 +876,10 @@ OutputDefault8=0
 PageOptions8=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=Letter|PaperIndex=1
 OutputType9=Schematic Print
 OutputName9=Schematic Prints
-OutputDocumentPath9=C:\Users\James Mackaman\Documents\wise lab\water heater\Water Heater Chip\MCU.SchDoc
+OutputDocumentPath9=
 OutputVariantName9=
 OutputDefault9=0
 PageOptions9=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=Letter|PaperIndex=1
-Configuration9_Name1=OutputConfigurationParameter1
-Configuration9_Item1=Record=SchPrintView|ShowNoERC=True|ShowParamSet=True|ShowProbe=True|ShowBlanket=True|NoERCSymbolsToShow="Thin Cross","Thick Cross","Small Cross",Checkbox,Triangle|ShowNote=True|ShowNoteCollapsed=True|ShowOpenEnds=True|ExpandDesignator=True|ExpandNetLabel=False|ExpandPort=False|ExpandSheetNum=False|ExpandDocNum=False|PrintArea=0|PrintAreaRect.X1=0|PrintAreaRect.Y1=0|PrintAreaRect.X2=0|PrintAreaRect.Y2=0
 OutputType10=SimView Print
 OutputName10=SimView Prints
 OutputDocumentPath10=
@@ -966,36 +998,34 @@ Name=Report Outputs
 Description=
 TargetPrinter=Microsoft Print to PDF
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
-OutputType1=Script
-OutputName1=Script Output
+OutputType1=BOM_PartType
+OutputName1=Bill of Materials
 OutputDocumentPath1=
 OutputVariantName1=[No Variations]
 OutputDefault1=0
-OutputType2=SimpleBOM
-OutputName2=Simple BOM
+PageOptions1=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=Letter|PaperIndex=1
+OutputType2=ComponentCrossReference
+OutputName2=Component Cross Reference Report
 OutputDocumentPath2=
 OutputVariantName2=[No Variations]
 OutputDefault2=0
-OutputType3=SinglePinNetReporter
-OutputName3=Report Single Pin Nets
+OutputType3=ReportHierarchy
+OutputName3=Report Project Hierarchy
 OutputDocumentPath3=
 OutputVariantName3=[No Variations]
 OutputDefault3=0
-OutputType4=BOM_PartType
-OutputName4=Bill of Materials
+OutputType4=Script
+OutputName4=Script Output
 OutputDocumentPath4=
 OutputVariantName4=[No Variations]
 OutputDefault4=0
-PageOptions4=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=Letter|PaperIndex=1
-OutputType5=ComponentCrossReference
-OutputName5=Component Cross Reference Report
+OutputType5=SimpleBOM
+OutputName5=Simple BOM
 OutputDocumentPath5=
 OutputVariantName5=[No Variations]
 OutputDefault5=0
-Configuration5_Name1=ColumnNameFormat
-Configuration5_Item1=CaptionAsName
-OutputType6=ReportHierarchy
-OutputName6=Report Project Hierarchy
+OutputType6=SinglePinNetReporter
+OutputName6=Report Single Pin Nets
 OutputDocumentPath6=
 OutputVariantName6=[No Variations]
 OutputDefault6=0
@@ -1239,13 +1269,13 @@ OutputName3=Export IDF
 OutputDocumentPath3=
 OutputVariantName3=
 OutputDefault3=0
-OutputType4=ExportSTEP
-OutputName4=Export STEP
+OutputType4=ExportPARASOLID
+OutputName4=Export PARASOLID
 OutputDocumentPath4=
 OutputVariantName4=[No Variations]
 OutputDefault4=0
-OutputType5=ExportPARASOLID
-OutputName5=Export PARASOLID
+OutputType5=ExportSTEP
+OutputName5=Export STEP
 OutputDocumentPath5=
 OutputVariantName5=[No Variations]
 OutputDefault5=0
@@ -1582,210 +1612,6 @@ NetClassSeparateForBusSections=0
 SelectedOnly=0
 UpdateVariants=1
 PartTypes=0
-ComponentLibIdentifierKind0=Library Name And Type
-ComponentLibraryIdentifier0=Miscellaneous Connectors.IntLib
-ComponentDesignItemID0=Header 16
-ComponentSymbolReference0=Header 16
-ComponentUpdate0=1
-ComponentIsDeviceSheet0=0
-ComponentLibIdentifierKind1=Library Name And Type
-ComponentLibraryIdentifier1=Miscellaneous Connectors.IntLib
-ComponentDesignItemID1=Header 2
-ComponentSymbolReference1=Header 2
-ComponentUpdate1=1
-ComponentIsDeviceSheet1=0
-ComponentLibIdentifierKind2=Library Name And Type
-ComponentLibraryIdentifier2=Miscellaneous Connectors.IntLib
-ComponentDesignItemID2=Header 5
-ComponentSymbolReference2=Header 5
-ComponentUpdate2=1
-ComponentIsDeviceSheet2=0
-ComponentLibIdentifierKind3=Library Name And Type
-ComponentLibraryIdentifier3=Miscellaneous Connectors.IntLib
-ComponentDesignItemID3=Header 6
-ComponentSymbolReference3=Header 6
-ComponentUpdate3=1
-ComponentIsDeviceSheet3=0
-ComponentLibIdentifierKind4=Library Name And Type
-ComponentLibraryIdentifier4=Modules.SchLib
-ComponentDesignItemID4=ESP-WROOM-32
-ComponentSymbolReference4=ESP-WROOM-32
-ComponentUpdate4=1
-ComponentIsDeviceSheet4=0
-ComponentLibIdentifierKind5=Library Name And Type
-ComponentLibraryIdentifier5=ubloxLib.IntLib
-ComponentDesignItemID5=NEO
-ComponentSymbolReference5=NEO
-ComponentUpdate5=1
-ComponentIsDeviceSheet5=0
-ComponentLibIdentifierKind6=Library Name And Type
-ComponentLibraryIdentifier6=Water Heater Components.IntLib
-ComponentDesignItemID6=PE-51686NL
-ComponentSymbolReference6=PE-51686NL
-ComponentUpdate6=1
-ComponentIsDeviceSheet6=0
-ComponentLibIdentifierKind7=Library Name Only
-ComponentLibraryIdentifier7=Altium Content Vault
-ComponentDesignItemID7=CMP-0017-00683-1
-ComponentSymbolReference7=CMP-0017-00683-1
-ComponentUpdate7=1
-ComponentIsDeviceSheet7=0
-ComponentLibIdentifierKind8=Library Name Only
-ComponentLibraryIdentifier8=Altium Content Vault
-ComponentDesignItemID8=CMP-0029-00003-1
-ComponentSymbolReference8=CMP-0029-00003-1
-ComponentUpdate8=1
-ComponentIsDeviceSheet8=0
-ComponentLibIdentifierKind9=Library Name Only
-ComponentLibraryIdentifier9=Altium Content Vault
-ComponentDesignItemID9=CMP-0031-00001-1
-ComponentSymbolReference9=CMP-0031-00001-1
-ComponentUpdate9=1
-ComponentIsDeviceSheet9=0
-ComponentLibIdentifierKind10=Library Name Only
-ComponentLibraryIdentifier10=Altium Content Vault
-ComponentDesignItemID10=CMP-0062-02463-3
-ComponentSymbolReference10=CMP-0062-02463-3
-ComponentUpdate10=1
-ComponentIsDeviceSheet10=0
-ComponentLibIdentifierKind11=Library Name Only
-ComponentLibraryIdentifier11=Altium Content Vault
-ComponentDesignItemID11=CMP-0366-01119-1
-ComponentSymbolReference11=CMP-0366-01119-1
-ComponentUpdate11=1
-ComponentIsDeviceSheet11=0
-ComponentLibIdentifierKind12=Library Name Only
-ComponentLibraryIdentifier12=Altium Content Vault
-ComponentDesignItemID12=CMP-0463-00001-2
-ComponentSymbolReference12=CMP-0463-00001-2
-ComponentUpdate12=1
-ComponentIsDeviceSheet12=0
-ComponentLibIdentifierKind13=Library Name Only
-ComponentLibraryIdentifier13=Altium Content Vault
-ComponentDesignItemID13=CMP-0686-00278-3
-ComponentSymbolReference13=CMP-0686-00278-3
-ComponentUpdate13=1
-ComponentIsDeviceSheet13=0
-ComponentLibIdentifierKind14=Library Name Only
-ComponentLibraryIdentifier14=Altium Content Vault
-ComponentDesignItemID14=CMP-1012-00026-1
-ComponentSymbolReference14=RES
-ComponentUpdate14=1
-ComponentIsDeviceSheet14=0
-ComponentLibIdentifierKind15=Library Name Only
-ComponentLibraryIdentifier15=Altium Content Vault
-ComponentDesignItemID15=CMP-1012-00037-1
-ComponentSymbolReference15=CMP-1012-00037-1
-ComponentUpdate15=1
-ComponentIsDeviceSheet15=0
-ComponentLibIdentifierKind16=Library Name Only
-ComponentLibraryIdentifier16=Altium Content Vault
-ComponentDesignItemID16=CMP-1012-00050-1
-ComponentSymbolReference16=CMP-1012-00050-1
-ComponentUpdate16=1
-ComponentIsDeviceSheet16=0
-ComponentLibIdentifierKind17=Library Name Only
-ComponentLibraryIdentifier17=Altium Content Vault
-ComponentDesignItemID17=CMP-1012-00074-1
-ComponentSymbolReference17=CMP-1012-00074-1
-ComponentUpdate17=1
-ComponentIsDeviceSheet17=0
-ComponentLibIdentifierKind18=Library Name Only
-ComponentLibraryIdentifier18=Altium Content Vault
-ComponentDesignItemID18=CMP-1012-00087-1
-ComponentSymbolReference18=CMP-1012-00087-1
-ComponentUpdate18=1
-ComponentIsDeviceSheet18=0
-ComponentLibIdentifierKind19=Library Name Only
-ComponentLibraryIdentifier19=Altium Content Vault
-ComponentDesignItemID19=CMP-1012-00095-1
-ComponentSymbolReference19=CMP-1012-00095-1
-ComponentUpdate19=1
-ComponentIsDeviceSheet19=0
-ComponentLibIdentifierKind20=Library Name Only
-ComponentLibraryIdentifier20=Altium Content Vault
-ComponentDesignItemID20=CMP-1012-00110-1
-ComponentSymbolReference20=CMP-1012-00110-1
-ComponentUpdate20=1
-ComponentIsDeviceSheet20=0
-ComponentLibIdentifierKind21=Library Name Only
-ComponentLibraryIdentifier21=Altium Content Vault
-ComponentDesignItemID21=CMP-1012-00110-1
-ComponentSymbolReference21=RES
-ComponentUpdate21=1
-ComponentIsDeviceSheet21=0
-ComponentLibIdentifierKind22=Library Name Only
-ComponentLibraryIdentifier22=Altium Content Vault
-ComponentDesignItemID22=CMP-1012-00146-1
-ComponentSymbolReference22=RES
-ComponentUpdate22=1
-ComponentIsDeviceSheet22=0
-ComponentLibIdentifierKind23=Library Name Only
-ComponentLibraryIdentifier23=Altium Content Vault
-ComponentDesignItemID23=CMP-1012-00885-1
-ComponentSymbolReference23=CMP-1012-00885-1
-ComponentUpdate23=1
-ComponentIsDeviceSheet23=0
-ComponentLibIdentifierKind24=Library Name Only
-ComponentLibraryIdentifier24=Altium Content Vault
-ComponentDesignItemID24=CMP-1035-00607-1
-ComponentSymbolReference24=CMP-1035-00607-1
-ComponentUpdate24=1
-ComponentIsDeviceSheet24=0
-ComponentLibIdentifierKind25=Library Name Only
-ComponentLibraryIdentifier25=Altium Content Vault
-ComponentDesignItemID25=CMP-1035-02306-1
-ComponentSymbolReference25=CMP-1035-02306-1
-ComponentUpdate25=1
-ComponentIsDeviceSheet25=0
-ComponentLibIdentifierKind26=Library Name Only
-ComponentLibraryIdentifier26=Altium Content Vault
-ComponentDesignItemID26=CMP-1035-02575-1
-ComponentSymbolReference26=CMP-1035-02575-1
-ComponentUpdate26=1
-ComponentIsDeviceSheet26=0
-ComponentLibIdentifierKind27=Library Name Only
-ComponentLibraryIdentifier27=Altium Content Vault
-ComponentDesignItemID27=CMP-1035-02576-1
-ComponentSymbolReference27=CMP-1035-02576-1
-ComponentUpdate27=1
-ComponentIsDeviceSheet27=0
-ComponentLibIdentifierKind28=Library Name Only
-ComponentLibraryIdentifier28=Altium Content Vault
-ComponentDesignItemID28=CMP-1035-02611-1
-ComponentSymbolReference28=CMP-1035-02611-1
-ComponentUpdate28=1
-ComponentIsDeviceSheet28=0
-ComponentLibIdentifierKind29=Library Name Only
-ComponentLibraryIdentifier29=Altium Content Vault
-ComponentDesignItemID29=CMP-1035-02640-1
-ComponentSymbolReference29=CMP-1035-02640-1
-ComponentUpdate29=1
-ComponentIsDeviceSheet29=0
-ComponentLibIdentifierKind30=Library Name Only
-ComponentLibraryIdentifier30=Altium Content Vault
-ComponentDesignItemID30=CMP-1035-02730-1
-ComponentSymbolReference30=CMP-1035-02730-1
-ComponentUpdate30=1
-ComponentIsDeviceSheet30=0
-ComponentLibIdentifierKind31=Library Name Only
-ComponentLibraryIdentifier31=Altium Content Vault
-ComponentDesignItemID31=CMP-1054-00079-1
-ComponentSymbolReference31=CMP-1054-00079-1
-ComponentUpdate31=1
-ComponentIsDeviceSheet31=0
-ComponentLibIdentifierKind32=Library Name Only
-ComponentLibraryIdentifier32=Altium Content Vault
-ComponentDesignItemID32=CMP-1497-00015-1
-ComponentSymbolReference32=WE-IND-INDUCTOR-2
-ComponentUpdate32=1
-ComponentIsDeviceSheet32=0
-ComponentLibIdentifierKind33=Library Name Only
-ComponentLibraryIdentifier33=Altium Content Vault
-ComponentDesignItemID33=CMP-1754-00001-1
-ComponentSymbolReference33=CMP-1754-00001-1
-ComponentUpdate33=1
-ComponentIsDeviceSheet33=0
 FullReplace=1
 UpdateDesignatorLock=1
 UpdatePartIDLock=1
@@ -1799,289 +1625,11 @@ RemoveParameters=0
 AddModels=1
 RemoveModels=1
 UpdateCurrentModels=1
-ParameterName0=Case Code (Imperial)
-ParameterUpdate0=1
-ParameterName1=Case Code (Metric)
-ParameterUpdate1=1
-ParameterName2=Case\Package
-ParameterUpdate2=1
-ParameterName3=Case-EIA
-ParameterUpdate3=1
-ParameterName4=Case-Metric
-ParameterUpdate4=1
-ParameterName5=CMRR(Min)(dB)
-ParameterUpdate5=1
-ParameterName6=Code_IPC
-ParameterUpdate6=1
-ParameterName7=Code_JEDEC
-ParameterUpdate7=1
-ParameterName8=Code_JEITA
-ParameterUpdate8=1
-ParameterName9=Colour
-ParameterUpdate9=1
-ParameterName10=Comment
-ParameterUpdate10=1
-ParameterName11=Component Kind
-ParameterUpdate11=1
-ParameterName12=ComponentLink1Description
-ParameterUpdate12=1
-ParameterName13=ComponentLink1URL
-ParameterUpdate13=1
-ParameterName14=ComponentLink2Description
-ParameterUpdate14=1
-ParameterName15=ComponentLink2URL
-ParameterUpdate15=1
-ParameterName16=ComponentLink3Description
-ParameterUpdate16=1
-ParameterName17=ComponentLink3URL
-ParameterUpdate17=1
-ParameterName18=CompType
-ParameterUpdate18=1
-ParameterName19=Configuration
-ParameterUpdate19=1
-ParameterName20=Contact Finish
-ParameterUpdate20=1
-ParameterName21=Contact Material
-ParameterUpdate21=1
-ParameterName22=Contact Plating
-ParameterUpdate22=1
-ParameterName23=Current Rating
-ParameterUpdate23=1
-ParameterName24=DatasheetVersion
-ParameterUpdate24=1
-ParameterName25=DC Resistance
-ParameterUpdate25=1
-ParameterName26=Description
-ParameterUpdate26=1
-ParameterName27=Drive Level
-ParameterUpdate27=1
-ParameterName28=Eco-Plan
-ParameterUpdate28=1
-ParameterName29=Frequency Tolerance
-ParameterUpdate29=1
-ParameterName30=GBW(Typ)(MHz)
-ParameterUpdate30=1
-ParameterName31=Height
-ParameterUpdate31=1
-ParameterName32=High-Reliability
-ParameterUpdate32=1
-ParameterName33=IF Max (A)
-ParameterUpdate33=1
-ParameterName34=IIB(Max)(pA)
-ParameterUpdate34=1
-ParameterName35=Impedance (at 100 MHz)
-ParameterUpdate35=1
-ParameterName36=Inductance
-ParameterUpdate36=1
-ParameterName37=Initial Accuracy @ 25/deg C(%)
-ParameterUpdate37=1
-ParameterName38=Iout/Iz(Max)(mA)
-ParameterUpdate38=1
-ParameterName39=Iq per channel(Max)(mA)
-ParameterUpdate39=1
-ParameterName40=LatestRevisionDate
-ParameterUpdate40=1
-ParameterName41=LatestRevisionNote
-ParameterUpdate41=1
-ParameterName42=Lead Pitch
-ParameterUpdate42=1
-ParameterName43=Length
-ParameterUpdate43=1
-ParameterName44=Library Reference
-ParameterUpdate44=1
-ParameterName45=Load Capacitance
-ParameterUpdate45=1
-ParameterName46=Manufacturer
-ParameterUpdate46=1
-ParameterName47=Max Operating Temperature
-ParameterUpdate47=1
-ParameterName48=Max Thickness
-ParameterUpdate48=1
-ParameterName49=Min Iz for Regulation(uA)
-ParameterUpdate49=1
-ParameterName50=Min Operating Temperature
-ParameterUpdate50=1
-ParameterName51=Mount
-ParameterUpdate51=1
-ParameterName52=Mounting Technology
-ParameterUpdate52=1
-ParameterName53=Nominal Frequency
-ParameterUpdate53=1
-ParameterName54=Number of Channels
-ParameterUpdate54=1
-ParameterName55=Operating temperature
-ParameterUpdate55=1
-ParameterName56=Operating Temperature Range
-ParameterUpdate56=1
-ParameterName57=Package Quantity
-ParameterUpdate57=1
-ParameterName58=PackageDescription
-ParameterUpdate58=1
-ParameterName59=PackageReference
-ParameterUpdate59=1
-ParameterName60=PackageTopMarking
-ParameterUpdate60=1
-ParameterName61=PackageVersion
-ParameterUpdate61=1
-ParameterName62=Packaging
-ParameterUpdate62=1
-ParameterName63=Packing
-ParameterUpdate63=1
-ParameterName64=Part Description
-ParameterUpdate64=1
-ParameterName65=PartNumber
-ParameterUpdate65=1
-ParameterName66=PinCount
-ParameterUpdate66=1
-ParameterName67=Pins
-ParameterUpdate67=1
-ParameterName68=Power
-ParameterUpdate68=1
-ParameterName69=PowerWise
-ParameterUpdate69=1
-ParameterName70=Publisher
-ParameterUpdate70=1
-ParameterName71=Radiation Hardening
-ParameterUpdate71=1
-ParameterName72=Rated Current
-ParameterUpdate72=1
-ParameterName73=Rated Voltage
-ParameterUpdate73=1
-ParameterName74=Rating
-ParameterUpdate74=1
-ParameterName75=RoHS
-ParameterUpdate75=1
-ParameterName76=RoHSCompliant
-ParameterUpdate76=1
-ParameterName77=Shielding
-ParameterUpdate77=1
-ParameterName78=Slew Rate(Typ)(V/us)
-ParameterUpdate78=1
-ParameterName79=Sub Family
-ParameterUpdate79=1
-ParameterName80=SubFamily
-ParameterUpdate80=1
-ParameterName81=Supplier 1
-ParameterUpdate81=1
-ParameterName82=Supplier Part Number 1
-ParameterUpdate82=1
-ParameterName83=Technology
-ParameterUpdate83=1
-ParameterName84=Temp Coeff(Max)(ppm/ degree C)
-ParameterUpdate84=1
-ParameterName85=Temp Coeff(Typ)(ppm/ degree C)
-ParameterUpdate85=1
-ParameterName86=Tolerance
-ParameterUpdate86=1
-ParameterName87=Total Supply Voltage(Max)(+5V is 5, +/-5V is 10)
-ParameterUpdate87=1
-ParameterName88=Total Supply Voltage(Min)(+5V is 5, +/-5V is 10)
-ParameterUpdate88=1
-ParameterName89=trr Max (ns)
-ParameterUpdate89=1
-ParameterName90=Value
-ParameterUpdate90=1
-ParameterName91=Vio (25C)(Max)(mV)
-ParameterUpdate91=1
-ParameterName92=Vn at 1kHz(Typ)(nV/rtHz)
-ParameterUpdate92=1
-ParameterName93=VO(V)
-ParameterUpdate93=1
-ParameterName94=Weight
-ParameterUpdate94=1
-ParameterName95=Width
-ParameterUpdate95=1
-ModelTypeGroup0=PCBLIB
-ModelTypeUpdate0=1
-ModelType0=PCBLIB
-ModelName0=CAPC0603(1608)100_L
-ModelUpdate0=1
-ModelType1=PCBLIB
-ModelName1=CAPC0603(1608)100_M
-ModelUpdate1=1
-ModelType2=PCBLIB
-ModelName2=CAPC0603(1608)100_N
-ModelUpdate2=1
-ModelType3=PCBLIB
-ModelName3=HDR1X16
-ModelUpdate3=1
-ModelType4=PCBLIB
-ModelName4=HDR1X2
-ModelUpdate4=1
-ModelType5=PCBLIB
-ModelName5=HDR1X5
-ModelUpdate5=1
-ModelType6=PCBLIB
-ModelName6=HDR1X6
-ModelUpdate6=1
-ModelType7=PCBLIB
-ModelName7=HIRO-ZX62R-B-5P_V
-ModelUpdate7=1
-ModelType8=PCBLIB
-ModelName8=HRS-U.FL-R-SMT_V
-ModelUpdate8=1
-ModelType9=PCBLIB
-ModelName9=ITTI-14340272-32.768KHz-2_V
-ModelUpdate9=1
-ModelType10=PCBLIB
-ModelName10=JAE-ST9S008V4AR1500_V
-ModelUpdate10=1
-ModelType11=PCBLIB
-ModelName11=MURA-BLM15-CHIP-2_V
-ModelUpdate11=1
-ModelType12=PCBLIB
-ModelName12=NDE0003A
-ModelUpdate12=1
-ModelType13=PCBLIB
-ModelName13=NEO
-ModelUpdate13=1
-ModelType14=PCBLIB
-ModelName14=ONSC-SOD-523-2-502-01_V
-ModelUpdate14=1
-ModelType15=PCBLIB
-ModelName15=PE-51686NL
-ModelUpdate15=1
-ModelType16=PCBLIB
-ModelName16=RESC0603(1608)_L
-ModelUpdate16=1
-ModelType17=PCBLIB
-ModelName17=RESC0603(1608)_M
-ModelUpdate17=1
-ModelType18=PCBLIB
-ModelName18=RESC0603(1608)_N
-ModelUpdate18=1
-ModelType19=PCBLIB
-ModelName19=TI-DBV5_L
-ModelUpdate19=1
-ModelType20=PCBLIB
-ModelName20=TI-DBV5_M
-ModelUpdate20=1
-ModelType21=PCBLIB
-ModelName21=TI-DBV5_N
-ModelUpdate21=1
-ModelType22=PCBLIB
-ModelName22=TI-DBZ3_N
-ModelUpdate22=1
-ModelType23=PCBLIB
-ModelName23=WE-CAIR_4248
-ModelUpdate23=1
-ModelTypeGroup1=SI
-ModelTypeUpdate1=1
-ModelType24=SI
-ModelName24=Connector
-ModelUpdate24=1
 
 [DatabaseUpdateOptions]
 SelectedOnly=0
 UpdateVariants=1
 PartTypes=0
-
-[NetInfos]
-Net1=NetName=GPIO5|NetColor=$006E6EFF
-Net2=NetName=Iref|NetColor=$006EFF6E
-Net3=NetName=NetJ?_29|NetColor=$006EFF6E
-Net4=NetName=LCD_R\S\T\|NetColor=$006EFF6E
-Net5=NetName=NetJ?_15|NetColor=$006EFF6E
 
 [Comparison Options]
 ComparisonOptions0=Kind=Net|MinPercent=75|MinMatch=3|ShowMatch=-1|Confirm=-1|UseName=-1|InclAllRules=0
@@ -2093,24 +1641,4 @@ ComparisonOptions5=Kind=Structure Class|MinPercent=75|MinMatch=3|ShowMatch=-1|Co
 
 [SmartPDF]
 PageOptions=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=Letter|PaperIndex=1
-Configuration_Name1=OutputConfigurationParameter1
-Configuration_Item1=DesignatorDisplayMode=Physical|PrintArea=DesignExtent|PrintAreaLowerLeftCornerX=0|PrintAreaLowerLeftCornerY=0|PrintAreaUpperRightCornerX=0|PrintAreaUpperRightCornerY=0|Record=PcbPrintView
-Configuration_Name2=OutputConfigurationParameter2
-Configuration_Item2=IncludeBottomLayerComponents=True|IncludeMultiLayerComponents=True|IncludeTopLayerComponents=True|IncludeViewports=True|Index=0|Mirror=False|Name=Multilayer Composite Print|PadNumberFontSize=14|Record=PcbPrintOut|ShowHoles=False|ShowPadNets=False|ShowPadNumbers=False|SubstituteFonts=False
-Configuration_Name3=OutputConfigurationParameter3
-Configuration_Item3=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=TopOverlay|Polygon=Full|PrintOutIndex=0|Record=PcbPrintLayer
-Configuration_Name4=OutputConfigurationParameter4
-Configuration_Item4=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=TopLayer|Polygon=Full|PrintOutIndex=0|Record=PcbPrintLayer
-Configuration_Name5=OutputConfigurationParameter5
-Configuration_Item5=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=BottomLayer|Polygon=Full|PrintOutIndex=0|Record=PcbPrintLayer
-Configuration_Name6=OutputConfigurationParameter6
-Configuration_Item6=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=MultiLayer|Polygon=Full|PrintOutIndex=0|Record=PcbPrintLayer
-Configuration_Name7=OutputConfigurationParameter7
-Configuration_Item7=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=KeepOutLayer|Polygon=Full|PrintOutIndex=0|Record=PcbPrintLayer
-Configuration_Name8=OutputConfigurationParameter8
-Configuration_Item8=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=Mechanical1|Polygon=Full|PrintOutIndex=0|Record=PcbPrintLayer
-Configuration_Name9=OutputConfigurationParameter9
-Configuration_Item9=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=Mechanical13|Polygon=Full|PrintOutIndex=0|Record=PcbPrintLayer
-Configuration_Name10=OutputConfigurationParameter10
-Configuration_Item10=CArc=Full|CFill=Full|Comment=Full|Coordinate=Full|CPad=Full|CRegion=Full|CText=Full|CTrack=Full|CVia=Full|Designator=Full|Dimension=Full|DLayer1=TopLayer|DLayer2=BottomLayer|FArc=Full|FFill=Full|FPad=Full|FRegion=Full|FText=Full|FTrack=Full|FVia=Full|Layer=Mechanical15|Polygon=Full|PrintOutIndex=0|Record=PcbPrintLayer
 
