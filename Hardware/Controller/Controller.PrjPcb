@@ -189,7 +189,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=CYURXXPP
 
 [Document10]
 DocumentPath=..\Libraries\WiseLab\Misc.SchLib
@@ -206,7 +206,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=LNOCUTJO
 
 [Document11]
 DocumentPath=..\Libraries\WiseLab\Modules.PcbLib
@@ -563,7 +563,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=KPVDMYWG
+DocumentUniqueId=OPAAKKCG
 
 [Document32]
 DocumentPath=PCBv2.PcbDoc
@@ -668,40 +668,6 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document38]
-DocumentPath=..\Libraries\EnclosurePlusFasteners.PcbLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=STTXXUCX
-
-[Document39]
-DocumentPath=..\Libraries\EnclosurePlusFasteners.SchLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=XXFVWECT
-
-[Document40]
 DocumentPath=Mechanical.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -718,6 +684,10 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=FLRLGKHJ
 
+[GeneratedDocument1]
+DocumentPath=Project Outputs for Controller\Design Rule Check - PCBv2.html
+DItemRevisionGUID=
+
 [Configuration1]
 Name=Sources
 ParameterCount=0
@@ -729,7 +699,7 @@ ContentTypeGUID=CB6F2064-E317-11DF-B822-12313F0024A2
 ConfigurationType=Source
 
 [Generic_SmartPDF]
-AutoOpenFile=-1
+AutoOpenFile=0
 AutoOpenOutJob=-1
 
 [Generic_SmartPDFSettings]
