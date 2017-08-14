@@ -21,7 +21,7 @@ UserID=0xFFFFFFFF
 DefaultPcbProtel=1
 DefaultPcbPcad=0
 ReorderDocumentsOnCompile=1
-NameNetsHierarchically=0
+NameNetsHierarchically=1
 PowerPortNamesTakePriority=0
 PushECOToAnnotationFile=1
 DItemRevisionGUID=
@@ -172,7 +172,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=PRBTUOMV
 
 [Document9]
 DocumentPath=..\Libraries\WiseLab\Misc.PcbLib
@@ -686,6 +686,10 @@ DocumentUniqueId=FLRLGKHJ
 
 [GeneratedDocument1]
 DocumentPath=Project Outputs for Controller\Design Rule Check - PCBv2.html
+DItemRevisionGUID=
+
+[GeneratedDocument2]
+DocumentPath=Project Outputs for Controller\Net Status - PCBv2.html
 DItemRevisionGUID=
 
 [Configuration1]
