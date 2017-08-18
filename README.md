@@ -1,2 +1,2 @@
 # gridballast
-Open Source Water Heater Controller
+Open Source Water Heater and Plug Load Controller
