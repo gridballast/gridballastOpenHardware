@@ -8,7 +8,7 @@ The board integrate the following modules and features:
 * U-Blox NEO-M8T GPS Timing Chip
 * SX1276 Radio
 * USB programming and debugging
-* 4.2" OLED display
+* 2.4" OLED display
 * 4 way navigation buttons
 * Raspberry Pi connectivity
 * 60Hz Frequency Monitor
