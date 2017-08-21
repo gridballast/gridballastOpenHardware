@@ -1,7 +1,7 @@
 Protel Design System Design Rule Check
 PCB File : C:\Users\admin\Documents\Altium\gridballast\Hardware\CTA2045\CTA2045v1.PcbDoc
 Date     : 8/21/2017
-Time     : 1:58:04 AM
+Time     : 2:06:28 AM
 
 Processing Rule : Clearance Constraint (Gap=12mil) (InNetClass('RF50')),(All)
 Rule Violations :0
@@ -96,4 +96,4 @@ Rule Violations :0
 
 Violations Detected : 0
 Waived Violations : 0
-Time Elapsed        : 00:00:03
+Time Elapsed        : 00:00:02
