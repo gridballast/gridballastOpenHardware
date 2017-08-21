@@ -430,7 +430,7 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document24]
-DocumentPath=..\Libraries\WiseLab\CTA2045.PcbDoc
+DocumentPath=CTA2045.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -445,6 +445,10 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=PQXLBGRO
+
+[GeneratedDocument1]
+DocumentPath=Project Outputs for CTA2045\Design Rule Check - CTA2045.html
+DItemRevisionGUID=
 
 [Configuration1]
 Name=Sources
