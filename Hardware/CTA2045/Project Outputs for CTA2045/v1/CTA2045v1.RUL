@@ -1,0 +1,11 @@
+DRC Rules Export File for PCB: C:\Users\admin\Documents\Altium\gridballast\Hardware\CTA2045\CTA2045v1.PcbDoc
+RuleKind=ShortCircuit|RuleName=ShortCircuit|Scope=Board|Allowed=0
+RuleKind=ShortCircuit|RuleName=ExemptJumpers|Scope=Board|Allowed=1
+RuleKind=ShortCircuit|RuleName=ShortCircuit - FTDI|Scope=Board|Allowed=1
+RuleKind=SolderMaskExpansion|RuleName=SolderMaskExpansion|Scope=Board|Minimum=2.00
+RuleKind=Width|RuleName=Width|Scope=Board|Minimum=6.00
+RuleKind=Width|RuleName=Width - Antenna|Scope=Board|Minimum=6.00
+RuleKind=Clearance|RuleName=Clearance|Scope=Board|Minimum=6.00
+RuleKind=Clearance|RuleName=Clearance - Antenna|Scope=Board|Minimum=12.00
+RuleKind=Clearance|RuleName=Clearance - Keepout Ignore|Scope=Board|Minimum=0.00
+RuleKind=Clearance|RuleName=Clearance - 60HzAnt|Scope=Board|Minimum=10.00
