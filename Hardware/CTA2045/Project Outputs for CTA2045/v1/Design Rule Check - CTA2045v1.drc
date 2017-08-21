@@ -1,0 +1,99 @@
+Protel Design System Design Rule Check
+PCB File : C:\Users\admin\Documents\Altium\gridballast\Hardware\CTA2045\CTA2045v1.PcbDoc
+Date     : 8/21/2017
+Time     : 1:58:04 AM
+
+Processing Rule : Clearance Constraint (Gap=12mil) (InNetClass('RF50')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=6mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNet('60HzAnt')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=0mil) (All),(IsKeepOut)
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=Yes) (HasFootprint('PAD-JUMPER-2-NC_BY_TRACE_NO_SILK') or HasFootprint('PAD-JUMPER-3-2OF3_NC_BY_TRACE_YES_SILK_FULL_BOX')),(All)
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=Yes) (HasFootprint('PQFN5X5-32_V_FTDI_BIG_VIAS_LEADS') and IsPad),(HasFootprint('PQFN5X5-32_V_FTDI_BIG_VIAS_LEADS') and (IsPolygon or IsRegion))
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+Rule Violations :0
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=6mil) (Max=10000mil) (Preferred=10mil) (All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=50.00ohms) (Max=50.00ohms) (Preferred=50.00ohms) (InNetClass('RF50'))
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=8mil) (Max=500mil) (All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=10mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=0mil) (HasFootprint('PQFN5X5-32_V_FTDI_BIG_VIAS_LEADS')),(HasFootprint('PQFN5X5-32_V_FTDI_BIG_VIAS_LEADS'))
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=4mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=0mil) (HasFootprint('PAD-JUMPER-2-NC_BY_TRACE_NO_SILK')),(HasFootprint('PAD-JUMPER-2-NC_BY_TRACE_NO_SILK'))
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=0mil) (HasFootprint('PAD-JUMPER-3-2OF3_NC_BY_TRACE_YES_SILK_FULL_BOX')),(HasFootprint('PAD-JUMPER-3-2OF3_NC_BY_TRACE_YES_SILK_FULL_BOX'))
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=0mil) (HasFootprint('PAD-JUMPER-2-NO_NO_SILK')),(HasFootprint('PAD-JUMPER-2-NO_NO_SILK'))
+Rule Violations :0
+
+Processing Rule : Silk To Solder Mask (Clearance=0mil) (IsPad),(All)
+Rule Violations :0
+
+Processing Rule : Silk to Silk (Clearance=5mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mil) (Not InNet('60HzAnt'))
+Rule Violations :0
+
+Processing Rule : Board Clearance Constraint (Gap=0mil) (HasFootprint('MicroUSB_TypeB'))
+Rule Violations :0
+
+Processing Rule : Board Clearance Constraint (Gap=0mil) (HasFootprint('0.1 INCH 2 ROW 24 POS FEMALE RIGHT-ANGLE HEADER SULLINS') or HasFootprint('0.1 inch 2 row 24 pos male right-angle header Sullins'))
+Rule Violations :0
+
+Processing Rule : Board Clearance Constraint (Gap=0mil) (All)
+Rule Violations :0
+
+Processing Rule : Board Clearance Constraint (Gap=0mil) (HasFootprint('ESP-WROOM-32'))
+Rule Violations :0
+
+Processing Rule : Board Clearance Constraint (Gap=0mil) (HasFootprint('RJ45 Unshielded PTH Connector'))
+Rule Violations :0
+
+Processing Rule : Board Clearance Constraint (Gap=0mil) (HasFootprint('2POS 4.2MM PITCH RIGHT ANGLE'))
+Rule Violations :0
+
+Processing Rule : Room Main (Bounding Region = (1940mil, 2360mil, 5555mil, 4200mil) (InComponentClass('Main'))
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)
+Rule Violations :0
+
+
+Violations Detected : 0
+Waived Violations : 0
+Time Elapsed        : 00:00:03

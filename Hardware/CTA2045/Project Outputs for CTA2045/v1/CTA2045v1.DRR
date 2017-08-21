@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------------------------------------------------------------------
-NCDrill File Report For: CTA2045v1.PcbDoc   8/21/2017  1:51:51 AM
+NCDrill File Report For: CTA2045v1.PcbDoc   8/21/2017  2:00:56 AM
 ----------------------------------------------------------------------------------------------------------------------------------
 
 Layer Pair : Top Layer to Bottom Layer
@@ -7,7 +7,7 @@ ASCII RoundHoles File : CTA2045v1.TXT
 
 Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
 ----------------------------------------------------------------------------------------------------------------------------------
-T1      10mil (0.254mm)                                           Round             183       PTH        28.96inch (735.60mm)
+T1      10mil (0.254mm)                                           Round             183       PTH        31.45inch (798.80mm)
 T2      20mil (0.508mm)                                           Round             2         PTH        1.46inch (37.18mm)
 T3      32mil (0.8mm)           +/-8mil (0.2mm)                   Round             8         PTH        0.82inch (20.92mm)
 T4      35mil (0.9mm)                                             Round             4         PTH        0.36inch (9.08mm)
