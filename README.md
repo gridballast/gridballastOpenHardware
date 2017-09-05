@@ -19,10 +19,17 @@ The board integrate the following modules and features:
 
 ![Controller Board V1 3D](Hardware/Controller/Info/ControllerV1-3D.png)
 
+[Interactive 3D View](Hardware/Controller/Info/PCBv1.stl)
+
 ## Relay, CT, and Temp Board
 This is the accessory board that has two onboard high-power relays, a current transformer, and two analog inputs for temperature sensors.
+
 ![Relay Board V1 3D](Hardware/Relay%20Board/RelayBoardV1-3D.png)
+
+[Interactive 3D View](Hardware/Relay%20Board/RelayBoardV1.stl)
 
 ## CTA2045 and RS485 Board
 This small accessory board holds the connector to support CTA2045 and other RS485 communications.
 ![CTA2045 Board V1 3D](Hardware/CTA2045/Info/CTA2045BoardV1-3D.png)
+
+[Interactive 3D View](Hardware/CTA2045/Info/CTA2045v1.stl)
