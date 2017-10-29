@@ -1,0 +1,29 @@
+/**
+ * @file controller_module.h
+ *
+ * @brief Defines the Controller Module API
+ *
+ * @author Vikram Shanker (vshanker@cmu.edu)
+ */
+
+#ifndef __controller_module_h_
+#define __controller_module_h_
+
+/** @brief depth of the wifi stack */
+#define controllerUSStackDepth ((unsigned short) 2048) /* bytes */
+/** @brief priority of the wifi stack */
+#define controllerUXPriority (2)
+
+/** @brief name of the wifi task */
+const char *controller_task_name = "controller_module_task";
+
+/**
+ * @brief function that initializes that controller task
+ *
+ * @param pv_parameters - parameters for task being created (should be NULL)
+ *
+ * @return void
+ */
+void controller_init_task( void );
+
+#endif /* __controller_module_h_ */
