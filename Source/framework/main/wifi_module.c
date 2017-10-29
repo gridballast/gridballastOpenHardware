@@ -51,6 +51,6 @@ void wifi_init_task( void ) {
  * @return void
  */
 static void wifi_task_fn( void *pv_parameters ) {
-  printf(" done!\n");
+  printf(" done (wifi)!\n");
   return;
 }

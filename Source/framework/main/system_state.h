@@ -4,7 +4,7 @@
  * @brief contains the defintion of data structure that keeps track
  *        of the system state
  *
- * @author Vikram Shanker (vshanker@cmu.edu
+ * @author Vikram Shanker (vshanker@cmu.edu)
  */
 
 #ifndef __system_state_h_

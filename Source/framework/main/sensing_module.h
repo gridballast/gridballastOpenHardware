@@ -9,12 +9,12 @@
 #ifndef __sensing_module_h_
 #define __sensing_module_h_
 
-/** @brief depth of the wifi stack */
+/** @brief depth of the sensing stack */
 #define sensingUSStackDepth ((unsigned short) 2048) /* bytes */
-/** @brief priority of the wifi stack */
+/** @brief priority of the sensing stack */
 #define sensingUXPriority (2)
 
-/** @brief name of the wifi task */
+/** @brief name of the sensing task */
 const char *sensing_task_name = "sensing_module_task";
 
 /**

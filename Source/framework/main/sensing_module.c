@@ -44,13 +44,13 @@ void sensing_init_task( void ) {
  *****************************************/
 
 /**
- * @brief wifi task logic
+ * @brief sensing task logic
  *
  * @param pv_parameters - parameters for task being create (should be NULL)
  *
  * @return void
  */
 static void sensing_task_fn( void *pv_parameters ) {
-  printf(" done!\n");
+  printf(" done (sensing)!\n");
   return;
 }
