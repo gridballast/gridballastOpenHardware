@@ -20,8 +20,6 @@ const char *sensing_task_name = "sensing_module_task";
 /**
  * @brief function that initializes that sensing task
  *
- * @param pv_parameters - parameters for task being created (should be NULL)
- *
  * @return void
  */
 void sensing_init_task( void );

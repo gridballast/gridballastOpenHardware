@@ -20,8 +20,6 @@ const char *controller_task_name = "controller_module_task";
 /**
  * @brief function that initializes that controller task
  *
- * @param pv_parameters - parameters for task being created (should be NULL)
- *
  * @return void
  */
 void controller_init_task( void );

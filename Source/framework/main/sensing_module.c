@@ -12,6 +12,7 @@
 #include "freertos/task.h"
 #include "nvs_flash.h"
 
+/** @brief functiont that contains sensing task logic */
 static TaskFunction_t sensing_task_fn;
 
 /*****************************************
@@ -20,8 +21,6 @@ static TaskFunction_t sensing_task_fn;
 
 /**
  * @brief initialization task that starts all other threads
- *
- * @param void
  *
  * @return void
  */

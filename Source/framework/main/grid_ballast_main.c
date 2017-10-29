@@ -28,8 +28,6 @@ void init_task( void *pv_parameters )
 /**
  * @brief main function that starts the initialization task
  *
- * @param void
- *
  * @return void
  */
 void app_main( void )

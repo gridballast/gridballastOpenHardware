@@ -12,6 +12,7 @@
 #include "freertos/task.h"
 #include "nvs_flash.h"
 
+/** @brief controller task logic function */
 static TaskFunction_t controller_task_fn;
 
 /*****************************************
@@ -20,8 +21,6 @@ static TaskFunction_t controller_task_fn;
 
 /**
  * @brief intializes the controller task
- *
- * @param void
  *
  * @return void
  */

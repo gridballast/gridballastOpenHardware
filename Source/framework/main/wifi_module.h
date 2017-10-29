@@ -20,8 +20,6 @@ const char *wifi_task_name = "wifi_module_task";
 /**
  * @brief function that initializes that wifi task
  *
- * @param pv_parameters - parameters for task being created (should be NULL)
- *
  * @return void
  */
 void wifi_init_task( void );

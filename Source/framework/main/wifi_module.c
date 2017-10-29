@@ -12,6 +12,7 @@
 #include "freertos/task.h"
 #include "nvs_flash.h"
 
+/** @brief function that contains wifi task function logic */
 static TaskFunction_t wifi_task_fn;
 
 /*****************************************
@@ -20,8 +21,6 @@ static TaskFunction_t wifi_task_fn;
 
 /**
  * @brief initialization task that starts all other threads
- *
- * @param void
  *
  * @return void
  */
