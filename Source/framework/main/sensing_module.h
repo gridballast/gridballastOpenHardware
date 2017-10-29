@@ -1,0 +1,29 @@
+/**
+ * @file sensing_module.h
+ *
+ * @brief Defines the Sensing Module API
+ *
+ * @author Vikram Shanker (vshanker@cmu.edu)
+ */
+
+#ifndef __sensing_module_h_
+#define __sensing_module_h_
+
+/** @brief depth of the wifi stack */
+#define sensingUSStackDepth ((unsigned short) 2048) /* bytes */
+/** @brief priority of the wifi stack */
+#define sensingUXPriority (2)
+
+/** @brief name of the wifi task */
+const char *sensing_task_name = "sensing_module_task";
+
+/**
+ * @brief function that initializes that sensing task
+ *
+ * @param pv_parameters - parameters for task being created (should be NULL)
+ *
+ * @return void
+ */
+void sensing_init_task( void );
+
+#endif /* __sensing_module_h_ */
