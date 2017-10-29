@@ -1,15 +1,16 @@
 /**
  * @file wifi_module.h
  *
+ * @brief Defines the Wifi Module API
+ *
  * @author Vikram Shanker (vshanker@cmu.edu)
  */
 
-#ifndef _wifi_module_h_
-
-#define _wifi_module_h_
+#ifndef __wifi_module_h_
+#define __wifi_module_h_
 
 /** @brief depth of the wifi stack */
-#define wifiUSStackDepth ((unsigned short) 2048)
+#define wifiUSStackDepth ((unsigned short) 2048) /* bytes */
 /** @brief priority of the wifi stack */
 #define wifiUXPriority (2)
 
@@ -25,4 +26,4 @@ const char *wifi_task_name = "wifi_module_task";
  */
 void wifi_init_task( void );
 
-#endif /* _wifi_module_h_ */
+#endif /* __wifi_module_h_ */
