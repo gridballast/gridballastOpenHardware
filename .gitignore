@@ -1,5 +1,6 @@
 Support/esp-idf
 Source/framework/doc/*
+Source/framework/doxygen.warn
 Hardware/Relay Board/History/
 Hardware/Relay Board/Project Logs for Relay Board/
 Hardware/Relay Board/RelayBoard*.WAS
