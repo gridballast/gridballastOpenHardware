@@ -17,7 +17,7 @@
 #define BLOCK_INDEFINITE portMAX_DELAY
 
 int rwlock_init( rwlock_t *lock ) {
-    
+
     if ( lock == NULL ) {
         return RWL_INIT_ERROR;
     }
@@ -25,7 +25,7 @@ int rwlock_init( rwlock_t *lock ) {
     lock->read_count = 0;
     lock->write_count = 0;
 
-    /* 
+    /*
      * Initialize to NULL to make error handling easier.
      */
     lock->read_lock = NULL;
@@ -67,7 +67,7 @@ int rwlock_init( rwlock_t *lock ) {
 ERROR:
     if (!lock->read_lock) {
         vSemaphoreDelete(lock->read_lock);
-    } 
+    }
 
     if (!lock->write_lock) {
         vSemaphoreDelete(lock->read_lock);
@@ -95,7 +95,7 @@ void rwlock_free( rwlock_t *lock ) {
 
 
 void rwlock_reader_lock( rwlock_t *lock ) {
- 
+
     xSemaphoreTake(lock->block_readers_lock, BLOCK_INDEFINITE);
     xSemaphoreTake(lock->read_lock, BLOCK_INDEFINITE);
 

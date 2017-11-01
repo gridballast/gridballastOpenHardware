@@ -16,7 +16,7 @@
 typedef struct {
   int timestamp;
   int power;
-  int[MIC_BUFFER_SIZE] mic;
+  int mic[MIC_BUFFER_SIZE];
   int leak_sensor;
   int temp_bottom;
   int temp_top;

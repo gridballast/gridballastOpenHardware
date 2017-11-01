@@ -46,7 +46,7 @@ typedef struct rwlock {
  *  @brief create a reader writer lock that prioritizes writes
  *
  *  @param lock - pointer to uninitialized rwlock structure
- * 
+ *
  *  @return RWL_SUCCESS on success and RWL_INIT_ERROR on failure
  */
 int rwlock_init( rwlock_t *lock );
