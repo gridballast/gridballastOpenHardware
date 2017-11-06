@@ -11,8 +11,8 @@
 
 #include <stdlib.h>
 #include "freertos/FreeRTOS.h"
+#include "freertos/semphr.h"
 #include "rwlock.h"
-#include "semphr.h"
 
 #define BLOCK_INDEFINITE portMAX_DELAY
 
@@ -33,18 +33,18 @@ int rwlock_init( rwlock_t *lock ) {
     lock->resource_lock = NULL;
     lock->block_readers_lock = NULL;
 
-    lock->read_lock = xSemaphoreCreateMutexStatic(lock->read_lock_mem);
+    lock->read_lock = xSemaphoreCreateMutexStatic(&(lock->read_lock_mem));
     if (lock->read_lock == NULL) {
         goto ERROR;
     }
 
-    lock->write_lock = xSemaphoreCreateMutexStatic(lock->write_lock_mem);
+    lock->write_lock = xSemaphoreCreateMutexStatic(&(lock->write_lock_mem));
     if (lock->write_lock == NULL) {
         goto ERROR;
     }
 
     /* this has be a binary semaphore and not a mutex */
-    lock->resource_lock = xSemaphoreCreateBinaryStatic(lock->resource_lock_mem);
+    lock->resource_lock = xSemaphoreCreateBinaryStatic(&(lock->resource_lock_mem));
     if (lock->resource_lock == NULL) {
         goto ERROR;
     }
@@ -53,7 +53,7 @@ int rwlock_init( rwlock_t *lock ) {
     xSemaphoreGive(lock->resource_lock);
 
     /* this has be a binary semaphore and not a mutex */
-    lock->block_readers_lock = xSemaphoreCreateBinaryStatic(lock->block_readers_lock_mem);
+    lock->block_readers_lock = xSemaphoreCreateBinaryStatic(&(lock->block_readers_lock_mem));
     if (lock->block_readers_lock == NULL) {
         goto ERROR;
     }

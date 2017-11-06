@@ -11,9 +11,26 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "nvs_flash.h"
+#include "wifi_module.h"
 
-/** @brief function that contains wifi task function logic */
-static TaskFunction_t wifi_task_fn;
+const char * const wifi_task_name = "wifi_module_task";
+
+/*****************************************
+ ************ MODULE FUNCTIONS ***********
+ *****************************************/
+
+/**
+ * @brief wifi task logic
+ *
+ * @param pv_parameters - parameters for task being create (should be NULL)
+ *
+ * @return void
+ */
+static void wifi_task_fn( void *pv_parameters ) {
+  printf(" done (wifi)!\n");
+  while(1);
+  return;
+}
 
 /*****************************************
  *********** INTERFACE FUNCTIONS *********
@@ -36,20 +53,4 @@ void wifi_init_task( void ) {
                 NULL /* task handle ( returns an id basically ) */
                );
     fflush(stdout);
-}
-
-/*****************************************
- ************ MODULE FUNCTIONS ***********
- *****************************************/
-
-/**
- * @brief wifi task logic
- *
- * @param pv_parameters - parameters for task being create (should be NULL)
- *
- * @return void
- */
-static void wifi_task_fn( void *pv_parameters ) {
-  printf(" done (wifi)!\n");
-  return;
 }

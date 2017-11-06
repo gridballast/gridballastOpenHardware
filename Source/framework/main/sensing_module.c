@@ -11,9 +11,26 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "nvs_flash.h"
+#include "sensing_module.h"
 
-/** @brief functiont that contains sensing task logic */
-static TaskFunction_t sensing_task_fn;
+const char * const sensing_task_name = "sensing_module_task";
+
+/*****************************************
+ ************ MODULE FUNCTIONS ***********
+ *****************************************/
+
+/**
+ * @brief sensing task logic
+ *
+ * @param pv_parameters - parameters for task being create (should be NULL)
+ *
+ * @return void
+ */
+static void sensing_task_fn( void *pv_parameters ) {
+  printf(" done (sensing)!\n");
+  while(1);
+  return;
+}
 
 /*****************************************
  *********** INTERFACE FUNCTIONS *********
@@ -29,27 +46,11 @@ void sensing_init_task( void ) {
     printf("Intializing Sensing System...");
     xTaskCreate(
                 &sensing_task_fn, /* task function */
-                sensing_task_name, /* wifi task name */
+                sensing_task_name, /* sensing task name */
                 sensingUSStackDepth, /* stack depth */
                 NULL, /* parameters to fn_name */
                 sensingUXPriority, /* task priority */
                 NULL /* task handle ( returns an id basically ) */
                );
     fflush(stdout);
-}
-
-/*****************************************
- ************ MODULE FUNCTIONS ***********
- *****************************************/
-
-/**
- * @brief sensing task logic
- *
- * @param pv_parameters - parameters for task being create (should be NULL)
- *
- * @return void
- */
-static void sensing_task_fn( void *pv_parameters ) {
-  printf(" done (sensing)!\n");
-  return;
 }
