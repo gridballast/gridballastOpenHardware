@@ -44,6 +44,6 @@ void init_task( void *pv_parameters ) {
 void app_main( void ) {
     nvs_flash_init();
     /* initialize gb_system_state to 0's */
-    memset(&gb_system_state, 0, size(gb_system_state));
+    memset(&gb_system_state, 0, sizeof(gb_system_state));
     xTaskCreate( &init_task, "init_task", 2048, NULL, 3, NULL );
 }

@@ -17,7 +17,7 @@
  * @return void
  */
 void get_system_state( system_state_t *dest ) {
-  memcpy(dest, gb_system_state, sizeof(gb_system_state));
+  memcpy(dest, &gb_system_state, sizeof(gb_system_state));
 }
 
 /**
@@ -28,5 +28,5 @@ void get_system_state( system_state_t *dest ) {
  * @return void
  */
 void set_system_state( system_state_t *src ) {
-  memcpy(gb_system_state, src, sizeof(gb_system_state));
+  memcpy(&gb_system_state, src, sizeof(gb_system_state));
 }

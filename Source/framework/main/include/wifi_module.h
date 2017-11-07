@@ -10,7 +10,7 @@
 #define __wifi_module_h_
 
 /** @brief depth of the wifi stack */
-#define wifiUSStackDepth ((unsigned short) 2048) /* bytes */
+#define wifiUSStackDepth ((unsigned short) 4096) /* bytes */
 /** @brief priority of the wifi stack */
 #define wifiUXPriority (2)
 

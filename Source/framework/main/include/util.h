@@ -6,6 +6,8 @@
  * @author Vikram Shanker (vshanker@cmu.edu)
  */
 
+#include "system_state.h"
+
 /** @brief state of the system as defined in grid_ballast_main.c */
 extern system_state_t gb_system_state;
 
