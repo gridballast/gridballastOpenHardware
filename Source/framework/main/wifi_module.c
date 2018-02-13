@@ -12,15 +12,14 @@
 #include "esp_log.h"
 #include "esp_system.h"
 #include "esp_wifi.h"
-#include "freertos/event_groups.h"
 #include "freertos/FreeRTOS.h"
+#include "freertos/event_groups.h"
 #include "freertos/task.h"
+#include "lwip/dns.h"
 #include "lwip/err.h"
+#include "lwip/netdb.h"
 #include "lwip/sockets.h"
 #include "lwip/sys.h"
-#include "lwip/netdb.h"
-#include "lwip/dns.h"
-#include "nvs_flash.h"
 #include "wifi_module.h"
 
 const char * const wifi_task_name = "wifi_module_task";
@@ -60,8 +59,7 @@ static const char *REQUEST = "GET " URI " HTTP/1.1\r\n"
     "User-Agent: esp-idf/1.0 esp32\r\n"
     "\r\n";
 
-static esp_err_t event_handler(void *ctx, system_event_t *event)
-{
+static esp_err_t event_handler(void *ctx, system_event_t *event) {
     switch(event->event_id) {
     case SYSTEM_EVENT_STA_START:
         esp_wifi_connect();
@@ -81,8 +79,7 @@ static esp_err_t event_handler(void *ctx, system_event_t *event)
     return ESP_OK;
 }
 
-static void initialise_wifi(void)
-{
+static void initialise_wifi(void) {
     tcpip_adapter_init();
     wifi_event_group = xEventGroupCreate();
     ESP_ERROR_CHECK( esp_event_loop_init(event_handler, NULL) );
