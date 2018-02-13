@@ -8,16 +8,14 @@
 
 #include <stdio.h>
 #include <string.h> /* memset */
+#include "controller_module.h"
 #include "esp_system.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "nvs_flash.h"
-
-#include "controller_module.h"
-#include "wifi_module.h"
 #include "sensing_module.h"
 #include "system_state.h"
-
+#include "wifi_module.h"
 
 system_state_t gb_system_state;
 
