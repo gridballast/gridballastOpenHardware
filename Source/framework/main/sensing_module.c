@@ -27,9 +27,7 @@ const char * const sensing_task_name = "sensing_module_task";
  * @return void
  */
 static void sensing_task_fn( void *pv_parameters ) {
-  printf(" done (sensing)!\n");
   while(1);
-  return;
 }
 
 /*****************************************

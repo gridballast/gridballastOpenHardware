@@ -57,7 +57,7 @@ unsigned char calculate_checksum(unsigned char* buf, int len) {
 void sendData(unsigned char* bytes, int len) {
     // int parity = checkParity(bytes);
     int uart_num = UART_NUM_2;
-  
+
     uart_write_bytes(uart_num, (const char*)bytes, 1);
 
 
@@ -71,82 +71,7 @@ void sendData(unsigned char* bytes, int len) {
 
 
 static void controller_task_fn( void *pv_parameters ) {
-
-  system_state_t * mystate;
-  
-  
-  esp_task_wdt_feed();
-
-    const int uart_num = UART_NUM_2;
-    uart_config_t uart_config = {
-        .baud_rate = 19200,
-        .data_bits = UART_DATA_8_BITS,
-        .parity = UART_PARITY_EVEN,
-        .stop_bits = UART_STOP_BITS_1,
-        .flow_ctrl = UART_HW_FLOWCTRL_DISABLE,
-        .rx_flow_ctrl_thresh = 122,
-    };
-
-
-    //Configure UART1 parameters
-    uart_param_config(uart_num, &uart_config);
-    //Set UART1 pins(TX: IO4, RX: I05, RTS: IO18, CTS: IO19)
-    uart_set_pin(uart_num, ECHO_TEST_TXD, ECHO_TEST_RXD, ECHO_TEST_RTS, ECHO_TEST_CTS);
-    //Install UART driver (we don't need an event queue here)
-    //In this example we don't even use a buffer for sending data.
-
-    
-    uart_set_rs485_hd_mode(uart_num, true);
-
-    uart_driver_install(uart_num, BUF_SIZE * 2, 0, 0, NULL, 0);
-    //int len = 1;
-   
-    get_system_state(mystate);
-    uint8_t setpoint = mystate->set_point;
-
-
-    unsigned char slave_ok[5] = {0x07,0x01,0x03,0x04,0x0F};
-                    // uart_set_rs485_hd_mode(uart_num, true);
-    uint8_t* data = (uint8_t*) malloc(BUF_SIZE);
-
-
-
-    unsigned char msg_poll_slave[2] = {0x87,0x00};
-    unsigned char mtype2[4] = {0x40,0x09,0x14,0x00};
-
-    unsigned char toptemp;
-    unsigned char bottemp;
-    int flag=0;
-    unsigned char bytes[6] = { 0x87, 0x09, 0x03, setpoint, setpoint, 0x00};
-    bytes[5] = calculate_checksum(bytes, 5);
-
-     while(1) 
-     { 
-
-        int len = uart_read_bytes(uart_num, data, BUF_SIZE, 20 / portTICK_RATE_MS);
-
-
-      
-        if (len > 0 && memcmp(mtype2,data, 4) == 0){
-            mystate -> temp_top = data[15];
-        
-            mystate -> temp_bottom = data[16];
-     
-            set_system_state(mystate);    
-        
-        }
-
-        if (len > 0 && memcmp(msg_poll_slave, data, 2) == 0 && flag == 0) {
-                sendData(bytes,6);
-                flag = 1;
-        }
-        else if(len > 0 && memcmp(msg_poll_slave, data, 2) == 0 && flag == 1){
-           
-            sendData(slave_ok,5);
-        }
-
-    }
-  return;
+    while(1);
 }
 
 /*****************************************
