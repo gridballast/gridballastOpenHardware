@@ -19,7 +19,6 @@
 #include "soc/uart_struct.h"
 #include "util.h"
 
-
 const char * const controller_task_name = "controller_module_task";
 
 /*****************************************
@@ -33,43 +32,6 @@ const char * const controller_task_name = "controller_module_task";
  *
  * @return void
  */
-
-#define ECHO_TEST_TXD  (17)
-#define ECHO_TEST_RXD  (16)
-#define ECHO_TEST_RTS  (22)
-#define ECHO_TEST_CTS  UART_PIN_NO_CHANGE
-
-#define BUF_SIZE (512)
-
-
-
-
-unsigned char calculate_checksum(unsigned char* buf, int len) {
-    unsigned char sum = 0;
-    size_t index = 0;
-    for (; (len>0) && (index < (len)); index++) {
-        sum += buf[index];
-    }
-    return sum;
-}
-
-
-void sendData(unsigned char* bytes, int len) {
-    // int parity = checkParity(bytes);
-    int uart_num = UART_NUM_2;
-
-    uart_write_bytes(uart_num, (const char*)bytes, 1);
-
-
-    for(int i = 1; i < len; i++) {
-        uart_write_bytes(uart_num, (const char*)bytes+i, 1);
-    }
-
-}
-
-
-
-
 static void controller_task_fn( void *pv_parameters ) {
     while(1);
 }

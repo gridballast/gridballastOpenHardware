@@ -25,10 +25,21 @@
 /* this is just a timeout.  It doesn't actually wait 1 second */
 #define BEGIN_TIMEOUT  (1000 / portTICK_RATE_MS)
 
-#define ACK_CHECK_EN   (1)   /* I2C master will check ack from slave */
-#define ACK_CHECK_DIS  (0)   /* I2C master will not check ack from slave */
-#define ACK_VAL        (0)   /* I2C ack value */
-#define NACK_VAL       (1)   /* I2C nack value */
+#ifndef ACK_CHECK_EN
+  #define ACK_CHECK_EN   (1)   /* I2C master will check ack from slave */
+#endif
+
+#ifndef ACK_CHECK_DIS
+  #define ACK_CHECK_DIS  (0)   /* I2C master will not check ack from slave */
+#endif
+
+#ifndef ACK_VAL
+  #define ACK_VAL        (0)   /* I2C ack value */
+#endif
+
+#ifndef NACK_VAL
+  #define NACK_VAL       (1)   /* I2C nack value */
+#endif
 
 
 /**

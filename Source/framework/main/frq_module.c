@@ -5,6 +5,7 @@
 #include "freertos/queue.h"
 #include "freertos/semphr.h"
 #include "freertos/task.h"
+#include "util.h"
 
 #define ESP_INTR_FLAG_DEFAULT 0
 
@@ -19,8 +20,9 @@ int timer_idx = TIMER_0;
 
 uint64_t timer_val = 0;
 float frq = 0.0;
+int status = 0;
 
-extern const char * const frq_task_name = "frq_module_task";
+const char * const frq_task_name = "frq_module_task";
 
 void IRAM_ATTR frq_isr_handler(void* arg) {
   timer_get_counter_value(timer_group, timer_idx, &timer_val);
@@ -29,13 +31,14 @@ void IRAM_ATTR frq_isr_handler(void* arg) {
   xQueueSendFromISR(frq_queue, &timer_val, NULL);
 }
 
-float frq_task(void* arg) {
+void frq_task(void* arg) {
 	// infinite loop
 	uint64_t duration = 0;
 	uint64_t last_val = 0;
 	uint64_t first = -1;
 	uint64_t second = -1;
-	for(;;) {
+	system_state_t mystate;
+  for(;;) {
     // wait for the notification from the ISR
 		uint64_t timer_val;
 		xQueueReceive(frq_queue, &timer_val, portMAX_DELAY);
@@ -52,8 +55,8 @@ float frq_task(void* arg) {
 		last_val = timer_val;
 		if(duration > 15000) {
       frq = 1.0/duration*1000000*1.0;
-			get_system_state(mystate);
-			mystate -> grid_frequency = frq;
+			get_system_state(&mystate);
+			mystate.grid_freq = frq;
 		}
 	}
 }
@@ -84,5 +87,5 @@ void frq_init_task(void *arg) {
     gpio_install_isr_service(ESP_INTR_FLAG_DEFAULT);
     // attach the interrupt service routine
     gpio_isr_handler_add(CONFIG_FRQ_PIN, frq_isr_handler, NULL);
-    xTaskCreate(frq_task, "frq_task", 2048, NULL, 10, NULL);
+    xTaskCreate(&frq_task, "frq_task", 2048, NULL, 10, NULL);
 }

@@ -26,7 +26,7 @@
 #include "Ada_MCP.h"
 #include <driver/gpio.h>
 #include <driver/i2c.h>
-#include "driver/generic_rw_i2c.h"
+#include "generic_rw_i2c.h"
 
 
 

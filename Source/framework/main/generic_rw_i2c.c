@@ -18,7 +18,7 @@
 #include <driver/gpio.h>
 #include <driver/i2c.h>
 
-#include <driver/generic_rw_i2c.h>
+#include "generic_rw_i2c.h"
 
 // Turn this off to not use the internal pullup resistors on the SDA/SCL
 // lines.

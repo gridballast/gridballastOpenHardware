@@ -8,10 +8,11 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/queue.h"
 #include "freertos/task.h"
+#include "util.h"
 
 #define TIMER_DIVIDER   80
 
-extern const char * const ct_task_name = "ct_module_task";
+const char * const ct_task_name = "ct_module_task";
 
 static intr_handle_t s_timer_handle;
 xQueueHandle adc_queue;
@@ -30,7 +31,8 @@ void IRAM_ATTR timer_group0_isr(void *param) {
 }
 
 static void adc_task(void* arg) {
-	while(1){
+	system_state_t mystate;
+  while(1){
     	if (flag == 1) {
     		adc_val[i] = adc1_get_voltage(ADC1_CHANNEL_0) * 0.00087;
     		adc_val[i] = adc_val[i]*adc_val[i];
@@ -44,8 +46,8 @@ static void adc_task(void* arg) {
     		}
     		float curr = sqrt(sum/50.0);       //RMS current
 
-    		get_system_state(mystate);
-			  mystate -> power = curr*120;
+    		get_system_state(&mystate);
+			  mystate.power = curr*120;
     	}
   }
 }

@@ -1,9 +1,10 @@
 #include <math.h>
 #include <stdio.h>
+#include <stdint.h>
 #include <string.h>
-#include "driver/Ada_MCP.h" // IO Expander Library
+#include "Ada_MCP.h" // IO Expander Library
 #include "driver/adc.h"
-#include "driver/generic_rw_i2c.h"
+#include "generic_rw_i2c.h"
 #include "driver/gpio.h"
 #include "driver/spi_master.h"
 #include "driver/timer.h"
@@ -15,19 +16,23 @@
 #include "freertos/task.h"
 #include "u8g2.h" // display driver library
 #include "u8g2_esp32_hal.h" // ESP32 HAL library for u8g2
+#include "util.h"
 
 #define PIN_MCP_RESET 2
 #define PIN_SDA 14
 #define PIN_SCL 15
 #define LEVEL_HIGH 1
-#define I2C_MASTER_FREQ_HZ    400000     /* I2C master clock frequency */
+#define _I2C_MASTER_FREQ_HZ     400000     /* I2C master clock frequency */
+#define TAG "gridballast"
 
 static void task_lcd(void *arg) {
+  system_state_t mystate;
+
   gpio_pad_select_gpio(PIN_MCP_RESET);
   gpio_set_direction(PIN_MCP_RESET, GPIO_MODE_OUTPUT);
   gpio_set_level(PIN_MCP_RESET, LEVEL_HIGH);
   //initialize I2C communication with IO expander
-  generic_i2c_master_init (I2C_NUM_0, PIN_SCL, PIN_SDA, I2C_MASTER_FREQ_HZ);
+  generic_i2c_master_init(I2C_NUM_0, PIN_SCL, PIN_SDA, _I2C_MASTER_FREQ_HZ);
   begin(0);                          /*ADA_MCP function*/
   pinMode(8,GPIO_MODE_OUTPUT);       // LCD reset pin
   digitalWrite(8,0);
@@ -52,15 +57,15 @@ static void task_lcd(void *arg) {
   u8g2_SetContrast(&u8g2, 100);
   u8g2_SetFlipMode(&u8g2, 1);
 
-  get_system_state(mystate);
-  float freq = mystate -> grid_frequency;
+  get_system_state(&mystate);
+  float freq = mystate.grid_freq;
   char str [32];
-  sprintf(str, "freq= %2.2f", );
+  sprintf(str, "freq= %2.2f", freq);
   u8g2_ClearBuffer(&u8g2);
   u8g2_SetFont(&u8g2,u8g2_font_ncenB14_tr);
   u8g2_DrawStr(&u8g2, 20, 20, str);
   u8g2_SendBuffer(&u8g2);
-  ESP_LOGD(tag, "all done");
+  ESP_LOGD(TAG, "all done");
   vTaskDelay(1000);
 }
 
