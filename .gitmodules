@@ -4,3 +4,6 @@
 [submodule "Hardware/Libraries/ublox"]
 	path = Hardware/Libraries/ublox
 	url = https://github.com/u-blox/Altium-Designer-Library.git
+[submodule "esp-idf"]
+	path = Support/esp-idf
+	url = https://github.com/espressif/esp-idf.git
