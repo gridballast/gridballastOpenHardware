@@ -1,9 +1,9 @@
 [submodule "Hardware/Main/AltiumLib"]
 	path = Hardware/Libraries/WiseLab
-	url = git@github.com:WiseLabCMU/AltiumLib.git
+	url = https://github.com/WiseLabCMU/AltiumLib.git
 [submodule "Hardware/Libraries/ublox"]
 	path = Hardware/Libraries/ublox
 	url = https://github.com/u-blox/Altium-Designer-Library.git
-[submodule "esp-idf"]
+[submodule "Support/esp-idf"]
 	path = Support/esp-idf
 	url = https://github.com/espressif/esp-idf.git
