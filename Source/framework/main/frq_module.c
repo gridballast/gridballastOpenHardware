@@ -15,6 +15,8 @@
 
 xQueueHandle frq_queue;
 
+static intr_handle_t s_timer_handle;
+
 int timer_group = TIMER_GROUP_0;
 int timer_idx = TIMER_0;
 
@@ -22,7 +24,44 @@ uint64_t timer_val = 0;
 float frq = 0.0;
 int status = 0;
 
+float avg_frq;
+
+int l =0;
+int flag = 0;
+
 const char * const frq_task_name = "frq_module_task";
+
+
+
+
+//function to check averaging length overflow
+size_t highestOneBitPosition(uint32_t a) {
+    size_t bits=0;
+    while (a!=0) {
+        ++bits;
+        a>>=1;
+    };
+    return bits;
+}
+bool addition_is_safe(uint32_t a) {
+    size_t a_bits=highestOneBitPosition(a), b_bits=highestOneBitPosition(1);
+    return (a_bits<32 && b_bits<32);
+}
+
+
+
+void IRAM_ATTR timer_group0_isr(void *para)
+{
+
+  TIMERG0.int_clr_timers.t1 = 1;
+
+  TIMERG0.hw_timer[TIMER_1].config.alarm_en = 1;
+
+  flag=1;
+
+
+}
+
 
 void IRAM_ATTR frq_isr_handler(void* arg) {
   timer_get_counter_value(timer_group, timer_idx, &timer_val);
@@ -55,6 +94,29 @@ void frq_task(void* arg) {
 		last_val = timer_val;
 		if(duration > 15000) {
       frq = 1.0/duration*1000000*1.0;
+      //printf("frequency is %f\n", frq);
+
+
+
+      if (l == 0)
+       {
+        avg_frq = frq;
+          l+= 1;
+       }
+        avg_frq = (avg_frq*l + frq)/(l+1);
+        if(addition_is_safe(l)) {
+          l+= 1;
+        } else {
+          l = 0;
+        }
+        
+        
+        if(flag == 1) {
+          printf("frequency is %f\n", avg_frq);
+          flag=0;
+        }
+
+
 			get_system_state(&mystate);
 			mystate.grid_freq = frq;
 		}
@@ -71,6 +133,8 @@ void frq_init_task(void *arg) {
 
     frq_queue = xQueueCreate(1, sizeof(timer_val));
 
+
+    //timer to measure frequency
     timer_config_t config;
     config.alarm_en = 0;
     config.auto_reload = 0;
@@ -81,6 +145,31 @@ void frq_init_task(void *arg) {
 
     timer_init(timer_group, timer_idx, &config);
     timer_start(timer_group, timer_idx);
+
+
+    //TIMER FOR REPORTING AVERAGE FREQUENCY
+
+    timer_config_t config1;
+    config1.alarm_en = 1;
+    config1.auto_reload = 1;
+    config1.counter_dir = TIMER_COUNT_UP;
+    config1.divider = 80;
+    config1.intr_type = TIMER_INTR_SEL;
+    config1.counter_en = false;
+
+    timer_init(timer_group, TIMER_1, &config1);
+
+    timer_set_alarm_value(timer_group, TIMER_1, 5000000);             
+  
+    timer_enable_intr(timer_group, TIMER_1);
+
+    timer_isr_register(timer_group, TIMER_1, &timer_group0_isr, NULL, 0, &s_timer_handle);
+
+    timer_start(timer_group, TIMER_1);
+
+
+
+    //GPIO interrupt from 60Hz pulse
     gpio_set_intr_type(CONFIG_FRQ_PIN, GPIO_INTR_ANYEDGE);
 
     // install ISR service with default configuration

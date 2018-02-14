@@ -60,10 +60,10 @@ static void task_lcd(void *arg) {
   get_system_state(&mystate);
   float freq = mystate.grid_freq;
   char str [32];
-  sprintf(str, "freq= %2.2f", freq);
+  //sprintf(str, "freq= %2.2f", freq);
   u8g2_ClearBuffer(&u8g2);
   u8g2_SetFont(&u8g2,u8g2_font_ncenB14_tr);
-  u8g2_DrawStr(&u8g2, 20, 20, str);
+  u8g2_DrawStr(&u8g2, 20, 20, "hi");
   u8g2_SendBuffer(&u8g2);
   ESP_LOGD(TAG, "all done");
   vTaskDelay(1000);
