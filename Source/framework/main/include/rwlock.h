@@ -9,6 +9,7 @@
 
 #ifndef __reader_writer_lock_h_
 #define __reader_writer_lock_h_
+#include "freertos/FreeRTOS.h"
 
 #include <freertos/semphr.h>
 

@@ -10,44 +10,72 @@
 #include "freertos/task.h"
 #include "util.h"
 
+/*work under progress*/
+
 #define TIMER_DIVIDER   80
+
+system_state_t mystate;
+
 
 const char * const ct_task_name = "ct_module_task";
 
 static intr_handle_t s_timer_handle;
-xQueueHandle adc_queue;
+// xQueueHandle adc_queue;
 
-int timer_group = TIMER_GROUP_1;
-int timer_idx = TIMER_1;
-int val;
+int timr_group = TIMER_GROUP_1;
+int timr_idx = TIMER_1;
 int i=0;
 float adc_val[50];
-volatile int flag = 0;
+int ct_flag = 1;
 
-void IRAM_ATTR timer_group0_isr(void *param) {
-	TIMERG0.int_clr_timers.t0 = 1;
-	TIMERG0.hw_timer[timer_idx].config.alarm_en = 1;
-	flag=1;
+void IRAM_ATTR timer_group1_isr(void *param) {
+	TIMERG1.int_clr_timers.t1 = 1;
+	TIMERG1.hw_timer[timr_idx].config.alarm_en = 1;
+	ct_flag=1;
 }
+  
+int sum = 0;
+float curr = 0.0;
 
 static void adc_task(void* arg) {
-	system_state_t mystate;
-  while(1){
-    	if (flag == 1) {
-    		adc_val[i] = adc1_get_voltage(ADC1_CHANNEL_0) * 0.00087;
-    		adc_val[i] = adc_val[i]*adc_val[i];
-    		i++;
-    		flag = 0;
-    	}
-    	if(i== 50) {
-    		int sum = 0;
-    		for(int j=0; j<50; j++) {
-    			sum+= adc_val[j];
-    		}
-    		float curr = sqrt(sum/50.0);       //RMS current
+  
+  while(1) {
 
-    		get_system_state(&mystate);
-			  mystate.power = curr*120;
+    	if (ct_flag == 1) {
+        //timer_disable_intr(timr_group,timr_idx);
+    		adc_val[i] = adc1_get_voltage(ADC1_CHANNEL_0) * 0.00087;
+        //printf("i %d\n", i );
+    		adc_val[i] = adc_val[i]*adc_val[i];
+        sum += adc_val[i];
+    		i++;
+    	  ct_flag = 0;
+        //timer_enable_intr(timr_group,timr_idx);
+    	}
+    	 if(i == 50) {
+    	//if( ct_flag == 1) {
+    		// for(int j=0; j<50; j++) {
+    		// 	sum += adc_val[j];
+    		// }
+        // ct_flag = 0;
+        //printf("Yo %d\n",i );
+    		curr = sqrt(sum/i*1.0);       //RMS current
+        sum = 0;
+        
+        // printf("current is %f\n",  curr);
+
+
+        rwlock_writer_lock(&system_state_lock);
+        get_system_state(&mystate);
+        mystate.power = curr*120.0;
+        set_system_state(&mystate);
+        rwlock_writer_unlock(&system_state_lock);
+
+        //printf("current s %f\n",  mystate.power);
+
+        i=0;
+
+        
+    		
     	}
   }
 }
@@ -62,10 +90,10 @@ void ct_init_task( void ) {
   config.divider = TIMER_DIVIDER;
   config.intr_type = TIMER_INTR_LEVEL;
   config.counter_en = false;
-  timer_init(timer_group, timer_idx, &config);
-  timer_set_alarm_value(timer_group, timer_idx, 320);
-  timer_enable_intr(timer_group, timer_idx);
-  timer_isr_register(timer_group, timer_idx, &timer_group0_isr, NULL, 0, &s_timer_handle);
-  timer_start(timer_group, timer_idx);
-  xTaskCreate(adc_task, "adc_task", 2048, NULL, 10, NULL);
+  timer_init(timr_group, timr_idx, &config);
+  timer_set_alarm_value(timr_group, timr_idx, 5000);
+  timer_enable_intr(timr_group, timr_idx);
+  timer_isr_register(timr_group, timr_idx, &timer_group1_isr, NULL, 0, &s_timer_handle);
+  timer_start(timr_group, timr_idx);
+  xTaskCreate(adc_task, "adc_task", 1024, NULL, 10, NULL);
 }

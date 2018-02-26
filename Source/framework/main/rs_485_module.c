@@ -10,6 +10,9 @@
 #include "freertos/queue.h"
 #include "esp_log.h"
 #include "soc/uart_struct.h"
+#include "util.h"
+
+/* contains commented code which may be needed for further testing*/
 
 
 #define ECHO_TEST_TXD  (17)
@@ -18,6 +21,15 @@
 #define ECHO_TEST_CTS  UART_PIN_NO_CHANGE
 
 #define BUF_SIZE (512)
+
+
+system_state_t mystate;
+
+int ret;
+int currentSetpoint = 0;
+
+const char * const rs485_task_name = "rs485_module_task";
+
 
 
 
@@ -65,12 +77,17 @@ static void rs485_task()
 
 
 
-    //uart_set_rs485_hd_mode(uart_num, true);
+    uart_set_rs485_hd_mode(uart_num, true);
 
     uart_driver_install(uart_num, BUF_SIZE * 2, 0, 0, NULL, 0);
 
+    
+    rwlock_reader_lock(&system_state_lock);
+    get_system_state(&mystate);
+    rwlock_reader_unlock(&system_state_lock);
 
-    uint8_t setpoint = 68;
+    uint8_t setpoint = mystate.set_point;
+    //uint8_t setpoint = 68;
 
 
     unsigned char slave_ok[5] = {0x07,0x01,0x03,0x04,0x0F};
@@ -87,23 +104,81 @@ static void rs485_task()
     unsigned char bytes[6] = { 0x87, 0x09, 0x03, setpoint, setpoint, 0x00};
     bytes[5] = calculate_checksum(bytes, 5);
 
-     while(1) {
-        int len = uart_read_bytes(uart_num, data, BUF_SIZE, 20 / portTICK_RATE_MS);
-        if (len > 0 && memcmp(mtype2,data, 4) == 0){
-            toptemp = data[15];
-            bottemp = data[16];
-        }
-        if (len > 0 && memcmp(msg_poll_slave, data, 2) == 0 && flag == 0) {
+    size_t buf_len;
+    int len = 0;
+    // int ret = 1;
+    int breakFlag = 1;
+     while(1)
+     {
+        //printf("temperature is %d\n",gb_system_state.temp_top);
+        //uart_get_buffered_data_len(uart_num, &buf_len);
+        //if(buf_len > 0) printf("-----buflen%d\n", buf_len);
+
+        if(currentSetpoint != setpoint) {
+            uart_flush(uart_num);
+            len = uart_read_bytes(uart_num, data, BUF_SIZE, 20 / portTICK_RATE_MS);
+            if (len > 0 && memcmp(msg_poll_slave, data, 2) == 0 && flag == 0) {
                 sendData(bytes,6);
+
                 flag = 1;
-        } else if(len > 0 && memcmp(msg_poll_slave, data, 2) == 0 && flag == 1){
-            sendData(slave_ok,5);
+                currentSetpoint = setpoint;
+            } else if(len > 0 && memcmp(msg_poll_slave, data, 2) == 0 && flag == 1){
+                sendData(slave_ok,5);
+            // printf("%s\n", );
+            } 
+        } else {
+            uart_flush(uart_num);
+            len = uart_read_bytes(uart_num, data, BUF_SIZE, 40 / portTICK_RATE_MS);
+            // for(int i = 0; i < len; i++) {
+            //     printf("%02x ", data[i]);
+
+            // }
+
+            if (len > 0 && memcmp(mtype2,data, 4) == 0){
+                toptemp = data[15];
+                bottemp = data[16];
+
+                
+                
+                rwlock_writer_lock(&system_state_lock);
+                get_system_state(&mystate);
+                mystate.temp_top = (uint8_t)toptemp;
+                mystate.temp_bottom = (uint8_t)bottemp;
+                set_system_state(&mystate);
+                rwlock_writer_unlock(&system_state_lock);
+            
+
+    
+            //breakFlag = 0;
+
+            }
         }
+
+
+        
+        
+        // else if(len > 0) {
+        //for(int i = 0; i < len && data[i] != NULL; i++) {
+            //printf("%02x", data[i]);
+        
+        // 
+        memset(data,0,BUF_SIZE);
+        //ret = 0;
+
+
     }
 }
 
-void app_main()
+
+void rs485_init_task()
 {
+    /* temporary testing
+    get_system_state(&mystate);
+    mystate.temp_top = 5;
+    mystate.temp_bottom = 6;
+    set_system_state(&mystate);
+    */
+    //ret = 1;
     xTaskCreate(rs485_task, "rs485_task", 1024, NULL, 10, NULL);
 }
 

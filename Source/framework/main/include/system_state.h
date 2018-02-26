@@ -10,17 +10,20 @@
 #ifndef __system_state_h_
 #define __system_state_h_
 
+#include "rwlock.h"
+
 #define MIC_BUFFER_SIZE 64
+rwlock_t system_state_lock;
 
 /** @brief defines the overall state of the grid ballast system */
 typedef struct {
   int timestamp;
-  int power;
+  float power;
   int mic[MIC_BUFFER_SIZE];
   int leak_sensor;
   int temp_bottom;
   int temp_top;
-  int grid_freq;
+  float grid_freq;
   int gps_location;
   int set_point;
   int heating_status;
