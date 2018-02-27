@@ -77,7 +77,7 @@ static void rs485_task()
 
 
 
-    uart_set_rs485_hd_mode(uart_num, true);
+    //uart_set_rs485_hd_mode(uart_num, true);
 
     uart_driver_install(uart_num, BUF_SIZE * 2, 0, 0, NULL, 0);
 
@@ -104,10 +104,10 @@ static void rs485_task()
     unsigned char bytes[6] = { 0x87, 0x09, 0x03, setpoint, setpoint, 0x00};
     bytes[5] = calculate_checksum(bytes, 5);
 
-    size_t buf_len;
+    //size_t buf_len;
     int len = 0;
     // int ret = 1;
-    int breakFlag = 1;
+    //int breakFlag = 1;
      while(1)
      {
         //printf("temperature is %d\n",gb_system_state.temp_top);

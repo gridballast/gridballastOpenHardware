@@ -19,7 +19,7 @@ xQueueHandle frq_queue;
 
 system_state_t mystate;
 
-static intr_handle_t s_timer_handle;
+//static intr_handle_t s_timer_handle;
 
 int timer_group = TIMER_GROUP_0;
 int timer_idx = TIMER_0;
@@ -65,8 +65,8 @@ void frq_task(void* arg) {
 	// infinite loop
 	uint64_t duration = 0;
 	uint64_t last_val = 0;
-	uint64_t first = -1;
-	uint64_t second = -1;
+	//uint64_t first = -1;
+	//uint64_t second = -1;
 
   for(;;) {
     // wait for the notification from the ISR
@@ -145,7 +145,7 @@ void frq_init_task(void *arg) {
     config.counter_en = TIMER_PAUSE;
 
     timer_init(timer_group, timer_idx, &config);
-    timer_start(timer_group, timer_idx)
+    timer_start(timer_group, timer_idx);
 
     //GPIO interrupt from 60Hz pulse
     gpio_set_intr_type(CONFIG_FRQ_PIN, GPIO_INTR_POSEDGE);
