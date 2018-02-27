@@ -6,4 +6,4 @@
 	url = https://github.com/u-blox/Altium-Designer-Library.git
 [submodule "Support/esp-idf"]
 	path = Support/esp-idf
-	url = https://github.com/espressif/esp-idf.git
+	url = https://github.com/ro269/esp-idf.git
