@@ -30,8 +30,8 @@ const char * const wifi_task_name = "wifi_module_task";
    If you'd rather not, just change the below entries to strings with
    the config you want - ie #define EXAMPLE_WIFI_SSID "mywifissid"
 */
-#define EXAMPLE_WIFI_SSID "alcohol.edu"
-#define EXAMPLE_WIFI_PASS "comethru"
+#define EXAMPLE_WIFI_SSID "CMU"
+#define EXAMPLE_WIFI_PASS ""
 
 /* FreeRTOS event group to signal when we are connected & ready to make a request */
 static EventGroupHandle_t wifi_event_group;
@@ -45,19 +45,25 @@ const int CONNECTED_BIT = BIT0;
 #define HOSTNAME "openchirp.io"
 #define WEB_PORT "7000"
 #define URI "/api/device/5a011bb4f230cf7055615e4c/transducer"
-#define AUTH_USERNAME "5a011bb4f230cf7055615e4c"
-#define AUTH_PASSWORD "2GeDLI3CEisQ9nSWGLhHq6tCabQQ1xb"
-#define AUTHORIZATION "Basic NWEwMTFiYjRmMjMwY2Y3MDU1NjE1ZTRjOnRFNjBxdHlBUzhBUkFRSWNjWksxRDZzZVZ1Sk1NUE5H"
+#define AUTHORIZATION "Basic NWE4MTE2ZTkyOTc4YjUzZWZkNGU2NWFlOjY5ZkpDeTY1bjMza2o1dldrd3k0N3o2ajVPNGJsQQ=="
 
 static const char *TAG = "example";
 
 static const char *REQUEST = "GET " URI " HTTP/1.1\r\n"
     "Host: "HOSTNAME":"WEB_PORT"\r\n"
-    "username: " AUTH_USERNAME"\r\n"
-    "password: " AUTH_PASSWORD"\r\n"
-    "authorization: " AUTHORIZATION"\r\n"
+    "Authorization: " AUTHORIZATION"\r\n"
     "User-Agent: esp-idf/1.0 esp32\r\n"
     "\r\n";
+
+static const char *DATA_REQUEST = "POST /api/device/5a8116e92978b53efd4e65ae/transducer/5a959ff4a447657867c7a23d HTTP/1.1\r\n"
+    "Host: "HOSTNAME":"WEB_PORT"\r\n"
+    "Authorization: " AUTHORIZATION"\r\n"
+    "User-Agent: esp-idf/1.0 esp32\r\n"
+    "Content-Type: text/plain\r\n"
+    "Content-Length: 1\r\n"
+    "\r\n";
+
+static uint8_t data_val = 1;
 
 static esp_err_t event_handler(void *ctx, system_event_t *event) {
     switch(event->event_id) {
@@ -95,6 +101,15 @@ static void initialise_wifi(void) {
     ESP_LOGI(TAG, "Setting WiFi configuration SSID %s...", wifi_config.sta.ssid);
     ESP_ERROR_CHECK( esp_wifi_set_mode(WIFI_MODE_STA) );
     ESP_ERROR_CHECK( esp_wifi_set_config(ESP_IF_WIFI_STA, &wifi_config) );
+
+    // Log MAC address
+    uint8_t mac[6];
+    ESP_ERROR_CHECK( esp_wifi_get_mac(ESP_IF_WIFI_STA, mac) );
+    char mac_str[18];
+    sprintf(mac_str, "%02x:%02x:%02x:%02x:%02x:%02x", mac[0], mac[1], mac[2],
+                                                      mac[3], mac[4], mac[5]);
+    ESP_LOGI(TAG, "My MAC Address: %s", mac_str);
+
     ESP_ERROR_CHECK( esp_wifi_start() );
 }
 
@@ -161,7 +176,14 @@ static void wifi_task_fn( void *pv_parameters ) {
         ESP_LOGI(TAG, "... connected");
         freeaddrinfo(res);
 
-        if (write(s, REQUEST, strlen(REQUEST)) < 0) {
+        char data_buf = '0' + data_val;
+        if (write(s, DATA_REQUEST, strlen(DATA_REQUEST)) < 0) {
+            ESP_LOGE(TAG, "... socket send failed");
+            close(s);
+            vTaskDelay(1000 / portTICK_PERIOD_MS);
+            continue;
+        } else
+        if (write(s, &data_buf, 1) < 0) {
             ESP_LOGE(TAG, "... socket send failed");
             close(s);
             vTaskDelay(1000 / portTICK_PERIOD_MS);
@@ -189,14 +211,20 @@ static void wifi_task_fn( void *pv_parameters ) {
                 putchar(recv_buf[i]);
             }
         } while(r > 0);
+        putchar('\r'); putchar('\n');
 
         ESP_LOGI(TAG, "... done reading from socket. Last read return=%d errno=%d\r\n", r, errno);
         close(s);
-        for(int countdown = 10; countdown >= 0; countdown--) {
+        for(int countdown = 2; countdown >= 0; countdown--) {
             ESP_LOGI(TAG, "%d... ", countdown);
             vTaskDelay(1000 / portTICK_PERIOD_MS);
         }
         ESP_LOGI(TAG, "Starting again!");
+
+        data_val++;
+        if (data_val > 9) {
+            data_val = 1;
+        }
     }
 }
 

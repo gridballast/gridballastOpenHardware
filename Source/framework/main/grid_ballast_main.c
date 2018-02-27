@@ -50,15 +50,15 @@ void init_task( void *pv_parameters ) {
     
 
     
-    //wifi_init_task();
+    wifi_init_task();
     //sensing_init_task();
     //controller_init_task();
 
       
-        frq_init_task();
-        rs485_init_task();
+     //   frq_init_task();
+      //  rs485_init_task();
         //ct_init_task();
-        lcd_init_task();
+      //  lcd_init_task();
         
 
     while(1);
@@ -79,6 +79,6 @@ void app_main( void ) {
     rwlock_init(&system_state_lock);
     printf("Intializing GridBallast system...\n");
 
-    xTaskCreate( &init_task, "init_task", 2048, NULL, 1, NULL );
+    xTaskCreate( &init_task, "init_task", 4096, NULL, 1, NULL );
 }
 
