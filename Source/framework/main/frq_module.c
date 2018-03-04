@@ -145,7 +145,7 @@ void frq_init_task(void *arg) {
     config.counter_en = TIMER_PAUSE;
 
     timer_init(timer_group, timer_idx, &config);
-    timer_start(timer_group, timer_idx)
+    timer_start(timer_group, timer_idx);
 
     //GPIO interrupt from 60Hz pulse
     gpio_set_intr_type(CONFIG_FRQ_PIN, GPIO_INTR_POSEDGE);
