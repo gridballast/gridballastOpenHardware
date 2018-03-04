@@ -50,16 +50,20 @@ void init_task( void *pv_parameters ) {
     
 
     
-    wifi_init_task();
+    //wifi_init_task();
     //sensing_init_task();
     //controller_init_task();
 
       
-     //   frq_init_task();
-      //  rs485_init_task();
+     printf("Initializing frq\n");
+     frq_init_task();
+     printf("Initializing rs485\n");
+     rs485_init_task();
         //ct_init_task();
-      //  lcd_init_task();
+     printf("Initializing lcd\n");
+     lcd_init_task();
         
+     printf("Initialization done\n");
 
     while(1);
 

@@ -19,7 +19,7 @@ xQueueHandle frq_queue;
 
 system_state_t mystate;
 
-//static intr_handle_t s_timer_handle;
+static intr_handle_t s_timer_handle;
 
 int timer_group = TIMER_GROUP_0;
 int timer_idx = TIMER_0;
