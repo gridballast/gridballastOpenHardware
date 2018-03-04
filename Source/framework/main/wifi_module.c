@@ -21,6 +21,9 @@
 #include "lwip/sockets.h"
 #include "lwip/sys.h"
 #include "wifi_module.h"
+#include "util.h"
+
+static system_state_t mystate;
 
 const char * const wifi_task_name = "wifi_module_task";
 
@@ -45,7 +48,7 @@ const int CONNECTED_BIT = BIT0;
 #define HOSTNAME "openchirp.io"
 #define WEB_PORT "7000"
 #define URI "/api/device/5a011bb4f230cf7055615e4c/transducer"
-#define AUTHORIZATION "Basic NWE4MTE2ZTkyOTc4YjUzZWZkNGU2NWFlOjY5ZkpDeTY1bjMza2o1dldrd3k0N3o2ajVPNGJsQQ=="
+#define AUTHORIZATION "Basic NWEwMTFiYjRmMjMwY2Y3MDU1NjE1ZTRjOlA0UUtadGtaMGdqY2dIaU9DdVlnT09VNFNPVEdwODA="
 
 static const char *TAG = "example";
 
@@ -55,7 +58,7 @@ static const char *REQUEST = "GET " URI " HTTP/1.1\r\n"
     "User-Agent: esp-idf/1.0 esp32\r\n"
     "\r\n";
 
-static const char *DATA_REQUEST = "POST /api/device/5a8116e92978b53efd4e65ae/transducer/5a959ff4a447657867c7a23d HTTP/1.1\r\n"
+static const char *DATA_REQUEST = "POST /api/device/5a011bb4f230cf7055615e4c/transducer/5a0164dbf230cf7055615e53 HTTP/1.1\r\n"
     "Host: "HOSTNAME":"WEB_PORT"\r\n"
     "Authorization: " AUTHORIZATION"\r\n"
     "User-Agent: esp-idf/1.0 esp32\r\n"
@@ -68,12 +71,15 @@ static uint8_t data_val = 1;
 static esp_err_t event_handler(void *ctx, system_event_t *event) {
     switch(event->event_id) {
     case SYSTEM_EVENT_STA_START:
+        ESP_LOGI(TAG, "Got event start");
         esp_wifi_connect();
         break;
     case SYSTEM_EVENT_STA_GOT_IP:
+        ESP_LOGI(TAG, "Got event got ip");
         xEventGroupSetBits(wifi_event_group, CONNECTED_BIT);
         break;
     case SYSTEM_EVENT_STA_DISCONNECTED:
+        ESP_LOGI(TAG, "Got event disconnected");
         /* This is a workaround as ESP32 WiFi libs don't currently
            auto-reassociate. */
         esp_wifi_connect();
