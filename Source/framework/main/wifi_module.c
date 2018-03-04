@@ -58,15 +58,11 @@ static const char *REQUEST = "GET " URI " HTTP/1.1\r\n"
     "User-Agent: esp-idf/1.0 esp32\r\n"
     "\r\n";
 
-static const char *DATA_REQUEST = "POST /api/device/5a011bb4f230cf7055615e4c/transducer/5a0164dbf230cf7055615e53 HTTP/1.1\r\n"
+static const char *DATA_REQUEST = "POST /api/device/5a011bb4f230cf7055615e4c/transducer/5a83b4222978b53efd4e65b6 HTTP/1.1\r\n"
     "Host: "HOSTNAME":"WEB_PORT"\r\n"
     "Authorization: " AUTHORIZATION"\r\n"
     "User-Agent: esp-idf/1.0 esp32\r\n"
-    "Content-Type: text/plain\r\n"
-    "Content-Length: 1\r\n"
-    "\r\n";
-
-static uint8_t data_val = 1;
+    "Content-Type: text/plain\r\n";
 
 static esp_err_t event_handler(void *ctx, system_event_t *event) {
     switch(event->event_id) {
@@ -182,14 +178,24 @@ static void wifi_task_fn( void *pv_parameters ) {
         ESP_LOGI(TAG, "... connected");
         freeaddrinfo(res);
 
-        char data_buf = '0' + data_val;
+
+        rwlock_reader_lock(&system_state_lock);
+        get_system_state(&mystate);
+        rwlock_reader_unlock(&system_state_lock);
+
+        char data_buf[16];
+        int body_len = sprintf(data_buf, "%.4f", mystate.grid_freq);
+        char len_and_body[64];
+        int header_len = sprintf(len_and_body, "Content-Length: %d\r\n\r\n", body_len);
+        memcpy(len_and_body + header_len, data_buf, body_len);
+
         if (write(s, DATA_REQUEST, strlen(DATA_REQUEST)) < 0) {
             ESP_LOGE(TAG, "... socket send failed");
             close(s);
             vTaskDelay(1000 / portTICK_PERIOD_MS);
             continue;
         } else
-        if (write(s, &data_buf, 1) < 0) {
+        if (write(s, len_and_body, header_len + body_len) < 0) {
             ESP_LOGE(TAG, "... socket send failed");
             close(s);
             vTaskDelay(1000 / portTICK_PERIOD_MS);
@@ -221,16 +227,11 @@ static void wifi_task_fn( void *pv_parameters ) {
 
         ESP_LOGI(TAG, "... done reading from socket. Last read return=%d errno=%d\r\n", r, errno);
         close(s);
-        for(int countdown = 2; countdown >= 0; countdown--) {
+        for(int countdown = 9; countdown >= 0; countdown--) {
             ESP_LOGI(TAG, "%d... ", countdown);
             vTaskDelay(1000 / portTICK_PERIOD_MS);
         }
         ESP_LOGI(TAG, "Starting again!");
-
-        data_val++;
-        if (data_val > 9) {
-            data_val = 1;
-        }
     }
 }
 
