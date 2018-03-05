@@ -67,11 +67,11 @@ void frq_task(void* arg) {
 	uint64_t last_val = 0;
 	// uint64_t first = -1;
 	// uint64_t second = -1;
-  uint64_t timer_val
+  uint64_t timer_val;
 
   for(;;) {
     // wait for the notification from the ISR
-		;
+		
 		xQueueReceive(frq_queue, &timer_val, portMAX_DELAY);
 
     duration = timer_val - last_val;
@@ -102,7 +102,7 @@ void frq_task(void* arg) {
       }
       if(l >= 200) {
         //printf("frequency is %f\n", avg_frq);
-        freq_values = 0;
+        //freq_values = 0;
         rwlock_writer_lock(&system_state_lock);
         get_system_state(&mystate);
         mystate.grid_freq = avg_frq;
