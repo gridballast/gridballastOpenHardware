@@ -58,7 +58,7 @@ static const char *REQUEST = "GET " URI " HTTP/1.1\r\n"
     "User-Agent: esp-idf/1.0 esp32\r\n"
     "\r\n";
 
-static const char *DATA_REQUEST = "POST /api/device/5a011bb4f230cf7055615e4c/transducer/5a83b4222978b53efd4e65b6 HTTP/1.1\r\n"
+static const char *DATA_REQUEST = "POST /api/device/5a011bb4f230cf7055615e4c/transducer/5a9c8b4fa447657867c7a286 HTTP/1.1\r\n"
     "Host: "HOSTNAME":"WEB_PORT"\r\n"
     "Authorization: " AUTHORIZATION"\r\n"
     "User-Agent: esp-idf/1.0 esp32\r\n"
