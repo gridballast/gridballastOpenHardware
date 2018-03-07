@@ -20,21 +20,11 @@
 #include "lwip/netdb.h"
 #include "lwip/sockets.h"
 #include "lwip/sys.h"
+#include "http_client.h"
 #include "wifi_module.h"
 #include "util.h"
 
-static system_state_t mystate;
-
 const char * const wifi_task_name = "wifi_module_task";
-
-/* The examples use simple WiFi configuration that you can set via
-   'make menuconfig'.
-
-   If you'd rather not, just change the below entries to strings with
-   the config you want - ie #define EXAMPLE_WIFI_SSID "mywifissid"
-*/
-#define EXAMPLE_WIFI_SSID "CMU"
-#define EXAMPLE_WIFI_PASS ""
 
 /* FreeRTOS event group to signal when we are connected & ready to make a request */
 static EventGroupHandle_t wifi_event_group;
@@ -44,25 +34,19 @@ static EventGroupHandle_t wifi_event_group;
    to the AP with an IP? */
 const int CONNECTED_BIT = BIT0;
 
-/* Constants that aren't configurable in menuconfig */
-#define HOSTNAME "openchirp.io"
-#define WEB_PORT "7000"
-#define URI "/api/device/5a011bb4f230cf7055615e4c/transducer"
-#define AUTHORIZATION "Basic NWEwMTFiYjRmMjMwY2Y3MDU1NjE1ZTRjOlA0UUtadGtaMGdqY2dIaU9DdVlnT09VNFNPVEdwODA="
+#define WIFI_SSID "Abraham Linksys"
+#define WIFI_PASS "emancipation1863"
 
-static const char *TAG = "example";
+static const char * const HOSTNAME = "openchirp.io";
+static const int WEB_PORT = 7000;
+static const char * const BASE_URL = "/api/device/5a011bb4f230cf7055615e4c/transducer/";
+static const char * const AUTH_HEADER = "Authorization: Basic NWEwMTFiYjRmMjMwY2Y3MDU1NjE1ZTRjOlA0UUtadGtaMGdqY2dIaU9DdVlnT09VNFNPVEdwODA=";
+static const char * const USER_AGENT_HEADER = "User-Agent: gridballast1.1";
 
-static const char *REQUEST = "GET " URI " HTTP/1.1\r\n"
-    "Host: "HOSTNAME":"WEB_PORT"\r\n"
-    "Authorization: " AUTHORIZATION"\r\n"
-    "User-Agent: esp-idf/1.0 esp32\r\n"
-    "\r\n";
+static const char *TAG = "wifi";
 
-static const char *DATA_REQUEST = "POST /api/device/5a011bb4f230cf7055615e4c/transducer/5a9c8b4fa447657867c7a286 HTTP/1.1\r\n"
-    "Host: "HOSTNAME":"WEB_PORT"\r\n"
-    "Authorization: " AUTHORIZATION"\r\n"
-    "User-Agent: esp-idf/1.0 esp32\r\n"
-    "Content-Type: text/plain\r\n";
+static system_state_t mystate;
+static http_client_t http_client;
 
 static esp_err_t event_handler(void *ctx, system_event_t *event) {
     switch(event->event_id) {
@@ -96,8 +80,8 @@ static void initialise_wifi(void) {
     ESP_ERROR_CHECK( esp_wifi_set_storage(WIFI_STORAGE_RAM) );
     wifi_config_t wifi_config = {
         .sta = {
-            .ssid = EXAMPLE_WIFI_SSID,
-            .password = EXAMPLE_WIFI_PASS,
+            .ssid = WIFI_SSID,
+            .password = WIFI_PASS,
         },
     };
     ESP_LOGI(TAG, "Setting WiFi configuration SSID %s...", wifi_config.sta.ssid);
@@ -119,6 +103,60 @@ static void initialise_wifi(void) {
  ************ MODULE FUNCTIONS ***********
  *****************************************/
 
+static int send_transducer_value(const char *transducer_id, const char *value) {
+    int url_len = strlen(BASE_URL) + strlen(transducer_id);
+    char url[url_len + 1];
+    strcpy(url, BASE_URL);
+    strcat(url, transducer_id);
+    int err = http_req_begin(&http_client, HOSTNAME, WEB_PORT, HTTP_CLIENT_POST, url);
+    if (err == 0) {
+        err = http_req_add_header(&http_client, AUTH_HEADER);
+    }
+    if (err == 0) {
+        err = http_req_add_header(&http_client, USER_AGENT_HEADER);
+    }
+    if (err == 0) {
+        // tell the server to close the connection right away after responding
+        err = http_req_add_header(&http_client, "Connection: close");
+    }
+    if (err == 0) {
+        err = http_req_add_header(&http_client, "Content-Type: text/plain");
+    }
+    if (err == 0) {
+        err = http_req_add_body(&http_client, value, strlen(value));
+    }
+    if (err == 0) {
+        err = http_req_end(&http_client);
+    }
+    if (err == 0) {
+        if (http_client.status_code != STATUS_OK) {
+            ESP_LOGE(TAG, "Received non-200 response");
+            err = -1;
+        }
+    } else {
+        ESP_LOGE(TAG, "Error sending transducer value");
+    }
+
+    if (err == 0) {
+        ESP_LOGI(TAG, "posted to transducer %s, value = %s", transducer_id, value);
+        ESP_LOGI(TAG, "response = %d \"%s\"", http_client.status_code, http_client.buf.data);
+    }
+    return err;
+}
+
+static int send_data() {
+    char data_buf[16]; // make sure this is large enough to hold the sprintf'd value
+    int err = 0;
+
+    if (mystate.grid_freq > 5.0) {
+        const char * const grid_freq_id = "5a9c8b4fa447657867c7a286";
+        sprintf(data_buf, "%.4f", mystate.grid_freq);
+        err = send_transducer_value(grid_freq_id, data_buf);
+    }
+
+    return err;
+}
+
 /**
  * @brief wifi task logic
  *
@@ -127,15 +165,6 @@ static void initialise_wifi(void) {
  * @return void
  */
 static void wifi_task_fn( void *pv_parameters ) {
-  const struct addrinfo hints = {
-        .ai_family = AF_INET,
-        .ai_socktype = SOCK_STREAM,
-    };
-    struct addrinfo *res;
-    struct in_addr *addr;
-    int s, r;
-    char recv_buf[64];
-
     while(1) {
         /* Wait for the callback to set the CONNECTED_BIT in the
            event group.
@@ -144,90 +173,14 @@ static void wifi_task_fn( void *pv_parameters ) {
                             false, true, portMAX_DELAY);
         ESP_LOGI(TAG, "Connected to AP");
 
-        int err = getaddrinfo(HOSTNAME, WEB_PORT, &hints, &res);
-
-        if(err != 0 || res == NULL) {
-            ESP_LOGE(TAG, "DNS lookup failed err=%d res=%p", err, res);
-            vTaskDelay(1000 / portTICK_PERIOD_MS);
-            continue;
-        }
-
-        /* Code to print the resolved IP.
-
-           Note: inet_ntoa is non-reentrant, look at ipaddr_ntoa_r for "real" code */
-        addr = &((struct sockaddr_in *)res->ai_addr)->sin_addr;
-        ESP_LOGI(TAG, "DNS lookup succeeded. IP=%s", inet_ntoa(*addr));
-
-        s = socket(res->ai_family, res->ai_socktype, 0);
-        if(s < 0) {
-            ESP_LOGE(TAG, "... Failed to allocate socket.");
-            freeaddrinfo(res);
-            vTaskDelay(1000 / portTICK_PERIOD_MS);
-            continue;
-        }
-        ESP_LOGI(TAG, "... allocated socket");
-
-        if(connect(s, res->ai_addr, res->ai_addrlen) != 0) {
-            ESP_LOGE(TAG, "... socket connect failed errno=%d", errno);
-            close(s);
-            freeaddrinfo(res);
-            vTaskDelay(1000 / portTICK_PERIOD_MS);
-            continue;
-        }
-
-        ESP_LOGI(TAG, "... connected");
-        freeaddrinfo(res);
-
-
+        // reast system state into local copy
         rwlock_reader_lock(&system_state_lock);
         get_system_state(&mystate);
         rwlock_reader_unlock(&system_state_lock);
+        // send data to openchirp
+        send_data();
 
-        char data_buf[16];
-        int body_len = sprintf(data_buf, "%.4f", mystate.grid_freq);
-        char len_and_body[64];
-        int header_len = sprintf(len_and_body, "Content-Length: %d\r\n\r\n", body_len);
-        memcpy(len_and_body + header_len, data_buf, body_len);
-
-        if (write(s, DATA_REQUEST, strlen(DATA_REQUEST)) < 0) {
-            ESP_LOGE(TAG, "... socket send failed");
-            close(s);
-            vTaskDelay(1000 / portTICK_PERIOD_MS);
-            continue;
-        } else
-        if (write(s, len_and_body, header_len + body_len) < 0) {
-            ESP_LOGE(TAG, "... socket send failed");
-            close(s);
-            vTaskDelay(1000 / portTICK_PERIOD_MS);
-            continue;
-        }
-        ESP_LOGI(TAG, "... socket send success");
-
-        struct timeval receiving_timeout;
-        receiving_timeout.tv_sec = 5;
-        receiving_timeout.tv_usec = 0;
-        if (setsockopt(s, SOL_SOCKET, SO_RCVTIMEO, &receiving_timeout,
-                sizeof(receiving_timeout)) < 0) {
-            ESP_LOGE(TAG, "... failed to set socket receiving timeout");
-            close(s);
-            vTaskDelay(1000 / portTICK_PERIOD_MS);
-            continue;
-        }
-        ESP_LOGI(TAG, "... set socket receiving timeout success");
-
-        /* Read HTTP response */
-        do {
-            bzero(recv_buf, sizeof(recv_buf));
-            r = read(s, recv_buf, sizeof(recv_buf)-1);
-            for(int i = 0; i < r; i++) {
-                putchar(recv_buf[i]);
-            }
-        } while(r > 0);
-        putchar('\r'); putchar('\n');
-
-        ESP_LOGI(TAG, "... done reading from socket. Last read return=%d errno=%d\r\n", r, errno);
-        close(s);
-        for(int countdown = 9; countdown >= 0; countdown--) {
+        for (int countdown = 9; countdown >= 0; countdown--) {
             ESP_LOGI(TAG, "%d... ", countdown);
             vTaskDelay(1000 / portTICK_PERIOD_MS);
         }
