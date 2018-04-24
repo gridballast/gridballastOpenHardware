@@ -177,9 +177,8 @@ void app_main( void )
     rwlock_init(&i2c_lock);
     printf("Intializing GridBallast system...\n");
 
-<<<<<<< HEAD
+
     xTaskCreate( &init_task, "init_task", 4096, NULL, 1, NULL );
-=======
     
 
     gpio_pad_select_gpio(PIN_MCP_RESET);
@@ -221,6 +220,6 @@ void app_main( void )
   // gpio_isr_handler_add(4, mcp_isr_handler, NULL);
 
   xTaskCreate( &init_task, "init_task", 2048, NULL, 1, NULL );
->>>>>>> f234cb6f0023cc1752363da91cd32a079ba0176d
+
 }
 
