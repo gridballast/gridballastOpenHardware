@@ -27,10 +27,10 @@ int timer_idx = TIMER_0;
 uint64_t timer_val = 0;
 float frq = 0.0;
 int status = 0;
-int freq_values = 63;
+// int freq_values = 63;
 float avg_frq = 0;
 
-int l = -1;
+int l = 0;
 int flag = 0;
 
 const char * const frq_task_name = "frq_module_task";
@@ -38,19 +38,19 @@ const char * const frq_task_name = "frq_module_task";
 
 
 
-//functions to check averaging length overflow
-size_t highestOneBitPosition(uint32_t a) {
-    size_t bits=0;
-    while (a!=0) {
-        ++bits;
-        a>>=1;
-    };
-    return bits;
-}
-bool addition_is_safe(uint32_t a) {
-    size_t a_bits=highestOneBitPosition(a), b_bits=highestOneBitPosition(2);
-    return (a_bits<32 && b_bits<32);
-}
+// //functions to check averaging length overflow
+// size_t highestOneBitPosition(uint32_t a) {
+//     size_t bits=0;
+//     while (a!=0) {
+//         ++bits;
+//         a>>=1;
+//     };
+//     return bits;
+// }
+// bool addition_is_safe(uint32_t a) {
+//     size_t a_bits=highestOneBitPosition(a), b_bits=highestOneBitPosition(2);
+//     return (a_bits<32 && b_bits<32);
+// }
 
 
 
@@ -65,12 +65,13 @@ void frq_task(void* arg) {
 	// infinite loop
 	uint64_t duration = 0;
 	uint64_t last_val = 0;
-	uint64_t first = -1;
-	uint64_t second = -1;
+	// uint64_t first = -1;
+	// uint64_t second = -1;
+  uint64_t timer_val;
 
   for(;;) {
     // wait for the notification from the ISR
-		uint64_t timer_val;
+		
 		xQueueReceive(frq_queue, &timer_val, portMAX_DELAY);
 
     duration = timer_val - last_val;
@@ -91,31 +92,24 @@ void frq_task(void* arg) {
       
 
 
-      if (l < 0)
+      if (frq > 50)
       {
-        //avg_frq = frq;
-          l+= 1;
-      } else {
         avg_frq = (avg_frq*l + frq)/(l+1);
 
-        freq_values++;
+        // freq_values++;
   
-        if(addition_is_safe(l)) {
-          l+= 1;
-        } else {
-          l = 0;
-          avg_frq = 0;
-        }
+        l++;
       }
-      if(freq_values >= 200) {
+      if(l >= 200) {
         //printf("frequency is %f\n", avg_frq);
-        freq_values = 0;
+        //freq_values = 0;
         rwlock_writer_lock(&system_state_lock);
         get_system_state(&mystate);
         mystate.grid_freq = avg_frq;
         set_system_state(&mystate);
         rwlock_writer_unlock(&system_state_lock);
-
+        l = 0;
+        avg_frq = 0;
         
       }  
 			

@@ -55,7 +55,7 @@ GenerateClassCluster=0
 DocumentUniqueId=EAKBBAVC
 
 [Document2]
-DocumentPath=CTA2045v2.PcbDoc
+DocumentPath=CTA2045v1.1.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -581,64 +581,89 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
+[Document33]
+DocumentPath=CTA2045.BomDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
 [GeneratedDocument1]
-DocumentPath=v2\CTA2045v2.DRR
+DocumentPath=.\2018-02-09\Bill of Materials-CTA2045.xls
 DItemRevisionGUID=
 
 [GeneratedDocument2]
-DocumentPath=v2\CTA2045v2.EXTREP
+DocumentPath=.\2018-02-09\CTA2045v1.1.DRR
 DItemRevisionGUID=
 
 [GeneratedDocument3]
-DocumentPath=v2\CTA2045v2.GBL
+DocumentPath=.\2018-02-09\CTA2045v1.1.EXTREP
 DItemRevisionGUID=
 
 [GeneratedDocument4]
-DocumentPath=v2\CTA2045v2.GBO
+DocumentPath=.\2018-02-09\CTA2045v1.1.GBL
 DItemRevisionGUID=
 
 [GeneratedDocument5]
-DocumentPath=v2\CTA2045v2.GBP
+DocumentPath=.\2018-02-09\CTA2045v1.1.GBO
 DItemRevisionGUID=
 
 [GeneratedDocument6]
-DocumentPath=v2\CTA2045v2.GBS
+DocumentPath=.\2018-02-09\CTA2045v1.1.GBP
 DItemRevisionGUID=
 
 [GeneratedDocument7]
-DocumentPath=v2\CTA2045v2.GKO
+DocumentPath=.\2018-02-09\CTA2045v1.1.GBS
 DItemRevisionGUID=
 
 [GeneratedDocument8]
-DocumentPath=v2\CTA2045v2.GTL
+DocumentPath=.\2018-02-09\CTA2045v1.1.GKO
 DItemRevisionGUID=
 
 [GeneratedDocument9]
-DocumentPath=v2\CTA2045v2.GTO
+DocumentPath=.\2018-02-09\CTA2045v1.1.GTL
 DItemRevisionGUID=
 
 [GeneratedDocument10]
-DocumentPath=v2\CTA2045v2.GTP
+DocumentPath=.\2018-02-09\CTA2045v1.1.GTO
 DItemRevisionGUID=
 
 [GeneratedDocument11]
-DocumentPath=v2\CTA2045v2.GTS
+DocumentPath=.\2018-02-09\CTA2045v1.1.GTP
 DItemRevisionGUID=
 
 [GeneratedDocument12]
-DocumentPath=v2\CTA2045v2.LDP
+DocumentPath=.\2018-02-09\CTA2045v1.1.GTS
 DItemRevisionGUID=
 
 [GeneratedDocument13]
-DocumentPath=v2\CTA2045v2.REP
+DocumentPath=.\2018-02-09\CTA2045v1.1.LDP
 DItemRevisionGUID=
 
 [GeneratedDocument14]
-DocumentPath=v2\CTA2045v2.RUL
+DocumentPath=.\2018-02-09\CTA2045v1.1.REP
 DItemRevisionGUID=
 
 [GeneratedDocument15]
-DocumentPath=v2\CTA2045v2.TXT
+DocumentPath=.\2018-02-09\CTA2045v1.1.RUL
+DItemRevisionGUID=
+
+[GeneratedDocument16]
+DocumentPath=.\2018-02-09\CTA2045v1.1.TXT
+DItemRevisionGUID=
+
+[GeneratedDocument17]
+DocumentPath=.\2018-02-09\Pick Place for CTA2045v1.1.txt
 DItemRevisionGUID=
 
 [Configuration1]

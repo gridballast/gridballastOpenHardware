@@ -78,7 +78,7 @@ void init_task( void *pv_parameters ) {
     // temporary snippet to change thermostat set point
     rwlock_writer_lock(&system_state_lock);
     get_system_state(&gb_system_state);
-    gb_system_state.set_point = 125;
+    gb_system_state.set_point = 122;
     set_system_state(&gb_system_state);
     rwlock_writer_unlock(&system_state_lock);
     
