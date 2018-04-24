@@ -10,10 +10,8 @@
 #ifndef __system_state_h_
 #define __system_state_h_
 
-#include "rwlock.h"
 
 #define MIC_BUFFER_SIZE 64
-rwlock_t system_state_lock;
 
 /** @brief defines the overall state of the grid ballast system */
 typedef struct {

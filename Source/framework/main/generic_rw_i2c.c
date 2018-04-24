@@ -62,7 +62,7 @@ uint8_t generic_read_i2c_register(uint8_t hwaddr, uint8_t regaddr)
     i2c_master_write_byte(cmd, (hwaddr << 1) | I2C_MASTER_WRITE, ACK_CHECK_EN);
     i2c_master_write_byte(cmd, regaddr, NACK_VAL);
     i2c_master_stop(cmd);
-    i2c_master_cmd_begin(I2C_NUM_0, cmd, BEGIN_TIMEOUT);
+    i2c_master_cmd_begin(I2C_NUM_1, cmd, BEGIN_TIMEOUT);
     i2c_cmd_link_delete(cmd);
 
     cmd = i2c_cmd_link_create();
@@ -70,7 +70,7 @@ uint8_t generic_read_i2c_register(uint8_t hwaddr, uint8_t regaddr)
     i2c_master_write_byte(cmd, (hwaddr << 1) | I2C_MASTER_READ, ACK_CHECK_EN);
     i2c_master_read_byte(cmd, &retval, (i2c_ack_type_t)NACK_VAL);
     i2c_master_stop(cmd);
-    i2c_master_cmd_begin(I2C_NUM_0, cmd, BEGIN_TIMEOUT);
+    i2c_master_cmd_begin(I2C_NUM_1, cmd, BEGIN_TIMEOUT);
     i2c_cmd_link_delete(cmd);
     return retval;
 }
@@ -89,7 +89,7 @@ uint16_t generic_read_i2c_register_word(uint8_t hwaddr, uint8_t regaddr)
     i2c_master_write_byte(cmd, (hwaddr << 1) | I2C_MASTER_WRITE, ACK_CHECK_EN);
     i2c_master_write_byte(cmd, regaddr, ACK_CHECK_EN);
     i2c_master_stop(cmd);
-    i2c_master_cmd_begin(I2C_NUM_0, cmd, BEGIN_TIMEOUT);
+    i2c_master_cmd_begin(I2C_NUM_1, cmd, BEGIN_TIMEOUT);
     i2c_cmd_link_delete(cmd);
 
     cmd = i2c_cmd_link_create();
@@ -98,7 +98,7 @@ uint16_t generic_read_i2c_register_word(uint8_t hwaddr, uint8_t regaddr)
     i2c_master_read_byte(cmd, (uint8_t *)&res, (i2c_ack_type_t)ACK_VAL);
     i2c_master_read_byte(cmd, &res2, (i2c_ack_type_t)NACK_VAL);
     i2c_master_stop(cmd);
-    i2c_master_cmd_begin(I2C_NUM_0, cmd, BEGIN_TIMEOUT);
+    i2c_master_cmd_begin(I2C_NUM_1, cmd, BEGIN_TIMEOUT);
     i2c_cmd_link_delete(cmd);
 
     return (res << 8) | res2;
@@ -116,7 +116,7 @@ void generic_write_i2c_register(uint8_t hwaddr, uint8_t regaddr, uint8_t value)
     i2c_master_write_byte(cmd, regaddr, ACK_CHECK_EN);
     i2c_master_write_byte(cmd, value, NACK_VAL);
     i2c_master_stop(cmd);
-    i2c_master_cmd_begin(I2C_NUM_0, cmd, BEGIN_TIMEOUT);
+    i2c_master_cmd_begin(I2C_NUM_1, cmd, BEGIN_TIMEOUT);
     i2c_cmd_link_delete(cmd);
 }
 
@@ -133,7 +133,7 @@ void generic_write_i2c_register_word(uint8_t hwaddr, uint8_t regaddr, uint16_t v
     i2c_master_write_byte(cmd, value & 0xff, ACK_VAL);
     i2c_master_write_byte(cmd, value >> 8, NACK_VAL);
     i2c_master_stop(cmd);
-    i2c_master_cmd_begin(I2C_NUM_0, cmd, BEGIN_TIMEOUT);
+    i2c_master_cmd_begin(I2C_NUM_1, cmd, BEGIN_TIMEOUT);
     i2c_cmd_link_delete(cmd);
 }
 
