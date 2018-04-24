@@ -11,8 +11,11 @@
 
 #include <stdlib.h>
 #include "freertos/FreeRTOS.h"
-#include "freertos/semphr.h"
+#include <freertos/semphr.h>
 #include "rwlock.h"
+
+//#define xSemaphoreCreateMutexStatic( pxMutexBuffer )
+//#define xSemaphoreCreateBinaryStatic( pxStaticSemaphore )
 
 #define BLOCK_INDEFINITE portMAX_DELAY
 

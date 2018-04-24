@@ -33,3 +33,25 @@ This small accessory board holds the connector to support CTA2045 and other RS48
 ![CTA2045 Board V1 3D](Hardware/CTA2045/Info/CTA2045BoardV1-3D.png)
 
 [Interactive 3D View](Hardware/CTA2045/Info/CTA2045v1.stl)
+
+# Getting Started
+1. Clone the repository
+    ```
+    $ git clone --recursive https://github.com/WiseLabCMU/gridballast.git
+    ```
+1. Setup toolchain and esp-idf. Add to your `~/.profile`:
+    ```
+    export PATH="$PATH:<path/to/gridballastt>/xtensa-esp32-elf/bin"
+    export IDF_PATH="<path/to/gridballast>/Support/esp-idf"
+    ```
+1. Build the controller module
+    ```
+    $ cd Source/framework
+    $ make
+    ```
+    In the framework configuration, navigate to "Serial flasher config" and select the default serial port. This can be determined by checking which device appears in `/dev` when the controller module is connected via USB. It should start with `/dev/ttyUSB`.
+    Save and exit the configuration interface.
+1. Flash the controller
+    ```
+    $ make flash
+    ```
