@@ -131,5 +131,5 @@ void frq_init_task(void *arg) {
     //gpio_install_isr_service(ESP_INTR_FLAG_DEFAULT);
     // attach the interrupt service routine
     gpio_isr_handler_add(CONFIG_FRQ_PIN, frq_isr_handler, NULL);
-    xTaskCreate(frq_task, "frq_task", 2048, NULL, 5, NULL);
+    xTaskCreatePinnedToCore(frq_task, "frq_task", 2048, NULL, 5, NULL,1);
 }
