@@ -130,7 +130,7 @@ void ct_init_task( void ) {
   timer_enable_intr(timr_group, timr_idx);
   timer_isr_register(timr_group, timr_idx, &timer_group1_isr, NULL, 0, &s_timer_handle);
   timer_start(timr_group, timr_idx);
-  xTaskCreate(adc_task, "adc_task", 1024, NULL, 10, NULL);
+  xTaskCreatePinnedToCore(adc_task, "adc_task", 1024, NULL, 10, NULL,0);
 
   //xTaskCreate(relay_task, "adc_task", 1024, NULL, 10, NULL);
 

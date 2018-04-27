@@ -94,9 +94,9 @@ void init_task( void *pv_parameters ) {
         
         lcd_init_task();
 // 
-        //button_init_task();
+        button_init_task();
 
-        //ct_init_task();
+        ct_init_task();
 
        
         //vTaskDelay(500/portTICK_PERIOD_MS);

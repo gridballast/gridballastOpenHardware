@@ -193,7 +193,7 @@ void button_init_task( void ) {
 
 
 
-  xTaskCreate(mcp_task, "mcp_task", 1024, NULL, 10, NULL);
+  xTaskCreatePinnedToCore(mcp_task, "mcp_task", 1024, NULL, 10, NULL,0);
 
   // pinMode(4,GPIO_MODE_OUTPUT);       // test o/p
 
