@@ -84,7 +84,7 @@ void init_task( void *pv_parameters ) {
     
 
     
-    wifi_init_task();
+    //wifi_init_task();
     //sensing_init_task();
     //controller_init_task();
 
@@ -219,7 +219,7 @@ void app_main( void )
   // gpio_install_isr_service(ESP_INTR_FLAG_DEFAULT);
   // gpio_isr_handler_add(4, mcp_isr_handler, NULL);
 
-  xTaskCreate( &init_task, "init_task", 2048, NULL, 1, NULL );
+  //xTaskCreate( &init_task, "init_task", 2048, NULL, 1, NULL );
 
 }
 
