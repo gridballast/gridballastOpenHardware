@@ -102,14 +102,18 @@ void mcp_task(void* arg)
     //     first = 1;
     // //     //delay(500);
     // }
-    vTaskDelay(500/portTICK_PERIOD_MS);
+    vTaskDelay(300/portTICK_PERIOD_MS);
 
     uint8_t pin=getLastInterruptPin();
     uint8_t val=getLastInterruptPinValue();
+
+    rwlock_reader_lock(&system_state_lock);
+    get_system_state(&mystate);
+    rwlock_reader_unlock(&system_state_lock);
     // printf("%u ",pin);
     // printf("%u \n", val );
      // Here either the button has been pushed or released.
-    if ( pin ==3 && val == 0) 
+    if ( pin == 0 && val == 0) 
         { //  Test for release - pin pulled high
         // if ( ledState ) {
         //    gpio_set_level(13, LEVEL_HIGH);
@@ -130,14 +134,70 @@ void mcp_task(void* arg)
         button = 0;
 
         //printf("hello1\n");
+
+        
+
+      //if ( strcmp(mystate.mode, "N")== 0)
+      if ( mystate.mode == 0)
+      {
+        rwlock_writer_lock(&system_state_lock);
+        get_system_state(&gb_system_state);
+        gb_system_state.set_point ++ ;
+        set_system_state(&gb_system_state);
+        rwlock_writer_unlock(&system_state_lock);
+      }
+
+
+    }
+
+    if( pin == 2 && val == 0)
+    {
+        button = 0;
+
+        //printf("hello1\n");
+        // rwlock_reader_lock(&system_state_lock);
+        // get_system_state(&mystate);
+        // rwlock_reader_unlock(&system_state_lock);
+
+      //if (strcmp(mystate.mode,"N")==0)
+      if ( mystate.mode == 0)
+      {
+            rwlock_writer_lock(&system_state_lock);
+            get_system_state(&gb_system_state);
+            gb_system_state.set_point -- ;
+            set_system_state(&gb_system_state);
+            rwlock_writer_unlock(&system_state_lock);
+       }
+
+    }
+
+     if( pin == 1 && val == 0)
+    {
+        button = 0;
+
+        //printf("hello1\n");
         rwlock_writer_lock(&system_state_lock);
     get_system_state(&gb_system_state);
-    gb_system_state.set_point ++ ;
+    gb_system_state.mode = 0;
     set_system_state(&gb_system_state);
     rwlock_writer_unlock(&system_state_lock);
 
+    }
 
-        }
+     if( pin == 3 && val == 0)
+    {
+        button = 0;
+
+        //printf("hello1\n");
+        rwlock_writer_lock(&system_state_lock);
+    get_system_state(&gb_system_state);
+    gb_system_state.mode = 1;
+    set_system_state(&gb_system_state);
+    rwlock_writer_unlock(&system_state_lock);
+
+    }
+
+
     // vTaskDelay(200/portTICK_PERIOD_MS);    
     // i2c_driver_delete(I2C_NUM_0);
     // vTaskDelay(500/portTICK_PERIOD_MS);
@@ -187,13 +247,25 @@ void button_init_task( void ) {
   pullUp(3,1);
   setupInterruptPin(3,GPIO_INTR_NEGEDGE);
 
+  pinMode(2,GPIO_MODE_INPUT);
+  pullUp(2,1);
+  setupInterruptPin(2,GPIO_INTR_NEGEDGE);
+
+  pinMode(1,GPIO_MODE_INPUT);
+  pullUp(1,1);
+  setupInterruptPin(1,GPIO_INTR_NEGEDGE);
+
+  pinMode(0,GPIO_MODE_INPUT);
+  pullUp(0,1);
+  setupInterruptPin(0,GPIO_INTR_NEGEDGE);
+
   gpio_set_intr_type(4, GPIO_INTR_NEGEDGE);       //esp32 interrupt GPIO4
   //gpio_install_isr_service(ESP_INTR_FLAG_DEFAULT);
   gpio_isr_handler_add(4, mcp_isr_handler, NULL);
 
 
 
-  xTaskCreatePinnedToCore(mcp_task, "mcp_task", 1024, NULL, 10, NULL,0);
+  xTaskCreatePinnedToCore(mcp_task, "mcp_task", 1024, NULL, 7, NULL,0);
 
   // pinMode(4,GPIO_MODE_OUTPUT);       // test o/p
 

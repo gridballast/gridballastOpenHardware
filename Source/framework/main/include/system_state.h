@@ -22,10 +22,12 @@ typedef struct {
   int temp_bottom;
   int temp_top;
   float grid_freq;
+  float threshold_overfrq;
+  float threshold_underfrq;
   int gps_location;
   int set_point;
   int heating_status;
-  int mode; // This should be converted to an enum?
+  int mode ; // This should be converted to an enum?
 } system_state_t;
 
 #endif /* __system_state_h_ */

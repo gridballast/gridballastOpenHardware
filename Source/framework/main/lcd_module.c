@@ -59,7 +59,9 @@ static void task_lcd(void *arg) {
   float pwr = 0;
   int t1 = 0;
   int t2 = 0;
+  int m =0;
   char str [32];
+
   u8g2_t u8g2;
 
   // initialize u8g2 structure
@@ -89,6 +91,9 @@ while(1)
 
     //printf("%s\n","pwr" );
     pwr = mystate.power;
+
+    m = mystate.mode;
+
     //printf("%s\n","pwr" );
 
     int sp = mystate.set_point;
@@ -115,8 +120,10 @@ while(1)
     sprintf(str,"Ts:%dF",sp);
     u8g2_DrawStr(&u8g2, 10, 40, str);
 
-    sprintf(str,"Mode:N ");
+   
+    sprintf(str,"Mode:%d ",m);
     u8g2_DrawStr(&u8g2, 70, 40, str);
+    
 
     sprintf(str,"Power: %3.2f", pwr);
     u8g2_DrawStr(&u8g2, 10, 25, str);
