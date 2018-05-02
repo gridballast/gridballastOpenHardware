@@ -7,9 +7,12 @@
  */
 
 #include "system_state.h"
-
+#include "rwlock.h"
 /** @brief state of the system as defined in grid_ballast_main.c */
 extern system_state_t gb_system_state;
+extern rwlock_t system_state_lock;
+extern rwlock_t i2c_lock;
+
 
 /**
  * @brief get a copy of the system state

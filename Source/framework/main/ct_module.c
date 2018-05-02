@@ -1,6 +1,11 @@
 #include <math.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdint.h>
+
+
+#include "Ada_MCP.h" // IO Expander Library
+#include "generic_rw_i2c.h"  // generic I2C read/write functions
 #include "driver/adc.h"
 #include "driver/timer.h"
 #include "esp_spi_flash.h"
@@ -11,16 +16,26 @@
 #include "util.h"
 
 /*work under progress*/
+#define ESP_INTR_FLAG_DEFAULT 0
+
+#define TAG "gridballast"
+//uint8_t p,v;
 
 #define TIMER_DIVIDER   80
 
 system_state_t mystate;
 
+rwlock_t i2c_lock;
 
 const char * const ct_task_name = "ct_module_task";
 
 static intr_handle_t s_timer_handle;
 // xQueueHandle adc_queue;
+
+
+// int flag =0;
+// bool ledState = true;
+
 
 int timr_group = TIMER_GROUP_1;
 int timr_idx = TIMER_1;
@@ -80,6 +95,26 @@ static void adc_task(void* arg) {
   }
 }
 
+static void relay_task(void* arg)
+{
+  while(1)
+  {
+     rwlock_reader_lock(&system_state_lock);
+    get_system_state(&mystate);
+    rwlock_reader_unlock(&system_state_lock);
+
+    if (mystate.set_point > 127)
+    {
+      rwlock_writer_lock(&i2c_lock);  
+      begin(0);
+      pinMode(4,GPIO_MODE_OUTPUT); 
+      digitalWrite(4,1);
+      rwlock_writer_unlock(&i2c_lock);  
+    }
+  }
+}
+
+
 void ct_init_task( void ) {
   adc1_config_width(ADC_WIDTH_12Bit);
   adc1_config_channel_atten(ADC1_CHANNEL_0,ADC_ATTEN_11db);
@@ -95,5 +130,9 @@ void ct_init_task( void ) {
   timer_enable_intr(timr_group, timr_idx);
   timer_isr_register(timr_group, timr_idx, &timer_group1_isr, NULL, 0, &s_timer_handle);
   timer_start(timr_group, timr_idx);
-  xTaskCreate(adc_task, "adc_task", 1024, NULL, 10, NULL);
+  xTaskCreatePinnedToCore(adc_task, "adc_task", 1024, NULL, 10, NULL,0);
+
+  //xTaskCreate(relay_task, "adc_task", 1024, NULL, 10, NULL);
+
+
 }

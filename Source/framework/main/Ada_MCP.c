@@ -225,15 +225,17 @@ void setupInterrupts(uint8_t mirroring, uint8_t openDrain, uint8_t polarity){
 void setupInterruptPin(uint8_t pin, uint8_t mode) {
 
     // set the pin interrupt control (0 means change, 1 means compare against given value);
-//  updateRegisterBit(pin,(mode!=CHANGE),MCP23017_INTCONA,MCP23017_INTCONB);
+   //updateRegisterBit(pin,(mode!=CHANGE),MCP23017_INTCONA,MCP23017_INTCONB);
+      updateRegisterBit(pin,(mode!=GPIO_INTR_ANYEDGE),MCP23017_INTCONA,MCP23017_INTCONB);
+
     // if the mode is not CHANGE, we need to set up a default value, different value triggers interrupt
 
     // In a RISING interrupt the default value is 0, interrupt is triggered when the pin goes to 1.
     // In a FALLING interrupt the default value is 1, interrupt is triggered when pin goes to 0.
-//  updateRegisterBit(pin,(mode==FALLING),MCP23017_DEFVALA,MCP23017_DEFVALB);
+   updateRegisterBit(pin,(mode==GPIO_INTR_NEGEDGE),MCP23017_DEFVALA,MCP23017_DEFVALB);
 
     // enable the pin for interrupt
-//  updateRegisterBit(pin,HIGH,MCP23017_GPINTENA,MCP23017_GPINTENB);
+   updateRegisterBit(pin,1,MCP23017_GPINTENA,MCP23017_GPINTENB);
 
 }
 
