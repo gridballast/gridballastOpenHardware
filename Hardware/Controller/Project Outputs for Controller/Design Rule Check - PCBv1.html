@@ -1,0 +1,522 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD18\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">5/1/2018</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">10:09:37 AM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:04</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc" class="file"><acronym title="C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc">C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">38</td></tr>
+</table>
+</td>
+</table><a name="IDDL03WGIKSK3RPKQ3CJNAG4XAIOI3AKPEVX4KHZCQVYPCGZRW42ZD"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDKUOEX005CUK5BI3DN2LSLWMTND2BYWVQMR3PU3EVLBIKCJT0A2UB">Clearance Constraint (Gap=12mil) (InNetClass('RF50')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDQGUZ3M3LMZMJIRI1Q3BPLGZ0YLDE5AHCEXYHS1M5A5FZTYQAYSXC">Clearance Constraint (Gap=6mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDBLM40UIC1Z15FKF4RKUHVHQC0HTU2FY30SU4CGPFDXNR5IIWGZLN">Clearance Constraint (Gap=0mil) (All),(IsKeepOut)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDERGB31I5BDOCHCO3NU5Z3B5FXG0GUSMDXPAHKLI0E0JTYRB1A3GB">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDWIH0C3WGUADYHS1LPM5FAG1WWO1YSMNAKCM4DSKWWW1E4KYDS4HF">Short-Circuit Constraint (Allowed=Yes) (HasFootprint('PQFN5X5-32_V_FTDI_BIG_VIAS_LEADS') and IsPad),(HasFootprint('PQFN5X5-32_V_FTDI_BIG_VIAS_LEADS') and (IsPolygon or IsRegion))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID2MKI0W1PGDWQKVVHD4OCX1QDWFU0XGY1MYQSCQHNWIJMLRLXSKN">Short-Circuit Constraint (Allowed=Yes) (HasFootprint('PAD-JUMPER-2-NC_BY_TRACE_NO_SILK') or HasFootprint('PAD-JUMPER-3-2OF3_NC_BY_TRACE_YES_SILK_FULL_BOX')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDGNRJWW1PHQ5ZGJIINNJD05NKKDOHHVYO3PRFCIMHZE3WD4JGMW4P">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDTHEGF0Z0VRAXKEOZAP2DMMGCAD5E102PNKXDM2O2JKNROTCNHBQD">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDLXCVYNB3TIBJFICB4R5KYWC05MOO3N3RNKFZHNPAMMFJOBFFRHIM">Width Constraint (Min=50.00ohms) (Max=50.00ohms) (Preferred=50.00ohms) (InNetClass('RF50'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDC0LLSMUIU43QCSV4YFSMRR4O3J15RGLRN0PBUXGKGTR3ZG4O3Q5H">Width Constraint (Min=6mil) (Max=10000mil) (Preferred=10mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDPV2D0LQNGTNVEYI2YMIER0SZOO2202OW2MRNC0QKPSBQ3ZWPBRE">Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDC3CWSLNVUS2QCRRL4YLVS4AIEM1CP2X0ARJHJEEH5A0WVO54NUJB">Hole Size Constraint (Min=8mil) (Max=500mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDHATE5W4LYV0LNKHXUIOCABC0FFPV3FJXFYO3F1NWINFYSTZBGW3E">Hole To Hole Clearance (Gap=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDJ0NFUCHISVMBH5PHQ1DLVU4LYHYX3TTTAFCCY4CZ0DXCQNFZEXKJ">Minimum Solder Mask Sliver (Gap=0mil) (HasFootprint('PQFN5X5-32_V_FTDI_BIG_VIAS_LEADS')),(HasFootprint('PQFN5X5-32_V_FTDI_BIG_VIAS_LEADS'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDT3GBY4LC15URPLTQHUPDH113NPSFKIKURNU13AGIEGC3NFDAYOFL">Minimum Solder Mask Sliver (Gap=4mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAYL30XVNADGGHSJDVYMZAAXPIDSQ5ST2ZWBLECH50EYSABFBOBID">Minimum Solder Mask Sliver (Gap=0mil) (HasFootprint('PAD-JUMPER-2-NO_NO_SILK')),(HasFootprint('PAD-JUMPER-2-NO_NO_SILK'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDQCTNOTJT1TPWD1FILC2OK55URF0H3NB0ECKUFYOL3GVTXOLDSZ3K">Minimum Solder Mask Sliver (Gap=0mil) (HasFootprint('PAD-JUMPER-3-2OF3_NC_BY_TRACE_YES_SILK_FULL_BOX')),(HasFootprint('PAD-JUMPER-3-2OF3_NC_BY_TRACE_YES_SILK_FULL_BOX'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDYEO0HSETIY0ULJNZXX413YSV5GRIAYFZLVWKKGOXDAOEFEEHCSGH">Minimum Solder Mask Sliver (Gap=0mil) (HasFootprint('PAD-JUMPER-2-NC_BY_TRACE_NO_SILK')),(HasFootprint('PAD-JUMPER-2-NC_BY_TRACE_NO_SILK'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDHOGAQ150W5JSOFTQ4RF2N2RUZB050EFGB4DMPK1SHDT3OCF3UDN">Silk To Solder Mask (Clearance=0mil) (IsPad),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDITQ30JIASUUCPHITV4N0VHU5ELVPYMQAXO1ICRIAKXP0RV3P2LF">Silk to Silk (Clearance=5mil) (All),(All)</a></td>
+<td class="column2">1</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDHVOZO5FBN3AVH4M5MH5YHYI5KJAWYCYQKP5FOVKM3LWRKTA4V2KE">Net Antennae (Tolerance=0mil) (All)</a></td>
+<td class="column2">7</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID5H1U5VOLV05VUIKDIFHYM2IKBEXPZU3G1J2NCB3Q3LALHX2NQJG">Board Clearance Constraint (Gap=0mil) (HasFootprint('MicroUSB_TypeB'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDWQQBF4CWCESWFUQGWYZO2N0VJQHLOY0B02KNPKSO5054DGMHB0N">Board Clearance Constraint (Gap=0mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAUORGYMMBBQCCKJ1Y3DPPUZBKIC4BWHOS2J2WNM0ZS51INS0E4EE">Board Clearance Constraint (Gap=0mil) (HasFootprint('ESP-WROOM-32'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID1AZMQQ2KOHWYHXGB5RNV4YSEZ45X5NA5VRBVBIEFXZAKLZ33W3K">Board Clearance Constraint (Gap=0mil) (HasFootprint('RJ45 Unshielded PTH Connector'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDTOQOHW2LSWI3P2HRIBHHF02ZPD0XYHX1FCHVHJMPSNVX1MKNGLJL">Board Clearance Constraint (Gap=0mil) (HasFootprint('0.1 INCH 2 ROW 24 POS FEMALE RIGHT-ANGLE HEADER SULLINS'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDU0QRA35TGQJNONRUYOOV1N51Q0ZKUTIIYJKKWMYUREYG43PRE">Board Clearance Constraint (Gap=0mil) (HasFootprint('2POS 4.2MM PITCH RIGHT ANGLE'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDYB4WVWFPM3GOINATNSBARKLLPG40VSRKZ4REQM0SQUIH2KNQOXM">Room Power (Bounding Region = (2375mil, 4180mil, 2855mil, 4800mil) (InComponentClass('Power'))</a></td>
+<td class="column2">30</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID5ALOAOUTBNQOB5GR2VL2FLJEVLB0KNQ23TFCGKCWPYSLCZN1DHVI">Room GPS (Bounding Region = (1185.805mil, 5744.24mil, 2130.805mil, 7274.24mil) (InComponentClass('GPS'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDKF0BJ5UQGNAWFSOGTAM4LJFKDDEC0QI00HGVZOICSKWUXNI03UAE">Room LoRa (Bounding Region = (660mil, 4715mil, 2305mil, 5695mil) (InComponentClass('LoRa'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDINXGE3DKMENAKHCRF0BKDVYDEKFXLNDIPIEE0LIE2CHNXKWTUZRO">Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">38</td>
+</tr>
+</table><br><a name="IDITQ30JIASUUCPHITV4N0VHU5ELVPYMQAXO1ICRIAKXP0RV3P2LF"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk to Silk (Clearance=5mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2370.062mil|Location2.X=2376.312mil|Location1.Y=2361.315mil|Location2.Y=2367.565mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2370.062mil|Location2.X=2376.312mil|Location1.Y=2361.315mil|Location2.Y=2367.565mil|Absolute=True">Silk To Silk Clearance Constraint: (4.463mil &lt; 5mil) Between Text "C30" (-524.044mil,-1907.657mil) on Top Overlay And Text "C31" (-469.594mil,-1907.225mil) on Top Overlay Silk Text to Silk Clearance [4.463mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDHVOZO5FBN3AVH4M5MH5YHYI5KJAWYCYQKP5FOVKM3LWRKTA4V2KE"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Net Antennae (Tolerance=0mil) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3931.991mil|Location2.X=3953.403mil|Location1.Y=2719.914mil|Location2.Y=2750.523mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3931.991mil|Location2.X=3953.403mil|Location1.Y=2719.914mil|Location2.Y=2750.523mil|Absolute=True">Net Antennae: Track (1049.491mil,-1537.586mil)(1074.238mil,-1537.586mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1550.022mil|Location2.X=1571.434mil|Location1.Y=2728.21mil|Location2.Y=2758.819mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1550.022mil|Location2.X=1571.434mil|Location1.Y=2728.21mil|Location2.Y=2758.819mil|Absolute=True">Net Antennae: Track (-1332.478mil,-1529.29mil)(-1332.478mil,-1504.29mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1550.022mil|Location2.X=1571.433mil|Location1.Y=2595.775mil|Location2.Y=2626.384mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1550.022mil|Location2.X=1571.433mil|Location1.Y=2595.775mil|Location2.Y=2626.384mil|Absolute=True">Net Antennae: Track (-1332.478mil,-1661.725mil)(-1332.478mil,-1636.725mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3713.188mil|Location2.X=3734.599mil|Location1.Y=2052.776mil|Location2.Y=2083.385mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3713.188mil|Location2.X=3734.599mil|Location1.Y=2052.776mil|Location2.Y=2083.385mil|Absolute=True">Net Antennae: Track (830.688mil,-2204.724mil)(860.688mil,-2204.724mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3725.345mil|Location2.X=3746.756mil|Location1.Y=2426.087mil|Location2.Y=2456.696mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3725.345mil|Location2.X=3746.756mil|Location1.Y=2426.087mil|Location2.Y=2456.696mil|Absolute=True">Net Antennae: Track (842.845mil,-1856.413mil)(842.845mil,-1831.413mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2017.064mil|Location2.X=2038.476mil|Location1.Y=6312.093mil|Location2.Y=6342.703mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2017.064mil|Location2.X=2038.476mil|Location1.Y=6312.093mil|Location2.Y=6342.703mil|Absolute=True">Net Antennae: Track (-865.436mil,2024.593mil)(-865.436mil,2054.593mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4243.149mil|Location2.X=4298.303mil|Location1.Y=5873.088mil|Location2.Y=5960.113mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4243.149mil|Location2.X=4298.303mil|Location1.Y=5873.088mil|Location2.Y=5960.113mil|Absolute=True">Net Antennae: Via (1376.149mil,1631.088mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDYB4WVWFPM3GOINATNSBARKLLPG40VSRKZ4REQM0SQUIH2KNQOXM"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Room Power (Bounding Region = (2375mil, 4180mil, 2855mil, 4800mil) (InComponentClass('Power'))</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2375mil|Location2.X=4631.978mil|Location1.Y=4180mil|Location2.Y=5530.824mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2375mil|Location2.X=4631.978mil|Location1.Y=4180mil|Location2.Y=5530.824mil|Absolute=True">Room Definition: Between Component U5-AP2114H-3.3TRG1 (1602.214mil,1111.297mil) on Top Layer And Room Power (Bounding Region = (2375mil, 4180mil, 2855mil, 4800mil) (InComponentClass('Power')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2375mil|Location2.X=4364.19mil|Location1.Y=4180mil|Location2.Y=5605.614mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2375mil|Location2.X=4364.19mil|Location1.Y=4180mil|Location2.Y=5605.614mil|Absolute=True">Room Definition: Between Room Power (Bounding Region = (2375mil, 4180mil, 2855mil, 4800mil) (InComponentClass('Power')) And SMT Small Component C10-4.7uF (1433.835mil,1262.859mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2375mil|Location2.X=4621.99mil|Location1.Y=4180mil|Location2.Y=5617.279mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2375mil|Location2.X=4621.99mil|Location1.Y=4180mil|Location2.Y=5617.279mil|Absolute=True">Room Definition: Between Room Power (Bounding Region = (2375mil, 4180mil, 2855mil, 4800mil) (InComponentClass('Power')) And SMT Small Component C11-4.7uF (1654.234mil,1311.926mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2165.834mil|Location2.X=2855mil|Location1.Y=2651.407mil|Location2.Y=4800mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2165.834mil|Location2.X=2855mil|Location1.Y=2651.407mil|Location2.Y=4800mil|Absolute=True">Room Definition: Between Room Power (Bounding Region = (2375mil, 4180mil, 2855mil, 4800mil) (InComponentClass('Power')) And SMT Small Component C12-10uF (-679.872mil,-1588.987mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1982.894mil|Location2.X=2855mil|Location1.Y=2651.407mil|Location2.Y=4800mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1982.894mil|Location2.X=2855mil|Location1.Y=2651.407mil|Location2.Y=4800mil|Absolute=True">Room Definition: Between Room Power (Bounding Region = (2375mil, 4180mil, 2855mil, 4800mil) (InComponentClass('Power')) And SMT Small Component C13-1uF (-862.813mil,-1588.986mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2029.08mil|Location2.X=2855mil|Location1.Y=2561.934mil|Location2.Y=4800mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2029.08mil|Location2.X=2855mil|Location1.Y=2561.934mil|Location2.Y=4800mil|Absolute=True">Room Definition: Between Room Power (Bounding Region = (2375mil, 4180mil, 2855mil, 4800mil) (InComponentClass('Power')) And SMT Small Component C14-1uF (-836.317mil,-1658.774mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1983.445mil|Location2.X=2855mil|Location1.Y=2802.185mil|Location2.Y=4800mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1983.445mil|Location2.X=2855mil|Location1.Y=2802.185mil|Location2.Y=4800mil|Absolute=True">Room Definition: Between Room Power (Bounding Region = (2375mil, 4180mil, 2855mil, 4800mil) (InComponentClass('Power')) And SMT Small Component C15-10000pF (-862.265mil,-1438.208mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2276.013mil|Location2.X=2855mil|Location1.Y=2473.381mil|Location2.Y=4800mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2276.013mil|Location2.X=2855mil|Location1.Y=2473.381mil|Location2.Y=4800mil|Absolute=True">Room Definition: Between Room Power (Bounding Region = (2375mil, 4180mil, 2855mil, 4800mil) (InComponentClass('Power')) And SMT Small Component C23-0.1uF (-589.38mil,-1747.327mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2326.013mil|Location2.X=2855mil|Location1.Y=2473.381mil|Location2.Y=4800mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2326.013mil|Location2.X=2855mil|Location1.Y=2473.381mil|Location2.Y=4800mil|Absolute=True">Room Definition: Between Room Power (Bounding Region = (2375mil, 4180mil, 2855mil, 4800mil) (InComponentClass('Power')) And SMT Small Component C30-1uF (-539.381mil,-1747.327mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2375mil|Location2.X=2855mil|Location1.Y=2473.381mil|Location2.Y=4800mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2375mil|Location2.X=2855mil|Location1.Y=2473.381mil|Location2.Y=4800mil|Absolute=True">Room Definition: Between Room Power (Bounding Region = (2375mil, 4180mil, 2855mil, 4800mil) (InComponentClass('Power')) And SMT Small Component C31-10uF (-489.381mil,-1747.327mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2375mil|Location2.X=4139.244mil|Location1.Y=4180mil|Location2.Y=4800mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2375mil|Location2.X=4139.244mil|Location1.Y=4180mil|Location2.Y=4800mil|Absolute=True">Room Definition: Between Room Power (Bounding Region = (2375mil, 4180mil, 2855mil, 4800mil) (InComponentClass('Power')) And SMT Small Component D2-Led Blue (1200mil,0mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1514.522mil|Location2.X=2855mil|Location1.Y=2540.275mil|Location2.Y=4800mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1514.522mil|Location2.X=2855mil|Location1.Y=2540.275mil|Location2.Y=4800mil|Absolute=True">Room Definition: Between Room Power (Bounding Region = (2375mil, 4180mil, 2855mil, 4800mil) (InComponentClass('Power')) And SMT Small Component JP6-JUMPER-PAD-3-2OF3_NC_BY_TRACE_SMALL (-1332.478mil,-1661.725mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1514.522mil|Location2.X=2855mil|Location1.Y=2672.71mil|Location2.Y=4800mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1514.522mil|Location2.X=2855mil|Location1.Y=2672.71mil|Location2.Y=4800mil|Absolute=True">Room Definition: Between Room Power (Bounding Region = (2375mil, 4180mil, 2855mil, 4800mil) (InComponentClass('Power')) And SMT Small Component JP7-JUMPER-PAD-3-2OF3_NC_BY_TRACE_SMALL (-1332.478mil,-1529.29mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1626.036mil|Location2.X=2855mil|Location1.Y=2843.079mil|Location2.Y=4800mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1626.036mil|Location2.X=2855mil|Location1.Y=2843.079mil|Location2.Y=4800mil|Absolute=True">Room Definition: Between Room Power (Bounding Region = (2375mil, 4180mil, 2855mil, 4800mil) (InComponentClass('Power')) And SMT Small Component R18-100K (-1239.36mil,-1377.63mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1573.901mil|Location2.X=2855mil|Location1.Y=2843.079mil|Location2.Y=4800mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1573.901mil|Location2.X=2855mil|Location1.Y=2843.079mil|Location2.Y=4800mil|Absolute=True">Room Definition: Between Room Power (Bounding Region = (2375mil, 4180mil, 2855mil, 4800mil) (InComponentClass('Power')) And SMT Small Component R19-100K (-1291.492mil,-1377.631mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1978.259mil|Location2.X=2855mil|Location1.Y=2701.516mil|Location2.Y=4800mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1978.259mil|Location2.X=2855mil|Location1.Y=2701.516mil|Location2.Y=4800mil|Absolute=True">Room Definition: Between Room Power (Bounding Region = (2375mil, 4180mil, 2855mil, 4800mil) (InComponentClass('Power')) And SMT Small Component R20-43 (-887.132mil,-1519.193mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2028.896mil|Location2.X=2855mil|Location1.Y=2701.516mil|Location2.Y=4800mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2028.896mil|Location2.X=2855mil|Location1.Y=2701.516mil|Location2.Y=4800mil|Absolute=True">Room Definition: Between Room Power (Bounding Region = (2375mil, 4180mil, 2855mil, 4800mil) (InComponentClass('Power')) And SMT Small Component R21-91 (-836.5mil,-1519.192mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2074.626mil|Location2.X=2855mil|Location1.Y=2651.407mil|Location2.Y=4800mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2074.626mil|Location2.X=2855mil|Location1.Y=2651.407mil|Location2.Y=4800mil|Absolute=True">Room Definition: Between Room Power (Bounding Region = (2375mil, 4180mil, 2855mil, 4800mil) (InComponentClass('Power')) And SMT Small Component R22-13.3K (-771.081mil,-1588.987mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2375mil|Location2.X=2855mil|Location1.Y=2345.883mil|Location2.Y=4800mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2375mil|Location2.X=2855mil|Location1.Y=2345.883mil|Location2.Y=4800mil|Absolute=True">Room Definition: Between Room Power (Bounding Region = (2375mil, 4180mil, 2855mil, 4800mil) (InComponentClass('Power')) And SMT Small Component R2-249R (-325.411mil,-1874.826mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1978.443mil|Location2.X=2855mil|Location1.Y=2561.934mil|Location2.Y=4800mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1978.443mil|Location2.X=2855mil|Location1.Y=2561.934mil|Location2.Y=4800mil|Absolute=True">Room Definition: Between Room Power (Bounding Region = (2375mil, 4180mil, 2855mil, 4800mil) (InComponentClass('Power')) And SMT Small Component R23-28K (-886.954mil,-1658.774mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1983.776mil|Location2.X=2855mil|Location1.Y=2511.434mil|Location2.Y=4800mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1983.776mil|Location2.X=2855mil|Location1.Y=2511.434mil|Location2.Y=4800mil|Absolute=True">Room Definition: Between Room Power (Bounding Region = (2375mil, 4180mil, 2855mil, 4800mil) (InComponentClass('Power')) And SMT Small Component R24-28K (-861.933mil,-1728.963mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2375mil|Location2.X=4363.153mil|Location1.Y=4180mil|Location2.Y=4800mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2375mil|Location2.X=4363.153mil|Location1.Y=4180mil|Location2.Y=4800mil|Absolute=True">Room Definition: Between Room Power (Bounding Region = (2375mil, 4180mil, 2855mil, 4800mil) (InComponentClass('Power')) And SMT Small Component R40-10 (1448.547mil,83.579mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2375mil|Location2.X=4308.197mil|Location1.Y=4180mil|Location2.Y=4800mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2375mil|Location2.X=4308.197mil|Location1.Y=4180mil|Location2.Y=4800mil|Absolute=True">Room Definition: Between Room Power (Bounding Region = (2375mil, 4180mil, 2855mil, 4800mil) (InComponentClass('Power')) And SMT Small Component R41-10 (1393.591mil,83.579mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1616.748mil|Location2.X=2855mil|Location1.Y=2399.505mil|Location2.Y=4800mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1616.748mil|Location2.X=2855mil|Location1.Y=2399.505mil|Location2.Y=4800mil|Absolute=True">Room Definition: Between Room Power (Bounding Region = (2375mil, 4180mil, 2855mil, 4800mil) (InComponentClass('Power')) And SMT Small Component R42-2.43K (-1248.646mil,-1821.204mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1560.228mil|Location2.X=2855mil|Location1.Y=2399.505mil|Location2.Y=4800mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1560.228mil|Location2.X=2855mil|Location1.Y=2399.505mil|Location2.Y=4800mil|Absolute=True">Room Definition: Between Room Power (Bounding Region = (2375mil, 4180mil, 2855mil, 4800mil) (InComponentClass('Power')) And SMT Small Component R43-4.32K (-1305.166mil,-1821.204mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2375mil|Location2.X=2855mil|Location1.Y=2496.019mil|Location2.Y=4800mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2375mil|Location2.X=2855mil|Location1.Y=2496.019mil|Location2.Y=4800mil|Absolute=True">Room Definition: Between Room Power (Bounding Region = (2375mil, 4180mil, 2855mil, 4800mil) (InComponentClass('Power')) And SMT Small Component R44-10K (-98.426mil,-1724.689mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2375mil|Location2.X=2855mil|Location1.Y=2345.883mil|Location2.Y=4800mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2375mil|Location2.X=2855mil|Location1.Y=2345.883mil|Location2.Y=4800mil|Absolute=True">Room Definition: Between Room Power (Bounding Region = (2375mil, 4180mil, 2855mil, 4800mil) (InComponentClass('Power')) And SMT Small Component R45-249R (-275.703mil,-1874.826mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2375mil|Location2.X=2855mil|Location1.Y=2593.698mil|Location2.Y=4800mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2375mil|Location2.X=2855mil|Location1.Y=2593.698mil|Location2.Y=4800mil|Absolute=True">Room Definition: Between Room Power (Bounding Region = (2375mil, 4180mil, 2855mil, 4800mil) (InComponentClass('Power')) And SMT Small Component R46-10K (-98.426mil,-1627.01mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2375mil|Location2.X=2855mil|Location1.Y=2447.003mil|Location2.Y=4800mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2375mil|Location2.X=2855mil|Location1.Y=2447.003mil|Location2.Y=4800mil|Absolute=True">Room Definition: Between Room Power (Bounding Region = (2375mil, 4180mil, 2855mil, 4800mil) (InComponentClass('Power')) And SOIC Component U11-LT1818IS8#PBF (-300.325mil,-1699.689mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1706.947mil|Location2.X=2855mil|Location1.Y=2620.273mil|Location2.Y=4800mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Anh Luong\Documents\GitHub\gridballast\Hardware\Controller\PCBv1.2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1706.947mil|Location2.X=2855mil|Location1.Y=2620.273mil|Location2.Y=4800mil|Absolute=True">Room Definition: Between Room Power (Bounding Region = (2375mil, 4180mil, 2855mil, 4800mil) (InComponentClass('Power')) And SOIC Component U6-1MHz Quad OP-Amp (-1050.176mil,-1452.404mil) on Top Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>
