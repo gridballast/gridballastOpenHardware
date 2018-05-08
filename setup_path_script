@@ -1,6 +1,0 @@
-#!/bin/bash
-
-## Setup Environment Variables for GridBallast using ESP32 chip                 
-export PATH=$PATH:Support\ Files/xtensa-esp32-elf/bin
-
-export IDF_PATH="Support\ Files/esp-idf"

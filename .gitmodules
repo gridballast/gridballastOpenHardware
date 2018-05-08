@@ -4,9 +4,9 @@
 [submodule "Hardware/Libraries/ublox"]
 	path = Hardware/Libraries/ublox
 	url = https://github.com/u-blox/Altium-Designer-Library.git
-[submodule "Support/esp-idf"]
-	path = Support/esp-idf
-	url = https://github.com/ro269/esp-idf.git
 [submodule "Source/framework/components/esp-request"]
 	path = Source/framework/components/esp-request
 	url = https://github.com/aperley/esp-request.git
+[submodule "Support/esp-idf"]
+	path = Support/esp-idf
+	url = https://github.com/WiseLabCMU/esp-idf.git

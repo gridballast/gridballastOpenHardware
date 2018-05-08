@@ -35,13 +35,14 @@ This small accessory board holds the connector to support CTA2045 and other RS48
 [Interactive 3D View](Hardware/CTA2045/Info/CTA2045v1.stl)
 
 # Getting Started
+1. Install the `xtensa-esp32-elf` toolchain by following the instructions here: http://esp-idf.readthedocs.io/en/latest/get-started/#setup-toolchain.
+   Make sure the `xtensa-esp32-elf/bin` is added to your `PATH`.
 1. Clone the repository
     ```
     $ git clone --recursive https://github.com/WiseLabCMU/gridballast.git
     ```
-1. Setup toolchain and esp-idf. Add to your `~/.profile`:
+1. Setup the `IDF_PATH` environment variable by adding the following to your `~/.profile`:
     ```
-    export PATH="$PATH:<path/to/gridballastt>/xtensa-esp32-elf/bin"
     export IDF_PATH="<path/to/gridballast>/Support/esp-idf"
     ```
 1. Build the controller module
