@@ -36,24 +36,6 @@ int flag = 0;
 const char * const frq_task_name = "frq_module_task";
 
 
-
-
-// //functions to check averaging length overflow
-// size_t highestOneBitPosition(uint32_t a) {
-//     size_t bits=0;
-//     while (a!=0) {
-//         ++bits;
-//         a>>=1;
-//     };
-//     return bits;
-// }
-// bool addition_is_safe(uint32_t a) {
-//     size_t a_bits=highestOneBitPosition(a), b_bits=highestOneBitPosition(2);
-//     return (a_bits<32 && b_bits<32);
-// }
-
-
-
 void IRAM_ATTR frq_isr_handler(void* arg) {
   timer_get_counter_value(timer_group, timer_idx, &timer_val);
   status = !status;
@@ -65,8 +47,7 @@ void frq_task(void* arg) {
 	// infinite loop
 	uint64_t duration = 0;
 	uint64_t last_val = 0;
-	// uint64_t first = -1;
-	// uint64_t second = -1;
+
   uint64_t timer_val;
 
   for(;;) {

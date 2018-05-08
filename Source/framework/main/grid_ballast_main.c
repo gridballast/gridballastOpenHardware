@@ -27,11 +27,13 @@
 #include "frq_module.h"
 #include "rs_485_module.h"
 #include "button.h"
+#include "controller_module.h"
 #include "ct_module.h"
 #include "driver/timer.h"
 #include "util.h"
 
 bool State = true;
+
 
 #define ESP_INTR_FLAG_DEFAULT 0
 
@@ -79,24 +81,44 @@ void init_task( void *pv_parameters ) {
     rwlock_writer_lock(&system_state_lock);
     get_system_state(&gb_system_state);
     gb_system_state.set_point = 122;
+    gb_system_state.threshold_overfrq = 60.01;
+    gb_system_state.threshold_underfrq = 59.99;
+    gb_system_state.mode =0;
     set_system_state(&gb_system_state);
     rwlock_writer_unlock(&system_state_lock);
     
 
     
-    //wifi_init_task();
+    wifi_init_task();
     //sensing_init_task();
     //controller_init_task();
 
-      
-        frq_init_task();
-        rs485_init_task();
-        
-        lcd_init_task();
-// 
-        button_init_task();
+    
 
-        ct_init_task();
+     printf("Initializing frq\n");
+     frq_init_task();
+     printf("Initializing rs485\n");
+     //rs485_init_task();
+
+     //button_init_task();
+
+     controller_init_task();
+        //ct_init_task();
+     printf("Initializing lcd\n");
+     lcd_init_task();
+        
+     printf("Initialization done\n");
+
+        // frq_init_task();
+     rs485_init_task();
+        
+        // lcd_init_task();
+// 
+      
+
+       //ct_init_task();
+
+        
 
        
         //vTaskDelay(500/portTICK_PERIOD_MS);
@@ -110,40 +132,7 @@ void init_task( void *pv_parameters ) {
 
 
         // }
-        //     //lcd_init_task();
-        //     if (button == 1){
-      
-
-        //     vTaskDelay(500/portTICK_PERIOD_MS);
-        //     uint8_t pin=getLastInterruptPin();
-        //     uint8_t val=getLastInterruptPinValue();
-        //     // printf("%u ",pin);
-        //     // printf("%u \n", val );
-        //      // Here either the button has been pushed or released.
-        //      if ( pin ==3 && val == 0) 
-        //      { //  Test for release - pin pulled high
-        //         if ( ledState ) {
-        //            gpio_set_level(13, LEVEL_HIGH);
-        //         } else {
-        //            gpio_set_level(13, LEVEL_LOW);
-        //         }
-
-        //          ledState = ! ledState;
-
-        //       // pinMode(8,GPIO_MODE_OUTPUT);       // LCD reset 
-
-        //       // digitalWrite(8,0);
-
-        //       //vTaskDelay(0.05 / portTICK_PERIOD_MS);
-
-        //        //digitalWrite(8,1);
-            
-        //         button = 0;
-
-        //         //printf("hello1\n");
-
-        //      }
-        //} 
+       
 }
     
 
@@ -166,6 +155,8 @@ void app_main( void )
     rwlock_init(&i2c_lock);
     printf("Intializing GridBallast system...\n");
 
+
+    xTaskCreate( &init_task, "init_task", 4096, NULL, 1, NULL);
     
 
     gpio_pad_select_gpio(PIN_MCP_RESET);
@@ -186,26 +177,7 @@ void app_main( void )
   digitalWrite(8,1);
 
 
-// 
-  //i2c_driver_delete(I2C_NUM_1);
-  // vTaskDelay(200 / portTICK_PERIOD_MS);
-   //rwlock_writer_unlock(&i2c_lock);
-  // gpio_pad_select_gpio(14);
-  // gpio_set_direction(14, GPIO_MODE_OUTPUT);
-  
-  // gpio_pad_select_gpio(13);
-  // gpio_set_direction(13, GPIO_MODE_OUTPUT);
 
 
-  // setupInterrupts(true,false, 0);               //IO expander button interrupt
-  // pinMode(3,GPIO_MODE_INPUT);
-  // pullUp(3,1);
-  // setupInterruptPin(3,GPIO_INTR_NEGEDGE);
-
-  // gpio_set_intr_type(4, GPIO_INTR_NEGEDGE);       //esp32 interrupt GPIO4
-  // gpio_install_isr_service(ESP_INTR_FLAG_DEFAULT);
-  // gpio_isr_handler_add(4, mcp_isr_handler, NULL);
-
-  xTaskCreate( &init_task, "init_task", 2048, NULL, 1, NULL );
 }
 
