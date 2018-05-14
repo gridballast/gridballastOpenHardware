@@ -24,9 +24,14 @@
 #include "esp_request.h"
 #include "wifi_module.h"
 #include "util.h"
+#include "config.h"
+#include "nvs.h"
+#include "config_server.h"
 
-#define WIFI_SSID "CMU"
-#define WIFI_PASS ""
+typedef enum {
+    MODULE_MODE_NORMAL,
+    MODULE_MODE_CONFIG
+} module_mode_t;
 
 /* OpenChirp transducer ids for system state fields */
 #define TRANSDUCER_ID_TEMP_BOTTOM "5a016520f230cf7055615e56"
@@ -37,12 +42,11 @@
 const char * const wifi_task_name = "wifi_module_task";
 static const char *TAG = "wifi";
 
-/** @brief FreeRTOS event group to signal when we are connected & ready to make a request */
-static EventGroupHandle_t wifi_event_group;
+static volatile module_mode_t module_mode;
 
-/* The event group allows multiple bits for each event,
-   but we only care about one event - are we connected
-   to the AP with an IP? */
+/** @brief FreeRTOS event group to signal when softap is up */
+static EventGroupHandle_t wifi_event_group;
+const int SOFTAP_UP_BIT = BIT1;
 const int CONNECTED_BIT = BIT0;
 
 /* OpenChirp API definitions */
@@ -55,15 +59,34 @@ static system_state_t system_state;
 
 /* Static function definitions */
 static void reset_transducer_response();
+static void run_mode_normal();
+static void run_mode_config();
 
 /**
  * @brief Wifi event handler
  */
 static esp_err_t event_handler(void *ctx, system_event_t *event) {
     switch(event->event_id) {
+    case SYSTEM_EVENT_AP_START:
+        ESP_LOGI(TAG, "Got event AP_START");
+        xEventGroupSetBits(wifi_event_group, SOFTAP_UP_BIT);
+        break;
+    case SYSTEM_EVENT_AP_STOP:
+        ESP_LOGI(TAG, "Got event AP_STOP");
+        xEventGroupClearBits(wifi_event_group, SOFTAP_UP_BIT);
+        break;
+    case SYSTEM_EVENT_AP_STACONNECTED:
+        ESP_LOGI(TAG, "Got event AP_STACONNECTED");
+        break;
+    case SYSTEM_EVENT_AP_STADISCONNECTED:
+        ESP_LOGI(TAG, "Got event AP_STADISCONNECTED");
+        break;
     case SYSTEM_EVENT_STA_START:
         ESP_LOGI(TAG, "Got event start");
         esp_wifi_connect();
+        break;
+    case SYSTEM_EVENT_STA_STOP:
+        ESP_LOGI(TAG, "Got event stop");
         break;
     case SYSTEM_EVENT_STA_GOT_IP:
         ESP_LOGI(TAG, "Got event got ip");
@@ -83,36 +106,54 @@ static esp_err_t event_handler(void *ctx, system_event_t *event) {
 }
 
 /**
- * @brief Initialize the wifi module
+ * @brief Common wifi initialization that occurs before the wifi task starts
  */
-static void initialise_wifi(void) {
+static void init_wifi(void) {
     tcpip_adapter_init();
+
     wifi_event_group = xEventGroupCreate();
     ESP_ERROR_CHECK( esp_event_loop_init(event_handler, NULL) );
+
     wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
     ESP_ERROR_CHECK( esp_wifi_init(&cfg) );
     ESP_ERROR_CHECK( esp_wifi_set_storage(WIFI_STORAGE_RAM) );
-    wifi_config_t wifi_config = {
-        .sta = {
-            .ssid = WIFI_SSID,
-            .password = WIFI_PASS,
-        },
-    };
-    ESP_LOGI(TAG, "Setting WiFi configuration SSID %s...", wifi_config.sta.ssid);
+
+    config_init();
+}
+
+/**
+ * @brief Set wifi to station mode (connect to access point)
+ */
+static void init_mode_sta(const char *ssid, const char *password) {
+    wifi_config_t wifi_config;
+    strncpy((char *)wifi_config.sta.ssid, ssid, sizeof(wifi_config.sta.ssid));
+    strncpy((char *)wifi_config.sta.password, password, sizeof(wifi_config.sta.password));
+
+    ESP_LOGI(TAG, "Setting WiFi configuration SSID %s password %s", wifi_config.sta.ssid, wifi_config.sta.password);
     ESP_ERROR_CHECK( esp_wifi_set_mode(WIFI_MODE_STA) );
     ESP_ERROR_CHECK( esp_wifi_set_config(ESP_IF_WIFI_STA, &wifi_config) );
 
-    // Log MAC address
-    uint8_t mac[6];
-    ESP_ERROR_CHECK( esp_wifi_get_mac(ESP_IF_WIFI_STA, mac) );
-    char mac_str[18];
-    sprintf(mac_str, "%02x:%02x:%02x:%02x:%02x:%02x", mac[0], mac[1], mac[2],
-                                                      mac[3], mac[4], mac[5]);
-    ESP_LOGI(TAG, "My MAC Address: %s", mac_str);
-
     ESP_ERROR_CHECK( esp_wifi_start() );
+}
 
-    reset_transducer_response();
+/**
+ * @brief Set wifi to soft-ap mode (serve as access point)
+ */
+static void init_mode_ap(void) {
+    ESP_ERROR_CHECK( esp_wifi_set_mode(WIFI_MODE_AP) );
+    wifi_config_t ap_config = {
+        .ap = {
+            .ssid = "gridballast",
+            .channel = 0,
+            .authmode = WIFI_AUTH_OPEN,
+            .ssid_hidden = 0,
+            .max_connection = 4,
+            .beacon_interval = 100
+        }
+    };
+    esp_wifi_set_config(WIFI_IF_AP, &ap_config);
+    ESP_ERROR_CHECK( esp_wifi_start() );
+    ESP_LOGI(TAG, "Wifi started in AP mode, SSID %s", ap_config.ap.ssid);
 }
 
 /*****************************************
@@ -357,7 +398,39 @@ static int send_data(system_state_t *system_state) {
  * @return void
  */
 static void wifi_task_fn( void *pv_parameters ) {
-    while(1) {
+    // try to read saved wifi config
+    char ssid[ssid_maxlen];
+    char pass[pass_maxlen];
+    esp_err_t err = config_get_wifi(ssid, ssid_maxlen, pass, pass_maxlen);
+    if (err == ESP_ERR_NVS_NOT_FOUND) {
+        // no saved values, so enter config mode
+        module_mode = MODULE_MODE_CONFIG;
+    } else {
+        ESP_ERROR_CHECK(err);
+        // saved values, so enter normal mode
+        module_mode = MODULE_MODE_NORMAL;
+    }
+
+    while (1) {
+        // loop to allow exiting normal mode and entering config mode
+        switch (module_mode) {
+            case MODULE_MODE_NORMAL:
+                init_mode_sta(ssid, pass);
+                run_mode_normal();
+                break;
+            case MODULE_MODE_CONFIG:
+                init_mode_ap();
+                run_mode_config();
+                break;
+        }
+        ESP_ERROR_CHECK(esp_wifi_stop());
+    }
+}
+
+static void run_mode_normal() {
+    reset_transducer_response();
+    ESP_LOGI(TAG, "Running normal mode");
+    while (module_mode == MODULE_MODE_NORMAL) {
         /* Wait for the callback to set the CONNECTED_BIT in the
            event group.
         */
@@ -391,6 +464,17 @@ static void wifi_task_fn( void *pv_parameters ) {
     }
 }
 
+
+static void run_mode_config() {
+    xEventGroupWaitBits(wifi_event_group, SOFTAP_UP_BIT, false, true, portMAX_DELAY);
+    tcpip_adapter_ip_info_t ip_info;
+    ESP_ERROR_CHECK( tcpip_adapter_get_ip_info(TCPIP_ADAPTER_IF_AP, &ip_info) );
+    ESP_LOGI(TAG, "Config mode: connect to the gridballast wifi network and go to http://%s", ip4addr_ntoa(&ip_info.ip));
+    ESP_LOGI(TAG, "Reboot to exit config mode");
+
+    config_server_run();
+}
+
 /*****************************************
  *********** INTERFACE FUNCTIONS *********
  *****************************************/
@@ -403,7 +487,7 @@ static void wifi_task_fn( void *pv_parameters ) {
 void wifi_init_task( void ) {
 
     printf("Intializing Wifi System...");
-    initialise_wifi();
+    init_wifi();
     xTaskCreate(
                 &wifi_task_fn, /* task function */
                 wifi_task_name, /* wifi task name */
@@ -413,4 +497,14 @@ void wifi_init_task( void ) {
                 NULL /* task handle ( returns an id basically ) */
                );
     fflush(stdout);
+}
+
+/**
+ * @brief exit normal data publish/receive mode and enter configuration mode
+ *
+ * @note configuration mode can only be exited by rebooting the module
+ * @note this function can be called from other tasks or interrupts
+ */
+void wifi_enter_config_mode() {
+    module_mode = MODULE_MODE_CONFIG;
 }

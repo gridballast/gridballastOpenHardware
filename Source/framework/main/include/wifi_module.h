@@ -24,4 +24,12 @@ extern const char * const wifi_task_name;
  */
 void wifi_init_task( void );
 
+/**
+ * @brief exit normal data publish/receive mode and enter configuration mode
+ *
+ * @note configuration mode can only be exited by rebooting the module
+ * @note this function can be called from other tasks or interrupts
+ */
+void wifi_enter_config_mode();
+
 #endif /* __wifi_module_h_ */
