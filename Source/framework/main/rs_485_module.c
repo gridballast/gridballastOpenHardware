@@ -76,7 +76,6 @@ static void rs485_task()
     uart_set_pin(uart_num, ECHO_TEST_TXD, ECHO_TEST_RXD, ECHO_TEST_RTS, ECHO_TEST_CTS);
 
 
-
     uart_set_rs485_hd_mode(uart_num, true);
 
     uart_driver_install(uart_num, BUF_SIZE * 2, 0, 0, NULL, 0);
@@ -87,19 +86,20 @@ static void rs485_task()
     rwlock_reader_unlock(&system_state_lock);
 
     uint8_t setpoint = mystate.set_point;
-    //uint8_t setpoint = 68;
 
 
     unsigned char slave_ok[5] = {0x07,0x01,0x03,0x04,0x0F};
     uint8_t* data = (uint8_t*) malloc(BUF_SIZE);
 
 
-
+    //Message headers received by ELectronic Thermostat
     unsigned char msg_poll_slave[2] = {0x87,0x00};
     unsigned char mtype2[4] = {0x40,0x09,0x14,0x00};
+    unsigned char mtype1[4] = {0x40,0x0B,0x0A,0x01};
 
     unsigned char toptemp;
     unsigned char bottemp;
+    int element;
     int flag=0;
     unsigned char bytes[6] = { 0x87, 0x09, 0x03, setpoint, setpoint, 0x00};
     bytes[5] = calculate_checksum(bytes, 5);
@@ -114,6 +114,7 @@ static void rs485_task()
         //uart_get_buffered_data_len(uart_num, &buf_len);
         //if(buf_len > 0) printf("-----buflen%d\n", buf_len);
 
+        //Send Set Point
         if(currentSetpoint != setpoint) {
             uart_flush(uart_num);
             len = uart_read_bytes(uart_num, data, BUF_SIZE, 20 / portTICK_RATE_MS);
@@ -126,7 +127,10 @@ static void rs485_task()
                 sendData(slave_ok,5);
             // printf("%s\n", );
             } 
-        } else {
+        } 
+        
+        //receieve top and bottom temperatures
+        else {
             uart_flush(uart_num);
             len = uart_read_bytes(uart_num, data, BUF_SIZE, 40 / portTICK_RATE_MS);
             // for(int i = 0; i < len; i++) {
@@ -152,10 +156,28 @@ static void rs485_task()
             //breakFlag = 0;
 
             }
+            // receive heating status information
+            else{
+                uart_flush(uart_num);
+                len = uart_read_bytes(uart_num, data, BUF_SIZE, 30 / portTICK_RATE_MS);
+                if (len > 0 && memcmp(mtype1,data, 4) == 0)
+                {
+                    if(data[14]>0){
+                        element = 1;
+                    }
+                    else
+                        element = 0;
+                rwlock_writer_lock(&system_state_lock);
+                get_system_state(&mystate);
+                mystate.heating_status = element;
+                set_system_state(&mystate);
+                rwlock_writer_unlock(&system_state_lock);
+
+                }
+
+            }
         }
 
-
-        
         
         // else if(len > 0) {
         //for(int i = 0; i < len && data[i] != NULL; i++) {
@@ -172,13 +194,7 @@ static void rs485_task()
 
 void rs485_init_task()
 {
-    /* temporary testing
-    get_system_state(&mystate);
-    mystate.temp_top = 5;
-    mystate.temp_bottom = 6;
-    set_system_state(&mystate);
-    */
-    //ret = 1;
+
     xTaskCreate(rs485_task, "rs485_task", 1024, NULL, 10, NULL);
 }
 

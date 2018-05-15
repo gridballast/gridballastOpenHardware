@@ -36,7 +36,8 @@ int flag = 0;
 const char * const frq_task_name = "frq_module_task";
 
 
-void IRAM_ATTR frq_isr_handler(void* arg) {
+void IRAM_ATTR frq_isr_handler(void* arg) 
+{
   timer_get_counter_value(timer_group, timer_idx, &timer_val);
   status = !status;
   gpio_set_level(12, status);
@@ -57,15 +58,6 @@ void frq_task(void* arg) {
 
     duration = timer_val - last_val;
 
-		// if(duration < 15000 && first == -1) {
-  //   	first = duration;
-		// } else if(duration < 15000 && second == -1) {
-		//   second = duration;
-		//   duration = first + second;
-		//   second = -1;
-		//   first = -1;
-  //     last_val = 0;
-		// }
 		last_val = timer_val;
 
 		if(duration > 15000) {
@@ -77,13 +69,12 @@ void frq_task(void* arg) {
       {
         avg_frq = (avg_frq*l + frq)/(l+1);
 
-        // freq_values++;
+
   
         l++;
       }
       if(l >= 200) {
-        //printf("frequency is %f\n", avg_frq);
-        //freq_values = 0;
+
         rwlock_writer_lock(&system_state_lock);
         get_system_state(&mystate);
         mystate.grid_freq = avg_frq;
@@ -127,8 +118,6 @@ void frq_init_task(void *arg) {
     //GPIO interrupt from 60Hz pulse
     gpio_set_intr_type(CONFIG_FRQ_PIN, GPIO_INTR_POSEDGE);
 
-    // install ISR service with default configuration
-    //gpio_install_isr_service(ESP_INTR_FLAG_DEFAULT);
     // attach the interrupt service routine
     gpio_isr_handler_add(CONFIG_FRQ_PIN, frq_isr_handler, NULL);
     xTaskCreatePinnedToCore(frq_task, "frq_task", 2048, NULL, 5, NULL,1);

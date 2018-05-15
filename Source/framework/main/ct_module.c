@@ -40,7 +40,7 @@ static intr_handle_t s_timer_handle;
 int timr_group = TIMER_GROUP_1;
 int timr_idx = TIMER_1;
 int i=0;
-float adc_val[50];
+float adc_val[10];
 int ct_flag = 1;
 
 void IRAM_ATTR timer_group1_isr(void *param) {
@@ -66,7 +66,7 @@ static void adc_task(void* arg) {
     	  ct_flag = 0;
         //timer_enable_intr(timr_group,timr_idx);
     	}
-    	 if(i == 50) {
+    	 if(i == 10) {
     	//if( ct_flag == 1) {
     		// for(int j=0; j<50; j++) {
     		// 	sum += adc_val[j];
@@ -76,12 +76,12 @@ static void adc_task(void* arg) {
     		curr = sqrt(sum/i*1.0);       //RMS current
         
         
-        // printf("current is %f\n",  curr);
+      // printf("current is %f\n",  curr);
 
 
         rwlock_writer_lock(&system_state_lock);
         get_system_state(&mystate);
-        mystate.power = curr;
+        mystate.power = adc1_get_voltage(ADC1_CHANNEL_0);
         set_system_state(&mystate);
         rwlock_writer_unlock(&system_state_lock);
 
@@ -93,6 +93,7 @@ static void adc_task(void* arg) {
         
     		
     	}
+      vTaskDelay(500/portTICK_PERIOD_MS);
   }
 }
 
@@ -117,7 +118,7 @@ static void relay_task(void* arg)
 
 
 void ct_init_task( void ) {
-  adc1_config_width(ADC_WIDTH_12Bit);
+  adc1_config_width(ADC_WIDTH_9Bit);
   adc1_config_channel_atten(ADC1_CHANNEL_0,ADC_ATTEN_11db);
   timer_config_t config;
   config.alarm_en = 1;
@@ -127,7 +128,7 @@ void ct_init_task( void ) {
   config.intr_type = TIMER_INTR_LEVEL;
   config.counter_en = false;
   timer_init(timr_group, timr_idx, &config);
-  timer_set_alarm_value(timr_group, timr_idx, 2000);
+  timer_set_alarm_value(timr_group, timr_idx, 5000);
   timer_enable_intr(timr_group, timr_idx);
   timer_isr_register(timr_group, timr_idx, &timer_group1_isr, NULL, 0, &s_timer_handle);
   timer_start(timr_group, timr_idx);

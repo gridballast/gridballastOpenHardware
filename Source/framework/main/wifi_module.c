@@ -270,6 +270,7 @@ static int get_transducer_value(const char *transducer_id, double *value) {
     }
     reset_transducer_response();
     return ret;
+
 }
 
 /**
@@ -338,6 +339,11 @@ static int send_data(system_state_t *system_state) {
     if (err == 0) {
         sprintf(data_buf, "%d", system_state->temp_top);
         err = send_transducer_value(TRANSDUCER_ID_TEMP_TOP, data_buf);
+    }
+
+    if (err == 0) {
+        sprintf(data_buf, "%d", system_state->set_point);
+        err = send_transducer_value(TRANSDUCER_ID_SET_POINT, data_buf);
     }
 
     return err;

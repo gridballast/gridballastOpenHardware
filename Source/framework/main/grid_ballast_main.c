@@ -31,6 +31,8 @@
 #include "ct_module.h"
 #include "driver/timer.h"
 #include "util.h"
+#include "driver/adc.h"
+#include "esp_adc_cal.h"
 
 bool State = true;
 
@@ -42,12 +44,14 @@ rwlock_t system_state_lock;
 rwlock_t i2c_lock;
 
 
-#define PIN_MCP_RESET 2
-#define PIN_SDA 25
-#define PIN_SCL 26
+#define PIN_MCP_RESET 2                   // I/O expander reset pin
+
+#define PIN_SDA 25                        /*i2c pins */
+#define PIN_SCL 26                       
+#define I2C_MASTER_FREQ_HZ     100000     /* I2C master clock frequency */
+
 #define LEVEL_HIGH 1
 #define LEVEL_LOW 0
-#define I2C_MASTER_FREQ_HZ     100000     /* I2C master clock frequency */
 
 
 /**
@@ -58,17 +62,7 @@ rwlock_t i2c_lock;
  * @return void
  */
 
-// int button =0;
-// bool ledState = true;
 
-
-
-
-// void IRAM_ATTR mcp_isr_handler(void* arg) {
-
-
-//   button=1;
-// }
 
 
 void init_task( void *pv_parameters ) {
@@ -76,11 +70,10 @@ void init_task( void *pv_parameters ) {
     gpio_install_isr_service(ESP_INTR_FLAG_DEFAULT);
     
 
-    printf("yo...\n");
     // temporary snippet to change thermostat set point
     rwlock_writer_lock(&system_state_lock);
     get_system_state(&gb_system_state);
-    gb_system_state.set_point = 122;
+    gb_system_state.set_point = 100;
     gb_system_state.threshold_overfrq = 60.01;
     gb_system_state.threshold_underfrq = 59.99;
     gb_system_state.mode =0;
@@ -89,49 +82,33 @@ void init_task( void *pv_parameters ) {
     
 
     
-    wifi_init_task();
+    //wifi_init_task();
     //sensing_init_task();
-    //controller_init_task();
+    controller_init_task();
 
     
 
      printf("Initializing frq\n");
      frq_init_task();
      printf("Initializing rs485\n");
-     //rs485_init_task();
 
-     //button_init_task();
+     button_init_task();
 
-     controller_init_task();
-        //ct_init_task();
      printf("Initializing lcd\n");
      lcd_init_task();
         
      printf("Initialization done\n");
 
-        // frq_init_task();
+    
      rs485_init_task();
-        
-        // lcd_init_task();
 // 
       
 
-       //ct_init_task();
-
-        
-
+      //ct_init_task();
        
         //vTaskDelay(500/portTICK_PERIOD_MS);
 
         while(1);
-        //  {
-        //     pinMode(4,GPIO_MODE_OUTPUT);       // test o/p
-
-        //     digitalWrite(4,1);
-        //         printf("bye...\n");
-
-
-        // }
        
 }
     
@@ -160,24 +137,47 @@ void app_main( void )
     
 
     gpio_pad_select_gpio(PIN_MCP_RESET);
-  gpio_set_direction(PIN_MCP_RESET, GPIO_MODE_OUTPUT);
-  gpio_set_level(PIN_MCP_RESET, 1);
+    gpio_set_direction(PIN_MCP_RESET, GPIO_MODE_OUTPUT);
+    gpio_set_level(PIN_MCP_RESET, 1);
   // // rwlock_writer_lock(&i2c_lock);
    generic_i2c_master_init (I2C_NUM_1, PIN_SCL, PIN_SDA, I2C_MASTER_FREQ_HZ);
 
+    begin(0);
 
-  begin(0);
+    pinMode(8,GPIO_MODE_OUTPUT);       // test o/p
 
-  pinMode(8,GPIO_MODE_OUTPUT);       // test o/p
+    digitalWrite(8,0);
 
-  digitalWrite(8,0);
+    vTaskDelay(0.05 / portTICK_PERIOD_MS);
 
-  vTaskDelay(0.05 / portTICK_PERIOD_MS);
+    digitalWrite(8,1);
 
-  digitalWrite(8,1);
+ //Characterize ADC at particular atten
+    // esp_adc_cal_characteristics_t *adc_chars = calloc(1, sizeof(esp_adc_cal_characteristics_t));
+    // esp_adc_cal_value_t val_type = esp_adc_cal_characterize(ADC_UNIT_1, ADC_ATTEN_DB_11, ADC_WIDTH_BIT_9, 1100, adc_chars);
+    // //Check type of calibration value used to characterize ADC
+    // if (val_type == ESP_ADC_CAL_VAL_EFUSE_VREF) {
+    //     printf("eFuse Vref");
+    // } else if (val_type == ESP_ADC_CAL_VAL_EFUSE_TP) {
+    //     printf("Two Point");
+    // } else {
+    //     printf("Default");
+    // }
 
+    // while(1)
+    // {
 
+    // adc2_vref_to_gpio(26);
 
+    // uint32_t reading =  adc1_get_raw(ADC1_CHANNEL_0);
+    // uint32_t voltage = esp_adc_cal_raw_to_voltage(reading, adc_chars);
+
+    // printf("%u\n",voltage);
+
+    // vTaskDelay(2000 / portTICK_PERIOD_MS);
+ 
+
+//}
 
 }
 

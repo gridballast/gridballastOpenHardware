@@ -42,13 +42,15 @@ static void controller_task_fn( void *pv_parameters )
     {
     rwlock_reader_lock(&system_state_lock);
     get_system_state(&mystate);
+    // gb_system_state.set_point = 130;
+    // set_system_state(&gb_system_state);
     rwlock_reader_unlock(&system_state_lock);
 
     //if ( strcmp(mystate.mode,"E")== 0)
 
     //printf("bye...\n");
-    // if ( mystate.mode == 1)
-    // {
+     if ( mystate.mode == 1)
+      {
 
         if (mystate.grid_freq > mystate.threshold_overfrq)
         {
@@ -69,11 +71,12 @@ static void controller_task_fn( void *pv_parameters )
         }
 
     }
+    vTaskDelay(500/portTICK_PERIOD_MS);
+}
+
 }
 
 
-
-//}
 
 /*****************************************
  *********** INTERFACE FUNCTIONS *********
