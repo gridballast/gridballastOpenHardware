@@ -205,9 +205,26 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=YCIKBCRU
+DocumentUniqueId=IRPRKQNB
 
 [Document11]
+DocumentPath=CTA2045v1.3.PcbDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=YCIKBCRU
+
+[Document12]
 DocumentPath=CTA2045Gerbers.OutJob
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -224,7 +241,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document12]
+[Document13]
 DocumentPath=CTA2045.BomDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -241,7 +258,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document13]
+[Document14]
 DocumentPath=..\Libraries\WiseLab\Actives.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -258,7 +275,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document14]
+[Document15]
 DocumentPath=..\Libraries\WiseLab\Actives.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -275,7 +292,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=OKGKQQDT
 
-[Document15]
+[Document16]
 DocumentPath=..\Libraries\WiseLab\Antennas.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -292,7 +309,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document16]
+[Document17]
 DocumentPath=..\Libraries\WiseLab\Antennas.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -309,7 +326,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=CXPDVHUI
 
-[Document17]
+[Document18]
 DocumentPath=..\Libraries\WiseLab\Clocks.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -326,7 +343,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document18]
+[Document19]
 DocumentPath=..\Libraries\WiseLab\Clocks.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -343,7 +360,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=NQWXWUBG
 
-[Document19]
+[Document20]
 DocumentPath=..\Libraries\WiseLab\Connectors.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -360,7 +377,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document20]
+[Document21]
 DocumentPath=..\Libraries\WiseLab\Connectors.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -377,7 +394,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=PRBTUOMV
 
-[Document21]
+[Document22]
 DocumentPath=..\Libraries\WiseLab\Misc.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -394,7 +411,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document22]
+[Document23]
 DocumentPath=..\Libraries\WiseLab\Misc.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -411,7 +428,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=LNOCUTJO
 
-[Document23]
+[Document24]
 DocumentPath=..\Libraries\WiseLab\Modules.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -428,7 +445,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document24]
+[Document25]
 DocumentPath=..\Libraries\WiseLab\Modules.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -445,7 +462,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=ERNAOIJL
 
-[Document25]
+[Document26]
 DocumentPath=..\Libraries\WiseLab\NVMemory.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -462,7 +479,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document26]
+[Document27]
 DocumentPath=..\Libraries\WiseLab\NVMemory.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -479,7 +496,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=LDBIQEXH
 
-[Document27]
+[Document28]
 DocumentPath=..\Libraries\WiseLab\Passives.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -494,9 +511,9 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=RWFQPACD
 
-[Document28]
+[Document29]
 DocumentPath=..\Libraries\WiseLab\Passives.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -513,7 +530,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=BLLLPXSB
 
-[Document29]
+[Document30]
 DocumentPath=..\Libraries\WiseLab\Power.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -530,7 +547,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document30]
+[Document31]
 DocumentPath=..\Libraries\WiseLab\Power.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -547,7 +564,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=SBHWQWMY
 
-[Document31]
+[Document32]
 DocumentPath=..\Libraries\WiseLab\Relays.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -564,7 +581,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document32]
+[Document33]
 DocumentPath=..\Libraries\WiseLab\Relays.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -581,7 +598,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=NKAFJQME
 
-[Document33]
+[Document34]
 DocumentPath=..\Libraries\WiseLab\USBParts.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -598,7 +615,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document34]
+[Document35]
 DocumentPath=..\Libraries\WiseLab\USBParts.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -624,131 +641,199 @@ DocumentPath=2018-04-27\Bill of Materials-CTA2045.xls
 DItemRevisionGUID=
 
 [GeneratedDocument3]
-DocumentPath=2018-02-09\CTA2045v1.1.DRR
+DocumentPath=2018-05-21\Bill of Materials-CTA2045.xls
 DItemRevisionGUID=
 
 [GeneratedDocument4]
-DocumentPath=2018-02-09\CTA2045v1.1.EXTREP
+DocumentPath=2018-02-09\CTA2045v1.1.DRR
 DItemRevisionGUID=
 
 [GeneratedDocument5]
-DocumentPath=2018-02-09\CTA2045v1.1.GBL
+DocumentPath=2018-02-09\CTA2045v1.1.EXTREP
 DItemRevisionGUID=
 
 [GeneratedDocument6]
-DocumentPath=2018-02-09\CTA2045v1.1.GBO
+DocumentPath=2018-02-09\CTA2045v1.1.GBL
 DItemRevisionGUID=
 
 [GeneratedDocument7]
-DocumentPath=2018-02-09\CTA2045v1.1.GBP
+DocumentPath=2018-02-09\CTA2045v1.1.GBO
 DItemRevisionGUID=
 
 [GeneratedDocument8]
-DocumentPath=2018-02-09\CTA2045v1.1.GBS
+DocumentPath=2018-02-09\CTA2045v1.1.GBP
 DItemRevisionGUID=
 
 [GeneratedDocument9]
-DocumentPath=2018-02-09\CTA2045v1.1.GKO
+DocumentPath=2018-02-09\CTA2045v1.1.GBS
 DItemRevisionGUID=
 
 [GeneratedDocument10]
-DocumentPath=2018-02-09\CTA2045v1.1.GTL
+DocumentPath=2018-02-09\CTA2045v1.1.GKO
 DItemRevisionGUID=
 
 [GeneratedDocument11]
-DocumentPath=2018-02-09\CTA2045v1.1.GTO
+DocumentPath=2018-02-09\CTA2045v1.1.GTL
 DItemRevisionGUID=
 
 [GeneratedDocument12]
-DocumentPath=2018-02-09\CTA2045v1.1.GTP
+DocumentPath=2018-02-09\CTA2045v1.1.GTO
 DItemRevisionGUID=
 
 [GeneratedDocument13]
-DocumentPath=2018-02-09\CTA2045v1.1.GTS
+DocumentPath=2018-02-09\CTA2045v1.1.GTP
 DItemRevisionGUID=
 
 [GeneratedDocument14]
-DocumentPath=2018-02-09\CTA2045v1.1.LDP
+DocumentPath=2018-02-09\CTA2045v1.1.GTS
 DItemRevisionGUID=
 
 [GeneratedDocument15]
-DocumentPath=2018-02-09\CTA2045v1.1.REP
+DocumentPath=2018-02-09\CTA2045v1.1.LDP
 DItemRevisionGUID=
 
 [GeneratedDocument16]
-DocumentPath=2018-02-09\CTA2045v1.1.RUL
+DocumentPath=2018-02-09\CTA2045v1.1.REP
 DItemRevisionGUID=
 
 [GeneratedDocument17]
-DocumentPath=2018-02-09\CTA2045v1.1.TXT
+DocumentPath=2018-02-09\CTA2045v1.1.RUL
 DItemRevisionGUID=
 
 [GeneratedDocument18]
-DocumentPath=2018-04-27\CTA2045v1.2.DRR
+DocumentPath=2018-02-09\CTA2045v1.1.TXT
 DItemRevisionGUID=
 
 [GeneratedDocument19]
-DocumentPath=2018-04-27\CTA2045v1.2.EXTREP
+DocumentPath=2018-04-27\CTA2045v1.2.DRR
 DItemRevisionGUID=
 
 [GeneratedDocument20]
-DocumentPath=2018-04-27\CTA2045v1.2.GBL
+DocumentPath=2018-05-21\CTA2045v1.2.DRR
 DItemRevisionGUID=
 
 [GeneratedDocument21]
-DocumentPath=2018-04-27\CTA2045v1.2.GBO
+DocumentPath=2018-04-27\CTA2045v1.2.EXTREP
 DItemRevisionGUID=
 
 [GeneratedDocument22]
-DocumentPath=2018-04-27\CTA2045v1.2.GBP
+DocumentPath=2018-05-21\CTA2045v1.2.EXTREP
 DItemRevisionGUID=
 
 [GeneratedDocument23]
-DocumentPath=2018-04-27\CTA2045v1.2.GBS
+DocumentPath=2018-04-27\CTA2045v1.2.GBL
 DItemRevisionGUID=
 
 [GeneratedDocument24]
-DocumentPath=2018-04-27\CTA2045v1.2.GKO
+DocumentPath=2018-05-21\CTA2045v1.2.GBL
 DItemRevisionGUID=
 
 [GeneratedDocument25]
-DocumentPath=2018-04-27\CTA2045v1.2.GTL
+DocumentPath=2018-04-27\CTA2045v1.2.GBO
 DItemRevisionGUID=
 
 [GeneratedDocument26]
-DocumentPath=2018-04-27\CTA2045v1.2.GTO
+DocumentPath=2018-05-21\CTA2045v1.2.GBO
 DItemRevisionGUID=
 
 [GeneratedDocument27]
-DocumentPath=2018-04-27\CTA2045v1.2.GTP
+DocumentPath=2018-04-27\CTA2045v1.2.GBP
 DItemRevisionGUID=
 
 [GeneratedDocument28]
-DocumentPath=2018-04-27\CTA2045v1.2.GTS
+DocumentPath=2018-05-21\CTA2045v1.2.GBP
 DItemRevisionGUID=
 
 [GeneratedDocument29]
-DocumentPath=2018-04-27\CTA2045v1.2.LDP
+DocumentPath=2018-04-27\CTA2045v1.2.GBS
 DItemRevisionGUID=
 
 [GeneratedDocument30]
-DocumentPath=2018-04-27\CTA2045v1.2.REP
+DocumentPath=2018-05-21\CTA2045v1.2.GBS
 DItemRevisionGUID=
 
 [GeneratedDocument31]
-DocumentPath=2018-04-27\CTA2045v1.2.RUL
+DocumentPath=2018-04-27\CTA2045v1.2.GKO
 DItemRevisionGUID=
 
 [GeneratedDocument32]
-DocumentPath=2018-04-27\CTA2045v1.2.TXT
+DocumentPath=2018-05-21\CTA2045v1.2.GKO
 DItemRevisionGUID=
 
 [GeneratedDocument33]
-DocumentPath=2018-02-09\Pick Place for CTA2045v1.1.txt
+DocumentPath=2018-04-27\CTA2045v1.2.GTL
 DItemRevisionGUID=
 
 [GeneratedDocument34]
+DocumentPath=2018-05-21\CTA2045v1.2.GTL
+DItemRevisionGUID=
+
+[GeneratedDocument35]
+DocumentPath=2018-04-27\CTA2045v1.2.GTO
+DItemRevisionGUID=
+
+[GeneratedDocument36]
+DocumentPath=2018-05-21\CTA2045v1.2.GTO
+DItemRevisionGUID=
+
+[GeneratedDocument37]
+DocumentPath=2018-04-27\CTA2045v1.2.GTP
+DItemRevisionGUID=
+
+[GeneratedDocument38]
+DocumentPath=2018-05-21\CTA2045v1.2.GTP
+DItemRevisionGUID=
+
+[GeneratedDocument39]
+DocumentPath=2018-04-27\CTA2045v1.2.GTS
+DItemRevisionGUID=
+
+[GeneratedDocument40]
+DocumentPath=2018-05-21\CTA2045v1.2.GTS
+DItemRevisionGUID=
+
+[GeneratedDocument41]
+DocumentPath=2018-04-27\CTA2045v1.2.LDP
+DItemRevisionGUID=
+
+[GeneratedDocument42]
+DocumentPath=2018-05-21\CTA2045v1.2.LDP
+DItemRevisionGUID=
+
+[GeneratedDocument43]
+DocumentPath=2018-04-27\CTA2045v1.2.REP
+DItemRevisionGUID=
+
+[GeneratedDocument44]
+DocumentPath=2018-05-21\CTA2045v1.2.REP
+DItemRevisionGUID=
+
+[GeneratedDocument45]
+DocumentPath=2018-04-27\CTA2045v1.2.RUL
+DItemRevisionGUID=
+
+[GeneratedDocument46]
+DocumentPath=2018-05-21\CTA2045v1.2.RUL
+DItemRevisionGUID=
+
+[GeneratedDocument47]
+DocumentPath=2018-04-27\CTA2045v1.2.TXT
+DItemRevisionGUID=
+
+[GeneratedDocument48]
+DocumentPath=2018-05-21\CTA2045v1.2.TXT
+DItemRevisionGUID=
+
+[GeneratedDocument49]
+DocumentPath=2018-02-09\Pick Place for CTA2045v1.1.txt
+DItemRevisionGUID=
+
+[GeneratedDocument50]
 DocumentPath=2018-04-27\Pick Place for CTA2045v1.2.txt
+DItemRevisionGUID=
+
+[GeneratedDocument51]
+DocumentPath=2018-05-21\Pick Place for CTA2045v1.2.txt
 DItemRevisionGUID=
 
 [Configuration1]
