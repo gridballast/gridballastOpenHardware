@@ -3,7 +3,7 @@
 - Setup
 
     - [System Overview](#System Overview)
-    - Hardware
+    - [Hardware](#Hardware)
     - Installation
     - Getting started-Toolchain
     - Runtime Network Configuration
