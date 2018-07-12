@@ -4,11 +4,11 @@
 
     - [System Overview](#System Overview)
     - [Hardware](#Hardware)
-    - Installation
-    - Getting started-Toolchain
-    - Runtime Network Configuration
-    - User Interface
-    - OpenChirp Setup
+    - [Installation](#Installation)
+    - [Getting started-Toolchain](#Getting started-Toolchain)
+    - [Runtime Network Configuration](#Runtime Network Configuration)
+    - [User Interface](#User Interface)
+    - [OpenChirp Setup](#OpenChirp Setup)
 - Technical
 
     - Overview
