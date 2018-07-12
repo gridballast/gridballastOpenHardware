@@ -2,13 +2,13 @@
 ## Contents
 - Setup
 
-    - [System Overview](#System Overview)
+    - [System Overview](#SystemOverview)
     - [Hardware](#Hardware)
     - [Installation](#Installation)
-    - [Getting started-Toolchain](#Getting started-Toolchain)
-    - [Runtime Network Configuration](#Runtime Network Configuration)
-    - [User Interface](#User Interface)
-    - [OpenChirp Setup](#OpenChirp Setup)
+    - [Getting started-Toolchain](#Gettingstarted-Toolchain)
+    - [Runtime Network Configuration](#RuntimeNetworkConfiguration)
+    - [User Interface](#UserInterface)
+    - [OpenChirp Setup](#OpenChirpSetup)
 - Technical
 
     - Overview
