@@ -1,7 +1,7 @@
 # Grid Ballast User Guide
 ## Contents
 - Setup
-    -System Overview
+    - System Overview [#System Overview]
     -Hardware
     -Installation
     -Getting started-Toolchain
