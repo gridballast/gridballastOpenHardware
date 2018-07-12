@@ -1,20 +1,19 @@
 # Grid Ballast User Guide
 ## Contents
-- Setup
 
-    - [System Overview](#SystemOverview)
-    - [Hardware](#Hardware)
-    - [Installation](#Installation)
-    - [Getting started-Toolchain](#Gettingstarted-Toolchain)
-    - [Runtime Network Configuration](#RuntimeNetworkConfiguration)
-    - [User Interface](#UserInterface)
-    - [OpenChirp Setup](#OpenChirpSetup)
-- Technical
-
-    - Overview
-    - Specifications
-    - Firmware 
-    - Cloud Architecture
+  - [Setup](#setup)
+    - [System Overview](#system-overview)
+    - [Hardware](#hardware)
+    - [Installation](#installation)
+    - [Getting Started - Toolchain](#getting-started-toolchain)
+    - [Runtime Network Configuration](#runtime-network-configuration)
+    - [User Interface](#user-interface)
+    - [OpenChirp Setup](#openchirp-setup)
+  - [Technical](#technical)
+    - [Overview](#overview)
+    - [Specifications](#specifications)
+    - [Firmware](#firmware)
+    - [Cloud Architecture](#cloud-architecture)
 
 ## Setup
 ### System Overview
