@@ -4,16 +4,17 @@
 
     - System Overview
     - Hardware
-    -Installation
-    -Getting started-Toolchain
-    -Runtime Network Configuration
-    -User Interface
-    -OpenChirp Setup
+    - Installation
+    - Getting started-Toolchain
+    - Runtime Network Configuration
+    - User Interface
+    - OpenChirp Setup
 - Technical
-    -Overview
-    -Specifications
-    -Firmware 
-    -Cloud Architecture
+
+    - Overview
+    - Specifications
+    - Firmware 
+    - Cloud Architecture
 
 ## Setup
 ### System Overview
