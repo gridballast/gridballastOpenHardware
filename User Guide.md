@@ -20,7 +20,7 @@
 At a high-level, the Grid Ballast hardware can be used for supporting two classes of devices: (1) Thermostatically controlled loads (TCLs) and (2) Miscellaneous plug loads. TCLs like waterheaters, pool heaters, refrigerators, and HVAC systems, can useset-point manipulation to store energy or delay usage. In contrast,miscellaneous plug loads like lighting and appliances (washer, dryer,dishwasher, etc.) typically only support binary control, but theiruse may be delayed and their usage patterns can be of benefit toutilities.
 
 
-![Grid Ballast System Overview](https://drive.google.com/uc?id=1ThO1YCPwGUIMQDJA8pFnpcjHAsbifpiw "Grid Ballast System Overview")
+![Grid Ballast System Overview](https://drive.google.com/uc?id=1ldYqxVcLx1bcikpH_dUn3qW0ELpvCO4y)
 
 _Grid Ballast System Overview_
 
