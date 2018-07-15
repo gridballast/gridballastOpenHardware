@@ -19,7 +19,7 @@
 ### System Overview
 At a high-level, the Grid Ballast hardware can be used for supporting two classes of devices: 
 
-**1. Thermostatically controlled loads (TCLs)** :TCLs like waterheaters, pool heaters, refrigerators, and HVAC systems, can useset-point manipulation to store energy or delay usage.
+**1. Thermostatically controlled loads (TCLs)** :TCLs like waterheaters, pool heaters, refrigerators, and HVAC systems, can use set-point manipulation to store energy or delay usage.
 
 **OR**
 
@@ -86,6 +86,8 @@ http://[module-ip]/ (by default 192.168.1.4, can be found programatically with `
 To exit configuration mode, the module must be rebooted.
 
 ### User Interface
+
+
 
 If the default code from the [GridBallast Github](https://github.com/WiseLabCMU/gridballast) is flashed into the board, the following user-selectable menus will be displayed on the LCD.
 
