@@ -95,6 +95,12 @@ _Menu 3: Runtime Network Configuration_
 
 The OpenChirp platform can be used for control and visualization of the Controller parameters and measurements. Setup information can be found [here](https://github.com/OpenChirp/docs/wiki/time-series-database).
 
+Here are snapshots Time Series visualization from OpenChirp for the Grid Ballast test system.
+
+![Grid Frequency Measurement](https://drive.google.com/uc?id=1qCAgkg1X4H40S5nKz8r_ciVXNA5uIAXl)
+
+![Top and Bottom Temperature measurements](https://drive.google.com/uc?id=1uNjZU_4bHxbKTq9LxONIebgns8BiGM72)
+
     
 ## Technical
 ### Overview
