@@ -36,6 +36,9 @@ The Grid Ballast hardware platform consists of the following hardware:
 **Assembly with CTA-2045 based Electronic Thermostat**
 ![APCOM EC-100 Wiring Diagram](https://drive.google.com/uc?id=1ak81TumP_04oUwI7fcUFu7eh4NQw7jtx)
 
+![GridBallast test system ](https://drive.google.com/uc?id=1LmHvCMrnSSP7TucM5WkaKqPbrtBqIP54)
+_Grid Ballast Test System implemented on a residential Rheem Water Heater(cta 20145 enabled)_
+
 
 **Assembly with mechanical retrofit**
 ![Mechanical Retrofit](https://drive.google.com/uc?id=1BnsPsl4xmlaQlow4bhHvJaPfrGIFJkTr)
@@ -95,7 +98,7 @@ _Menu 3: Runtime Network Configuration_
 
 The OpenChirp platform can be used for control and visualization of the Controller parameters and measurements. Setup information can be found [here](https://github.com/OpenChirp/docs/wiki/time-series-database).
 
-Here are snapshots Time Series visualization from OpenChirp for the Grid Ballast test system.
+Here are snapshots of time series visualizations from OpenChirp for the Grid Ballast test system.
 
 ![Grid Frequency Measurement](https://drive.google.com/uc?id=1qCAgkg1X4H40S5nKz8r_ciVXNA5uIAXl)
 
