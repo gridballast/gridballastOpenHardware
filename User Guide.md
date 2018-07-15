@@ -17,7 +17,10 @@
 
 ## Setup
 ### System Overview
-At a high-level, the Grid Ballast hardware can be used for supporting two classes of devices: (1) Thermostatically controlled loads (TCLs) and (2) Miscellaneous plug loads. TCLs like waterheaters, pool heaters, refrigerators, and HVAC systems, can useset-point manipulation to store energy or delay usage. In contrast,miscellaneous plug loads like lighting and appliances (washer, dryer,dishwasher, etc.) typically only support binary control, but theiruse may be delayed and their usage patterns can be of benefit toutilities.
+At a high-level, the Grid Ballast hardware can be used for supporting two classes of devices: 
+**1. Thermostatically controlled loads (TCLs)** :TCLs like waterheaters, pool heaters, refrigerators, and HVAC systems, can useset-point manipulation to store energy or delay usage.
+**OR**
+**2.Miscellaneous plug loads**:  Plug loads like lighting and appliances (washer, dryer,dishwasher, etc.) typically only support binary control, but theiruse may be delayed and their usage patterns can be of benefit toutilities.
 
 
 ![Grid Ballast System Overview](https://drive.google.com/uc?id=1ldYqxVcLx1bcikpH_dUn3qW0ELpvCO4y)
@@ -36,7 +39,7 @@ The Grid Ballast hardware platform consists of the following hardware:
 **Assembly with CTA-2045 based Electronic Thermostat**
 ![APCOM EC-100 Wiring Diagram](https://drive.google.com/uc?id=1ak81TumP_04oUwI7fcUFu7eh4NQw7jtx)
 
-![GridBallast test system ](https://drive.google.com/uc?id=1LmHvCMrnSSP7TucM5WkaKqPbrtBqIP54)
+<img src="https://drive.google.com/uc?id=1LmHvCMrnSSP7TucM5WkaKqPbrtBqIP54" width="300" >
 _Grid Ballast Test System implemented on a residential Rheem Water Heater(cta 20145 enabled)_
 
 
