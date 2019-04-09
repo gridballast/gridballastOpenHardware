@@ -1,6 +1,8 @@
 # GridBallast
 Open Source Water Heater and Plug Load Controller
 
+Please see the [full documentation](https://docs.google.com/document/d/1fPQ65AeftvWFN1sJrpfoSuw6C1mJJdnNV9FeLzjZJOI/edit) here.
+
 ## Controller Board
 This is the main board that interfaces with the peripherals.
 The board integrate the following modules and features:
