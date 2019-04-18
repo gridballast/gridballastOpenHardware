@@ -58,3 +58,16 @@ This small accessory board holds the connector to support CTA2045 and other RS48
     ```
     $ make flash
     ```
+
+# Runtime Configuration
+The WiFi SSID and password can be configured at runtime (without recompiling and reflashing the module). Other parameters could be added as necessary.
+Configuration parameters are stored in flash using the [NVS Library](http://esp-idf.readthedocs.io/en/latest/api-reference/storage/nvs_flash.html).
+On initialization of the wifi module, if stored wifi configuration parameters exist, they are loaded and used to connect to wifi.
+If no parameters exist, the module launches configuration mode.
+
+In configuration mode, the module broadcasts a wifi network named "gridballast". A user can connect to the gridballast network and open
+http://[module-ip]/ (by default 192.168.1.4, can be found programatically with `tcpip_adapter_get_ip_info`) in a web browser. The module will present a webpage where the SSID and password can be configured.
+To exit configuration mode, the module must be rebooted.
+
+TODO: Gridballast should also support entering configuration mode by pushing a button.
+This can be done by calling `wifi_enter_config_mode()` (see `Source/framework/main/include/wifi_module.h`).

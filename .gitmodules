@@ -10,3 +10,6 @@
 [submodule "Support/esp-idf"]
 	path = Support/esp-idf
 	url = https://github.com/WiseLabCMU/esp-idf.git
+[submodule "Source/framework/components/http-parser/http-parser"]
+	path = Source/framework/components/http-parser/http-parser
+	url = https://github.com/nodejs/http-parser.git
